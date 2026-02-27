@@ -5,111 +5,82 @@ import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
 import { fetchMissingPrices } from './lib/fetchPrices'
+import { hasToken, readConfig, writeConfig } from './lib/githubStorage'
 
-const STORAGE_KEY = 'bloomberg-lite-holdings'
-const DISMISSED_KEY = 'bloomberg-lite-dismissed'
 const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
-
-function loadConfig() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY)
-    if (saved) return JSON.parse(saved)
-  } catch {}
-  return null
-}
-
-function saveConfig(holdings) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(holdings))
-}
-
-function loadDismissed() {
-  try {
-    const d = localStorage.getItem(DISMISSED_KEY)
-    if (d) return new Set(JSON.parse(d))
-  } catch {}
-  return new Set()
-}
-
-function saveDismissed(set) {
-  localStorage.setItem(DISMISSED_KEY, JSON.stringify([...set]))
-}
 
 export default function App() {
   const [priceData, setPriceData] = useState(null)
   const [holdings, setHoldings] = useState(null)
+  const [configSha, setConfigSha] = useState(null) // git sha for updates
   const [clientPrices, setClientPrices] = useState(new Map())
   const [selectedTicker, setSelectedTicker] = useState(null)
   const [tab, setTab] = useState('dashboard')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [fetchingLive, setFetchingLive] = useState(false)
-  const fetchedRef = useRef(new Set()) // track already-fetched tickers to avoid refetching
+  const [saving, setSaving] = useState(false)
+  const [saveError, setSaveError] = useState(null)
+  const fetchedRef = useRef(new Set())
 
+  // Load holdings from GitHub API (primary) or deployed portfolio.json (fallback)
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/portfolio.json`)
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to load portfolio data')
-        return res.json()
-      })
-      .then(json => {
-        setPriceData(json)
+    // Always fetch deployed price data
+    const pricePromise = fetch(`${import.meta.env.BASE_URL}data/portfolio.json`)
+      .then(res => res.ok ? res.json() : null)
+      .catch(() => null)
 
-        // Build a map of fetched class info for persistence
-        const fetchedClassMap = {}
-        for (const h of json.holdings) {
-          if (h.class) fetchedClassMap[h.ticker] = h.class
-        }
+    // Try GitHub API for latest config (has most up-to-date holdings)
+    const configPromise = hasToken()
+      ? readConfig().catch(err => {
+          console.warn('[App] GitHub config read failed, using deployed data:', err.message)
+          return null
+        })
+      : Promise.resolve(null)
 
-        const saved = loadConfig()
-        if (saved) {
-          // Sync: update class from fetched data + add new tickers (but not dismissed ones)
-          const savedTickers = new Set(saved.map(h => h.ticker))
-          const dismissed = loadDismissed()
-          const updated = saved.map(h => ({
+    Promise.all([pricePromise, configPromise]).then(([priceJson, ghConfig]) => {
+      if (priceJson) setPriceData(priceJson)
+
+      // Holdings source priority: GitHub API config > deployed portfolio.json
+      let holdingsList
+      if (ghConfig) {
+        holdingsList = ghConfig.holdings.map(h => ({
+          ticker: h.ticker,
+          shares: h.shares,
+          avgCost: h.avgCost,
+          currency: h.currency || 'USD',
+          broker: h.broker || '',
+        }))
+        setConfigSha(ghConfig._sha)
+      } else if (priceJson) {
+        holdingsList = priceJson.holdings.map(h => ({
+          ticker: h.ticker,
+          shares: h.shares,
+          avgCost: h.avgCost,
+          currency: h.currency || 'USD',
+          broker: h.broker || '',
+        }))
+      }
+
+      if (holdingsList) {
+        // Enrich with class info from price data
+        if (priceJson) {
+          const classMap = {}
+          for (const h of priceJson.holdings) {
+            if (h.class) classMap[h.ticker] = h.class
+          }
+          holdingsList = holdingsList.map(h => ({
             ...h,
-            class: fetchedClassMap[h.ticker] || h.class || undefined,
+            class: classMap[h.ticker] || undefined,
           }))
-          const newFromFetch = json.holdings
-            .filter(h => !savedTickers.has(h.ticker) && !dismissed.has(h.ticker))
-            .map(h => ({
-              ticker: h.ticker,
-              shares: h.shares,
-              avgCost: h.avgCost,
-              currency: h.currency || 'USD',
-              broker: h.broker || '',
-              class: h.class || undefined,
-            }))
-          const merged = newFromFetch.length > 0 ? [...updated, ...newFromFetch] : updated
-          setHoldings(merged)
-          saveConfig(merged)
-        } else {
-          const initial = json.holdings.map(h => ({
-            ticker: h.ticker,
-            shares: h.shares,
-            avgCost: h.avgCost,
-            currency: h.currency || 'USD',
-            broker: h.broker || '',
-            class: h.class || undefined,
-          }))
-          setHoldings(initial)
-          saveConfig(initial)
         }
+        setHoldings(holdingsList)
+        if (holdingsList.length > 0) setSelectedTicker(holdingsList[0].ticker)
+      }
 
-        if (json.holdings.length > 0) {
-          setSelectedTicker(json.holdings[0].ticker)
-        }
-        setLoading(false)
-      })
-      .catch(err => {
-        const saved = loadConfig()
-        if (saved) {
-          setHoldings(saved)
-          setLoading(false)
-        } else {
-          setError(err.message)
-          setLoading(false)
-        }
-      })
+      if (!holdingsList) setError('No portfolio data available')
+      setLoading(false)
+    })
   }, [])
 
   // Fetch live prices for tickers not in pre-fetched portfolio.json
@@ -123,7 +94,6 @@ export default function App() {
 
     if (missingTickers.length === 0) return
 
-    // Mark as fetched to prevent re-fetching
     missingTickers.forEach(t => fetchedRef.current.add(t))
     setFetchingLive(true)
 
@@ -131,13 +101,11 @@ export default function App() {
       if (priceMap.size > 0) {
         setClientPrices(prev => {
           const next = new Map(prev)
-          for (const [ticker, data] of priceMap) {
-            next.set(ticker, data)
-          }
+          for (const [ticker, data] of priceMap) next.set(ticker, data)
           return next
         })
 
-        // Persist discovered class info to localStorage
+        // Update class info from live fetches
         setHoldings(prev => {
           if (!prev) return prev
           let changed = false
@@ -149,45 +117,43 @@ export default function App() {
             }
             return h
           })
-          if (changed) {
-            saveConfig(updated)
-            return updated
-          }
-          return prev
+          return changed ? updated : prev
         })
       }
       setFetchingLive(false)
     })
   }, [holdings, priceData])
 
-  const handleSaveHoldings = useCallback((newHoldings) => {
-    // Track removed tickers so they don't get re-added from server data
-    setHoldings(prev => {
-      if (prev) {
-        const newTickers = new Set(newHoldings.map(h => h.ticker))
-        const removed = prev.filter(h => !newTickers.has(h.ticker)).map(h => h.ticker)
-        if (removed.length > 0) {
-          const dismissed = loadDismissed()
-          removed.forEach(t => dismissed.add(t))
-          saveDismissed(dismissed)
-        }
-        // If a previously dismissed ticker is re-added, un-dismiss it
-        const dismissed = loadDismissed()
-        let changed = false
-        for (const h of newHoldings) {
-          if (dismissed.has(h.ticker)) {
-            dismissed.delete(h.ticker)
-            changed = true
-          }
-        }
-        if (changed) saveDismissed(dismissed)
-      }
-      return newHoldings
-    })
-    saveConfig(newHoldings)
-    // Reset fetched tracker so new tickers get fetched
+  // Save holdings to GitHub repo
+  const handleSaveHoldings = useCallback(async (newHoldings) => {
+    setHoldings(newHoldings)
     fetchedRef.current = new Set()
-  }, [])
+    setSaveError(null)
+
+    if (!hasToken()) {
+      setSaveError('Set a GitHub token in the settings to save to the repo')
+      return
+    }
+
+    setSaving(true)
+    try {
+      // Clean holdings for config file (no class — auto-detected on fetch)
+      const configHoldings = newHoldings.map(({ ticker, shares, avgCost, currency, broker }) => ({
+        ticker,
+        shares: Number(shares) || 0,
+        avgCost: Number(avgCost) || 0,
+        currency: currency || 'USD',
+        broker: broker || '',
+      }))
+      const newSha = await writeConfig(configHoldings, configSha)
+      setConfigSha(newSha)
+    } catch (err) {
+      console.error('[App] Save failed:', err)
+      setSaveError(err.message)
+    } finally {
+      setSaving(false)
+    }
+  }, [configSha])
 
   if (loading) {
     return (
@@ -202,7 +168,6 @@ export default function App() {
       <div className="min-h-screen bg-bb-bg flex flex-col items-center justify-center gap-4">
         <div className="text-bb-red text-sm">Failed to load data</div>
         <div className="text-bb-muted text-xs">{error}</div>
-        <div className="text-bb-muted-dim text-xxs">Run: python scripts/fetch_data.py</div>
       </div>
     )
   }
@@ -211,7 +176,6 @@ export default function App() {
   const mergedHoldings = (holdings || []).map(h => {
     const preFetched = priceData?.holdings?.find(p => p.ticker === h.ticker)
     const live = clientPrices.get(h.ticker)
-    // Priority: pre-fetched server data > client-side live fetch > fallback
     const price = preFetched || live
     return {
       ticker: h.ticker,
@@ -229,7 +193,7 @@ export default function App() {
     }
   })
 
-  // Group by asset class (auto-detected), sorted by descending market value
+  // Group by asset class, sorted by descending market value
   const grouped = {}
   for (const h of mergedHoldings) {
     const cls = h.class || 'other'
@@ -272,6 +236,8 @@ export default function App() {
           <ManagePortfolio
             holdings={holdings || []}
             onSave={handleSaveHoldings}
+            saving={saving}
+            saveError={saveError}
           />
         )}
       </main>
