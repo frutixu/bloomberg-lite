@@ -229,12 +229,15 @@ export default function App() {
     }
   })
 
-  // Group by asset class (auto-detected)
+  // Group by asset class (auto-detected), sorted by descending market value
   const grouped = {}
   for (const h of mergedHoldings) {
     const cls = h.class || 'other'
     if (!grouped[cls]) grouped[cls] = []
     grouped[cls].push(h)
+  }
+  for (const cls of Object.keys(grouped)) {
+    grouped[cls].sort((a, b) => (b.currentPrice * b.shares) - (a.currentPrice * a.shares))
   }
 
   const selectedHolding = mergedHoldings.find(h => h.ticker === selectedTicker)
