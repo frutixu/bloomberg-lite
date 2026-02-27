@@ -37,10 +37,20 @@ export default function App() {
       .then(json => {
         setPriceData(json)
 
+        // Build a map of fetched class info for persistence
+        const fetchedClassMap = {}
+        for (const h of json.holdings) {
+          if (h.class) fetchedClassMap[h.ticker] = h.class
+        }
+
         const saved = loadConfig()
         if (saved) {
-          // Sync: add any new tickers from fetched data that aren't in localStorage
+          // Sync: update class from fetched data + add new tickers
           const savedTickers = new Set(saved.map(h => h.ticker))
+          const updated = saved.map(h => ({
+            ...h,
+            class: fetchedClassMap[h.ticker] || h.class || undefined,
+          }))
           const newFromFetch = json.holdings
             .filter(h => !savedTickers.has(h.ticker))
             .map(h => ({
@@ -49,14 +59,11 @@ export default function App() {
               avgCost: h.avgCost,
               currency: h.currency || 'USD',
               broker: h.broker || '',
+              class: h.class || undefined,
             }))
-          if (newFromFetch.length > 0) {
-            const merged = [...saved, ...newFromFetch]
-            setHoldings(merged)
-            saveConfig(merged)
-          } else {
-            setHoldings(saved)
-          }
+          const merged = newFromFetch.length > 0 ? [...updated, ...newFromFetch] : updated
+          setHoldings(merged)
+          saveConfig(merged)
         } else {
           const initial = json.holdings.map(h => ({
             ticker: h.ticker,
@@ -64,6 +71,7 @@ export default function App() {
             avgCost: h.avgCost,
             currency: h.currency || 'USD',
             broker: h.broker || '',
+            class: h.class || undefined,
           }))
           setHoldings(initial)
           saveConfig(initial)
@@ -109,7 +117,7 @@ export default function App() {
     )
   }
 
-  // Merge user config (shares, avgCost, currency, broker) with fetched data (prices, history, class)
+  // Merge user config (shares, avgCost, currency, broker, class) with fetched data (prices, history)
   const mergedHoldings = (holdings || []).map(h => {
     const price = priceData?.holdings?.find(p => p.ticker === h.ticker)
     return {
@@ -119,7 +127,7 @@ export default function App() {
       avgCost: h.avgCost,
       currency: h.currency || 'USD',
       broker: h.broker || '',
-      class: price?.class || 'other',
+      class: price?.class || h.class || 'other',  // fetched > saved > other
       currentPrice: price?.currentPrice ?? h.avgCost,
       previousClose: price?.previousClose ?? h.avgCost,
       dayChange: price?.dayChange ?? 0,

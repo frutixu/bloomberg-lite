@@ -33,9 +33,9 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
         {fmt(currentPrice)}
       </td>
 
-      {/* Day Change */}
-      <td className={`py-1.5 px-2 text-right text-xs tabular-nums hidden sm:table-cell ${dayClr}`}>
-        {sign(dayChange)}{fmt(Math.abs(dayChange))}
+      {/* PRU (avg cost) */}
+      <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden sm:table-cell">
+        {fmt(avgCost)}
       </td>
 
       {/* Day Change % */}
@@ -64,7 +64,7 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
       </td>
 
       {/* Broker */}
-      <td className="py-1.5 px-2 text-right text-xxs text-bb-muted-dim hidden md:table-cell">
+      <td className="py-1.5 px-2 text-right text-xxs text-bb-muted-dim hidden lg:table-cell">
         {broker}
       </td>
     </tr>

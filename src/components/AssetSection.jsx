@@ -30,12 +30,12 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
 
   return (
     <div className="overflow-x-auto">
-      {/* Section header bar */}
-      <div className="flex items-center justify-between px-3 py-1.5 bg-bb-surface border-b border-bb-border-hi">
+      {/* Section header bar — wraps on mobile */}
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-3 py-1.5 bg-bb-surface border-b border-bb-border-hi">
         <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">
           {config.label}
         </span>
-        <div className="flex items-center gap-4 text-xxs">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-0.5 text-xxs">
           {Object.entries(byCurrency).map(([currency, { value, cost }]) => {
             const pl = value - cost
             const pct = cost !== 0 ? (pl / cost) * 100 : 0
@@ -57,13 +57,13 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
           <tr className="border-b border-bb-border">
             <th className="text-left text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-3">Name</th>
             <th className={thCls} style={{ width: 90 }}>Last</th>
-            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 80 }}>Chg</th>
+            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 90 }}>PRU</th>
             <th className={thCls} style={{ width: 70 }}>Chg%</th>
             <th className={`${thCls} hidden md:table-cell`} style={{ width: 60 }}>Qty</th>
             <th className={`${thCls} hidden sm:table-cell`} style={{ width: 100 }}>Mkt Val</th>
             <th className={thCls} style={{ width: 100 }}>P&L</th>
             <th className={thCls} style={{ width: 70 }}>P&L%</th>
-            <th className={`${thCls} hidden md:table-cell`} style={{ width: 50 }}>Brkr</th>
+            <th className={`${thCls} hidden lg:table-cell`} style={{ width: 50 }}>Brkr</th>
           </tr>
         </thead>
         <tbody>
