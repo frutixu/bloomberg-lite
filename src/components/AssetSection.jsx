@@ -1,8 +1,10 @@
 import StockCard from './StockCard'
+import { fmtCurrency } from '../lib/format'
 
 const ASSET_CLASSES = {
   stock: { label: 'Stocks', color: 'text-blue-400', border: 'border-blue-500/20' },
   etf: { label: 'ETFs', color: 'text-purple-400', border: 'border-purple-500/20' },
+  fund: { label: 'Funds', color: 'text-indigo-400', border: 'border-indigo-500/20' },
   bond: { label: 'Bonds', color: 'text-teal-400', border: 'border-teal-500/20' },
   crypto: { label: 'Crypto', color: 'text-amber-400', border: 'border-amber-500/20' },
   commodity: { label: 'Commodities', color: 'text-yellow-400', border: 'border-yellow-500/20' },
@@ -15,13 +17,14 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
   const config = ASSET_CLASSES[assetClass] || ASSET_CLASSES.other
   if (holdings.length === 0) return null
 
-  const sectionValue = holdings.reduce((s, h) => s + h.currentPrice * h.shares, 0)
-  const sectionCost = holdings.reduce((s, h) => s + h.avgCost * h.shares, 0)
-  const sectionPL = sectionValue - sectionCost
-  const sectionPLPct = sectionCost !== 0 ? (sectionPL / sectionCost) * 100 : 0
-
-  const fmt = (v) =>
-    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(v)
+  // Group section totals by currency
+  const byCurrency = {}
+  for (const h of holdings) {
+    const c = h.currency || 'USD'
+    if (!byCurrency[c]) byCurrency[c] = { value: 0, cost: 0 }
+    byCurrency[c].value += h.currentPrice * h.shares
+    byCurrency[c].cost += h.avgCost * h.shares
+  }
 
   return (
     <div>
@@ -30,10 +33,18 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
           {config.label}
         </h3>
         <div className="flex items-center gap-4 text-xs">
-          <span className="text-gray-500">{fmt(sectionValue)}</span>
-          <span className={sectionPL >= 0 ? 'text-emerald-400' : 'text-red-400'}>
-            {sectionPL >= 0 ? '+' : ''}{fmt(sectionPL)} ({sectionPLPct >= 0 ? '+' : ''}{sectionPLPct.toFixed(1)}%)
-          </span>
+          {Object.entries(byCurrency).map(([currency, { value, cost }]) => {
+            const pl = value - cost
+            const pct = cost !== 0 ? (pl / cost) * 100 : 0
+            return (
+              <span key={currency} className="flex items-center gap-2">
+                <span className="text-gray-500">{fmtCurrency(value, currency)}</span>
+                <span className={pl >= 0 ? 'text-emerald-400' : 'text-red-400'}>
+                  {pl >= 0 ? '+' : ''}{fmtCurrency(pl, currency)} ({pct >= 0 ? '+' : ''}{pct.toFixed(1)}%)
+                </span>
+              </span>
+            )
+          })}
         </div>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">

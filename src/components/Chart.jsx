@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createChart } from 'lightweight-charts'
+import { currencySymbol } from '../lib/format'
 
 export default function Chart({ holding }) {
   const containerRef = useRef(null)
@@ -81,6 +82,8 @@ export default function Chart({ holding }) {
     }
   }, [holding])
 
+  const sym = currencySymbol(holding.currency)
+
   return (
     <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
       <div className="flex items-center justify-between mb-4">
@@ -90,7 +93,7 @@ export default function Chart({ holding }) {
         </div>
         <div className="text-right">
           <div className="text-xs text-gray-500">Avg Cost</div>
-          <div className="text-orange-400 font-medium">${holding.avgCost.toFixed(2)}</div>
+          <div className="text-orange-400 font-medium">{sym}{holding.avgCost.toFixed(2)}</div>
         </div>
       </div>
       <div ref={containerRef} />

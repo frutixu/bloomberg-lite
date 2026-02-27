@@ -1,7 +1,9 @@
 import { useState } from 'react'
-import { ASSET_CLASSES } from './AssetSection'
 
-const CLASS_OPTIONS = Object.entries(ASSET_CLASSES).map(([value, { label }]) => ({ value, label }))
+const CURRENCIES = [
+  { value: 'USD', label: 'USD ($)' },
+  { value: 'EUR', label: 'EUR (\u20ac)' },
+]
 
 export default function ManagePortfolio({ holdings, onSave }) {
   const [rows, setRows] = useState(
@@ -10,7 +12,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
   const [newTicker, setNewTicker] = useState('')
   const [newShares, setNewShares] = useState('')
   const [newCost, setNewCost] = useState('')
-  const [newClass, setNewClass] = useState('stock')
+  const [newCurrency, setNewCurrency] = useState('EUR')
   const [saved, setSaved] = useState(false)
 
   const updateRow = (index, field, value) => {
@@ -41,23 +43,22 @@ export default function ManagePortfolio({ holdings, onSave }) {
       ticker,
       shares: Number(newShares) || 0,
       avgCost: Number(newCost) || 0,
-      class: newClass,
+      currency: newCurrency,
     }])
     setNewTicker('')
     setNewShares('')
     setNewCost('')
-    setNewClass('stock')
     setSaved(false)
   }
 
   const handleSave = () => {
     const clean = rows
       .filter(r => r.ticker)
-      .map(({ ticker, shares, avgCost, class: cls }) => ({
+      .map(({ ticker, shares, avgCost, currency }) => ({
         ticker,
         shares: Number(shares) || 0,
         avgCost: Number(avgCost) || 0,
-        class: cls || 'stock',
+        currency: currency || 'USD',
       }))
     onSave(clean)
     setSaved(true)
@@ -68,11 +69,11 @@ export default function ManagePortfolio({ holdings, onSave }) {
     const config = {
       holdings: rows
         .filter(r => r.ticker)
-        .map(({ ticker, shares, avgCost, class: cls }) => ({
+        .map(({ ticker, shares, avgCost, currency }) => ({
           ticker,
           shares: Number(shares) || 0,
           avgCost: Number(avgCost) || 0,
-          class: cls || 'stock',
+          currency: currency || 'USD',
         })),
     }
     const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' })
@@ -88,6 +89,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
     if (e.key === 'Enter') addRow()
   }
 
+  const sym = (c) => c === 'EUR' ? '\u20ac' : '$'
   const inputBase = 'bg-gray-800 text-gray-100 border border-gray-700 rounded px-2 py-1 text-sm focus:border-orange-500 focus:outline-none'
 
   return (
@@ -119,8 +121,8 @@ export default function ManagePortfolio({ holdings, onSave }) {
         <table className="w-full">
           <thead>
             <tr className="border-b border-gray-800">
-              <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Ticker</th>
-              <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Class</th>
+              <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Ticker / ISIN</th>
+              <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Ccy</th>
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Shares</th>
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">PRU</th>
               <th className="text-right text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Total</th>
@@ -135,16 +137,16 @@ export default function ManagePortfolio({ holdings, onSave }) {
                     type="text"
                     value={row.ticker}
                     onChange={e => updateRow(i, 'ticker', e.target.value)}
-                    className={`${inputBase} w-20 font-bold`}
+                    className={`${inputBase} w-28 font-bold`}
                   />
                 </td>
                 <td className="px-4 py-2.5">
                   <select
-                    value={row.class || 'stock'}
-                    onChange={e => updateRow(i, 'class', e.target.value)}
-                    className={`${inputBase} w-28`}
+                    value={row.currency || 'USD'}
+                    onChange={e => updateRow(i, 'currency', e.target.value)}
+                    className={`${inputBase} w-20`}
                   >
-                    {CLASS_OPTIONS.map(o => (
+                    {CURRENCIES.map(o => (
                       <option key={o.value} value={o.value}>{o.label}</option>
                     ))}
                   </select>
@@ -161,7 +163,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
                 </td>
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-1">
-                    <span className="text-gray-500 text-sm">$</span>
+                    <span className="text-gray-500 text-sm">{sym(row.currency)}</span>
                     <input
                       type="number"
                       value={row.avgCost}
@@ -173,7 +175,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
                   </div>
                 </td>
                 <td className="px-4 py-2.5 text-right text-sm text-gray-400">
-                  ${((Number(row.shares) || 0) * (Number(row.avgCost) || 0)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  {sym(row.currency)}{((Number(row.shares) || 0) * (Number(row.avgCost) || 0)).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </td>
                 <td className="px-2 py-2.5 text-center">
                   <button
@@ -197,14 +199,14 @@ export default function ManagePortfolio({ holdings, onSave }) {
             onChange={e => setNewTicker(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="TICKER"
-            className={`${inputBase} w-20 placeholder-gray-600 font-bold border-gray-600`}
+            className={`${inputBase} w-28 placeholder-gray-600 font-bold border-gray-600`}
           />
           <select
-            value={newClass}
-            onChange={e => setNewClass(e.target.value)}
-            className={`${inputBase} w-28 border-gray-600`}
+            value={newCurrency}
+            onChange={e => setNewCurrency(e.target.value)}
+            className={`${inputBase} w-20 border-gray-600`}
           >
-            {CLASS_OPTIONS.map(o => (
+            {CURRENCIES.map(o => (
               <option key={o.value} value={o.value}>{o.label}</option>
             ))}
           </select>
@@ -218,7 +220,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
             className={`${inputBase} w-20 placeholder-gray-600 border-gray-600`}
           />
           <div className="flex items-center gap-1">
-            <span className="text-gray-600 text-sm">$</span>
+            <span className="text-gray-600 text-sm">{sym(newCurrency)}</span>
             <input
               type="number"
               value={newCost}
@@ -242,19 +244,14 @@ export default function ManagePortfolio({ holdings, onSave }) {
       {/* Summary */}
       <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
         <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-500">Total invested</span>
-          <span className="text-lg font-bold">
-            ${rows.reduce((s, r) => s + (Number(r.shares) || 0) * (Number(r.avgCost) || 0), 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-          </span>
-        </div>
-        <div className="flex items-center justify-between mt-2">
           <span className="text-sm text-gray-500">Holdings</span>
           <span className="text-lg font-bold">{rows.length}</span>
         </div>
       </div>
 
       <p className="text-xs text-gray-600">
-        After saving, export the JSON and commit it as <code className="text-gray-500">portfolio.config.json</code> to update the GitHub Actions data pipeline.
+        After saving, export the JSON and commit as <code className="text-gray-500">portfolio.config.json</code> to update the GitHub Actions data pipeline.
+        Product types (Stock, ETF, Crypto, etc.) are auto-detected from Yahoo Finance.
       </p>
     </div>
   )

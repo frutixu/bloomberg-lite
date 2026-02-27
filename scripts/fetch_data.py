@@ -12,6 +12,24 @@ PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 CONFIG_PATH = os.path.join(PROJECT_DIR, "portfolio.config.json")
 OUTPUT_PATH = os.path.join(PROJECT_DIR, "public", "data", "portfolio.json")
 
+# Map Yahoo Finance quoteType to our asset classes
+QUOTE_TYPE_MAP = {
+    "EQUITY": "stock",
+    "ETF": "etf",
+    "MUTUALFUND": "fund",
+    "CRYPTOCURRENCY": "crypto",
+    "CURRENCY": "crypto",
+    "INDEX": "etf",
+    "FUTURE": "commodity",
+    "OPTION": "other",
+}
+
+
+def detect_class(info):
+    """Auto-detect asset class from Yahoo Finance info."""
+    qt = info.get("quoteType", "").upper()
+    return QUOTE_TYPE_MAP.get(qt, "other")
+
 
 def fetch_data():
     with open(CONFIG_PATH) as f:
@@ -26,7 +44,8 @@ def fetch_data():
     holdings = []
     for ticker in tickers:
         try:
-            info = yf.Ticker(ticker).info
+            t = yf.Ticker(ticker)
+            info = t.info
 
             # Extract close prices
             if len(tickers) > 1:
@@ -49,19 +68,22 @@ def fetch_data():
             ]
 
             h = holdings_map[ticker]
+            asset_class = detect_class(info)
+
             holdings.append({
                 "ticker": ticker,
                 "name": info.get("shortName", ticker),
                 "shares": h["shares"],
                 "avgCost": h["avgCost"],
-                "class": h.get("class", "stock"),
+                "currency": h.get("currency", "USD"),
+                "class": asset_class,
                 "currentPrice": round(current_price, 2),
                 "previousClose": round(previous_close, 2),
                 "dayChange": round(day_change, 2),
                 "dayChangePercent": round(day_change_pct, 2),
                 "history": history,
             })
-            print(f"  {ticker}: ${current_price:.2f}")
+            print(f"  [{asset_class}] {ticker}: {current_price:.2f} ({info.get('quoteType', '?')})")
 
         except Exception as e:
             print(f"Error fetching {ticker}: {e}")

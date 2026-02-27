@@ -1,10 +1,10 @@
+import { fmtCurrency } from '../lib/format'
+
 export default function StockCard({ holding, isSelected, onClick }) {
-  const { ticker, name, shares, avgCost, currentPrice, dayChangePercent } = holding
+  const { ticker, shares, avgCost, currentPrice, dayChangePercent, currency } = holding
   const totalPL = (currentPrice - avgCost) * shares
   const totalPLPercent = ((currentPrice - avgCost) / avgCost) * 100
-
-  const fmt = (val) =>
-    new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val)
+  const fmt = (v) => fmtCurrency(v, currency)
 
   return (
     <div

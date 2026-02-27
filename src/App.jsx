@@ -6,7 +6,7 @@ import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
 
 const STORAGE_KEY = 'bloomberg-lite-holdings'
-const SECTION_ORDER = ['stock', 'etf', 'bond', 'crypto', 'commodity', 'other']
+const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
 
 function loadConfig() {
   try {
@@ -45,7 +45,7 @@ export default function App() {
             ticker: h.ticker,
             shares: h.shares,
             avgCost: h.avgCost,
-            class: h.class || 'stock',
+            currency: h.currency || 'USD',
           }))
           setHoldings(initial)
           saveConfig(initial)
@@ -91,7 +91,7 @@ export default function App() {
     )
   }
 
-  // Merge user config with fetched price data
+  // Merge user config (shares, avgCost, currency) with fetched data (prices, history, class)
   const mergedHoldings = (holdings || []).map(h => {
     const price = priceData?.holdings?.find(p => p.ticker === h.ticker)
     return {
@@ -99,7 +99,8 @@ export default function App() {
       name: price?.name || h.ticker,
       shares: h.shares,
       avgCost: h.avgCost,
-      class: h.class || 'stock',
+      currency: h.currency || 'USD',
+      class: price?.class || 'other',  // auto-detected from Yahoo Finance
       currentPrice: price?.currentPrice ?? h.avgCost,
       previousClose: price?.previousClose ?? h.avgCost,
       dayChange: price?.dayChange ?? 0,
@@ -108,10 +109,10 @@ export default function App() {
     }
   })
 
-  // Group by asset class
+  // Group by asset class (auto-detected)
   const grouped = {}
   for (const h of mergedHoldings) {
-    const cls = h.class || 'stock'
+    const cls = h.class || 'other'
     if (!grouped[cls]) grouped[cls] = []
     grouped[cls].push(h)
   }
