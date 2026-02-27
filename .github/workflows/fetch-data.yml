@@ -2,8 +2,8 @@ name: Fetch Stock Data
 
 on:
   schedule:
-    # Every hour during US market hours (9:30-16:00 ET = 14:30-21:00 UTC)
-    - cron: '30 14-21 * * 1-5'
+    # Every 15 min during EU+US market hours (8:00-21:00 UTC, Mon-Fri)
+    - cron: '*/15 8-20 * * 1-5'
   workflow_dispatch: # Allow manual trigger
 
 jobs:
