@@ -1,9 +1,10 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import Header from './components/Header'
 import PortfolioSummary from './components/PortfolioSummary'
 import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
+import { fetchMissingPrices } from './lib/fetchPrices'
 
 const STORAGE_KEY = 'bloomberg-lite-holdings'
 const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
@@ -23,10 +24,13 @@ function saveConfig(holdings) {
 export default function App() {
   const [priceData, setPriceData] = useState(null)
   const [holdings, setHoldings] = useState(null)
+  const [clientPrices, setClientPrices] = useState(new Map())
   const [selectedTicker, setSelectedTicker] = useState(null)
   const [tab, setTab] = useState('dashboard')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [fetchingLive, setFetchingLive] = useState(false)
+  const fetchedRef = useRef(new Set()) // track already-fetched tickers to avoid refetching
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/portfolio.json`)
@@ -94,9 +98,59 @@ export default function App() {
       })
   }, [])
 
+  // Fetch live prices for tickers not in pre-fetched portfolio.json
+  useEffect(() => {
+    if (!holdings || !priceData) return
+
+    const preFetchedTickers = new Set((priceData.holdings || []).map(h => h.ticker))
+    const missingTickers = holdings
+      .map(h => h.ticker)
+      .filter(t => !preFetchedTickers.has(t) && !fetchedRef.current.has(t))
+
+    if (missingTickers.length === 0) return
+
+    // Mark as fetched to prevent re-fetching
+    missingTickers.forEach(t => fetchedRef.current.add(t))
+    setFetchingLive(true)
+
+    fetchMissingPrices(missingTickers).then(priceMap => {
+      if (priceMap.size > 0) {
+        setClientPrices(prev => {
+          const next = new Map(prev)
+          for (const [ticker, data] of priceMap) {
+            next.set(ticker, data)
+          }
+          return next
+        })
+
+        // Persist discovered class info to localStorage
+        setHoldings(prev => {
+          if (!prev) return prev
+          let changed = false
+          const updated = prev.map(h => {
+            const live = priceMap.get(h.ticker)
+            if (live?.class && live.class !== 'other' && h.class !== live.class) {
+              changed = true
+              return { ...h, class: live.class }
+            }
+            return h
+          })
+          if (changed) {
+            saveConfig(updated)
+            return updated
+          }
+          return prev
+        })
+      }
+      setFetchingLive(false)
+    })
+  }, [holdings, priceData])
+
   const handleSaveHoldings = useCallback((newHoldings) => {
     setHoldings(newHoldings)
     saveConfig(newHoldings)
+    // Reset fetched tracker so new tickers get fetched
+    fetchedRef.current = new Set()
   }, [])
 
   if (loading) {
@@ -117,9 +171,12 @@ export default function App() {
     )
   }
 
-  // Merge user config (shares, avgCost, currency, broker, class) with fetched data (prices, history)
+  // Merge user config with fetched data (pre-fetched + client-side)
   const mergedHoldings = (holdings || []).map(h => {
-    const price = priceData?.holdings?.find(p => p.ticker === h.ticker)
+    const preFetched = priceData?.holdings?.find(p => p.ticker === h.ticker)
+    const live = clientPrices.get(h.ticker)
+    // Priority: pre-fetched server data > client-side live fetch > fallback
+    const price = preFetched || live
     return {
       ticker: h.ticker,
       name: price?.name || h.ticker,
@@ -127,7 +184,7 @@ export default function App() {
       avgCost: h.avgCost,
       currency: h.currency || 'USD',
       broker: h.broker || '',
-      class: price?.class || h.class || 'other',  // fetched > saved > other
+      class: price?.class || h.class || 'other',
       currentPrice: price?.currentPrice ?? h.avgCost,
       previousClose: price?.previousClose ?? h.avgCost,
       dayChange: price?.dayChange ?? 0,
@@ -153,6 +210,11 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-4 py-3 space-y-3">
         {tab === 'dashboard' ? (
           <>
+            {fetchingLive && (
+              <div className="text-bb-amber text-xxs animate-pulse text-center tracking-wider">
+                FETCHING LIVE PRICES...
+              </div>
+            )}
             <PortfolioSummary holdings={mergedHoldings} />
             {SECTION_ORDER.map(cls =>
               grouped[cls] ? (
