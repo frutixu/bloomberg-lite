@@ -39,7 +39,24 @@ export default function App() {
 
         const saved = loadConfig()
         if (saved) {
-          setHoldings(saved)
+          // Sync: add any new tickers from fetched data that aren't in localStorage
+          const savedTickers = new Set(saved.map(h => h.ticker))
+          const newFromFetch = json.holdings
+            .filter(h => !savedTickers.has(h.ticker))
+            .map(h => ({
+              ticker: h.ticker,
+              shares: h.shares,
+              avgCost: h.avgCost,
+              currency: h.currency || 'USD',
+              broker: h.broker || '',
+            }))
+          if (newFromFetch.length > 0) {
+            const merged = [...saved, ...newFromFetch]
+            setHoldings(merged)
+            saveConfig(merged)
+          } else {
+            setHoldings(saved)
+          }
         } else {
           const initial = json.holdings.map(h => ({
             ticker: h.ticker,
@@ -76,23 +93,23 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-orange-500 text-xl animate-pulse">Loading portfolio...</div>
+      <div className="min-h-screen bg-bb-bg flex items-center justify-center">
+        <div className="text-bb-amber text-sm animate-pulse tracking-wider">LOADING PORTFOLIO...</div>
       </div>
     )
   }
 
   if (error && !holdings) {
     return (
-      <div className="min-h-screen bg-gray-950 flex flex-col items-center justify-center gap-4">
-        <div className="text-red-400 text-xl">Failed to load data</div>
-        <div className="text-gray-500 text-sm">{error}</div>
-        <div className="text-gray-600 text-xs">Run: python scripts/fetch_data.py</div>
+      <div className="min-h-screen bg-bb-bg flex flex-col items-center justify-center gap-4">
+        <div className="text-bb-red text-sm">Failed to load data</div>
+        <div className="text-bb-muted text-xs">{error}</div>
+        <div className="text-bb-muted-dim text-xxs">Run: python scripts/fetch_data.py</div>
       </div>
     )
   }
 
-  // Merge user config (shares, avgCost, currency) with fetched data (prices, history, class)
+  // Merge user config (shares, avgCost, currency, broker) with fetched data (prices, history, class)
   const mergedHoldings = (holdings || []).map(h => {
     const price = priceData?.holdings?.find(p => p.ticker === h.ticker)
     return {
@@ -102,7 +119,7 @@ export default function App() {
       avgCost: h.avgCost,
       currency: h.currency || 'USD',
       broker: h.broker || '',
-      class: price?.class || 'other',  // auto-detected from Yahoo Finance
+      class: price?.class || 'other',
       currentPrice: price?.currentPrice ?? h.avgCost,
       previousClose: price?.previousClose ?? h.avgCost,
       dayChange: price?.dayChange ?? 0,
@@ -123,9 +140,9 @@ export default function App() {
   const lastUpdated = priceData?.lastUpdated || new Date().toISOString()
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-bb-bg text-gray-100">
       <Header lastUpdated={lastUpdated} tab={tab} onTabChange={setTab} />
-      <main className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+      <main className="max-w-7xl mx-auto px-4 py-3 space-y-3">
         {tab === 'dashboard' ? (
           <>
             <PortfolioSummary holdings={mergedHoldings} />

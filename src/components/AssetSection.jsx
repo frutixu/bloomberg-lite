@@ -1,14 +1,14 @@
-import StockCard from './StockCard'
+import HoldingRow from './HoldingRow'
 import { fmtCurrency } from '../lib/format'
 
 const ASSET_CLASSES = {
-  stock: { label: 'Stocks', color: 'text-blue-400', border: 'border-blue-500/20' },
-  etf: { label: 'ETFs', color: 'text-purple-400', border: 'border-purple-500/20' },
-  fund: { label: 'Funds', color: 'text-indigo-400', border: 'border-indigo-500/20' },
-  bond: { label: 'Bonds', color: 'text-teal-400', border: 'border-teal-500/20' },
-  crypto: { label: 'Crypto', color: 'text-amber-400', border: 'border-amber-500/20' },
-  commodity: { label: 'Commodities', color: 'text-yellow-400', border: 'border-yellow-500/20' },
-  other: { label: 'Other', color: 'text-gray-400', border: 'border-gray-500/20' },
+  stock:     { label: 'EQUITIES' },
+  etf:       { label: 'ETFs' },
+  fund:      { label: 'FUNDS' },
+  bond:      { label: 'FIXED INCOME' },
+  crypto:    { label: 'CRYPTO' },
+  commodity: { label: 'COMMODITIES' },
+  other:     { label: 'OTHER' },
 }
 
 export { ASSET_CLASSES }
@@ -17,7 +17,7 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
   const config = ASSET_CLASSES[assetClass] || ASSET_CLASSES.other
   if (holdings.length === 0) return null
 
-  // Group section totals by currency
+  // Section totals by currency
   const byCurrency = {}
   for (const h of holdings) {
     const c = h.currency || 'USD'
@@ -26,20 +26,23 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
     byCurrency[c].cost += h.avgCost * h.shares
   }
 
+  const thCls = 'text-right text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-2'
+
   return (
-    <div>
-      <div className={`flex items-center justify-between mb-3 pb-2 border-b ${config.border}`}>
-        <h3 className={`text-sm font-semibold uppercase tracking-wider ${config.color}`}>
+    <div className="overflow-x-auto">
+      {/* Section header bar */}
+      <div className="flex items-center justify-between px-3 py-1.5 bg-bb-surface border-b border-bb-border-hi">
+        <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">
           {config.label}
-        </h3>
-        <div className="flex items-center gap-4 text-xs">
+        </span>
+        <div className="flex items-center gap-4 text-xxs">
           {Object.entries(byCurrency).map(([currency, { value, cost }]) => {
             const pl = value - cost
             const pct = cost !== 0 ? (pl / cost) * 100 : 0
             return (
               <span key={currency} className="flex items-center gap-2">
-                <span className="text-gray-500">{fmtCurrency(value, currency)}</span>
-                <span className={pl >= 0 ? 'text-emerald-400' : 'text-red-400'}>
+                <span className="text-bb-muted">{fmtCurrency(value, currency)}</span>
+                <span className={pl >= 0 ? 'text-bb-green' : 'text-bb-red'}>
                   {pl >= 0 ? '+' : ''}{fmtCurrency(pl, currency)} ({pct >= 0 ? '+' : ''}{pct.toFixed(1)}%)
                 </span>
               </span>
@@ -47,16 +50,33 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
           })}
         </div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        {holdings.map(holding => (
-          <StockCard
-            key={holding.ticker}
-            holding={holding}
-            isSelected={holding.ticker === selectedTicker}
-            onClick={() => onSelect(holding.ticker)}
-          />
-        ))}
-      </div>
+
+      {/* Table */}
+      <table className="w-full bb-table">
+        <thead>
+          <tr className="border-b border-bb-border">
+            <th className="text-left text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-3">Name</th>
+            <th className={thCls} style={{ width: 90 }}>Last</th>
+            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 80 }}>Chg</th>
+            <th className={thCls} style={{ width: 70 }}>Chg%</th>
+            <th className={`${thCls} hidden md:table-cell`} style={{ width: 60 }}>Qty</th>
+            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 100 }}>Mkt Val</th>
+            <th className={thCls} style={{ width: 100 }}>P&L</th>
+            <th className={thCls} style={{ width: 70 }}>P&L%</th>
+            <th className={`${thCls} hidden md:table-cell`} style={{ width: 50 }}>Brkr</th>
+          </tr>
+        </thead>
+        <tbody>
+          {holdings.map(holding => (
+            <HoldingRow
+              key={holding.ticker}
+              holding={holding}
+              isSelected={holding.ticker === selectedTicker}
+              onClick={() => onSelect(holding.ticker)}
+            />
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }

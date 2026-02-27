@@ -1,7 +1,6 @@
 import { fmtCurrency } from '../lib/format'
 
 export default function PortfolioSummary({ holdings }) {
-  // Group by currency
   const byCurrency = {}
   for (const h of holdings) {
     const c = h.currency || 'USD'
@@ -11,42 +10,59 @@ export default function PortfolioSummary({ holdings }) {
     byCurrency[c].dayPL += h.dayChange * h.shares
   }
 
-  const currencies = Object.keys(byCurrency)
+  const sign = (v) => v >= 0 ? '+' : ''
 
   return (
-    <div className="space-y-3">
-      {currencies.map(currency => {
-        const { value, cost, dayPL } = byCurrency[currency]
+    <div className="bg-bb-surface border border-bb-border-hi rounded">
+      {Object.entries(byCurrency).map(([currency, { value, cost, dayPL }]) => {
         const totalPL = value - cost
         const totalPLPct = cost !== 0 ? (totalPL / cost) * 100 : 0
         const prevValue = value - dayPL
         const dayPLPct = prevValue !== 0 ? (dayPL / prevValue) * 100 : 0
         const fmt = (v) => fmtCurrency(v, currency)
 
-        const fmtPL = (val, pct) => {
-          const sign = val >= 0 ? '+' : ''
-          return `${sign}${fmt(val)} (${sign}${pct.toFixed(2)}%)`
-        }
-
         return (
-          <div key={currency} className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">
-                Portfolio Value ({currency})
-              </div>
-              <div className="text-2xl font-bold">{fmt(value)}</div>
+          <div
+            key={currency}
+            className="flex flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2.5 border-b border-bb-border last:border-b-0"
+          >
+            {/* Currency badge */}
+            <span className="text-xxs font-bold text-bb-amber bg-bb-amber/10 px-2 py-0.5 rounded">
+              {currency}
+            </span>
+
+            {/* Portfolio Value */}
+            <div className="flex items-baseline gap-2">
+              <span className="text-xxs text-bb-muted uppercase">Value</span>
+              <span className="text-sm font-bold text-gray-100 tabular-nums">{fmt(value)}</span>
             </div>
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Day P&L</div>
-              <div className={`text-2xl font-bold ${dayPL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                {fmtPL(dayPL, dayPLPct)}
-              </div>
+
+            {/* Day P&L */}
+            <div className="flex items-baseline gap-2">
+              <span className="text-xxs text-bb-muted uppercase">Day</span>
+              <span className={`text-sm font-semibold tabular-nums ${dayPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                {sign(dayPL)}{fmt(Math.abs(dayPL))}
+              </span>
+              <span className={`text-xxs tabular-nums ${dayPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                {sign(dayPLPct)}{Math.abs(dayPLPct).toFixed(2)}%
+              </span>
             </div>
-            <div className="bg-gray-900 rounded-lg p-4 border border-gray-800">
-              <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">Total P&L</div>
-              <div className={`text-2xl font-bold ${totalPL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
-                {fmtPL(totalPL, totalPLPct)}
-              </div>
+
+            {/* Total P&L */}
+            <div className="flex items-baseline gap-2">
+              <span className="text-xxs text-bb-muted uppercase">Total</span>
+              <span className={`text-sm font-semibold tabular-nums ${totalPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                {sign(totalPL)}{fmt(Math.abs(totalPL))}
+              </span>
+              <span className={`text-xxs tabular-nums ${totalPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                {sign(totalPLPct)}{Math.abs(totalPLPct).toFixed(2)}%
+              </span>
+            </div>
+
+            {/* Cost Basis */}
+            <div className="flex items-baseline gap-2 sm:ml-auto">
+              <span className="text-xxs text-bb-muted uppercase">Cost</span>
+              <span className="text-xs text-bb-muted tabular-nums">{fmt(cost)}</span>
             </div>
           </div>
         )

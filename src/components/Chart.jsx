@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createChart } from 'lightweight-charts'
-import { currencySymbol } from '../lib/format'
+import { fmtCurrency } from '../lib/format'
 
 export default function Chart({ holding }) {
   const containerRef = useRef(null)
@@ -15,35 +15,35 @@ export default function Chart({ holding }) {
     }
 
     const isProfit = holding.currentPrice >= holding.avgCost
-    const green = '#10b981'
-    const red = '#ef4444'
+    const green = '#00c853'
+    const red = '#ff1744'
     const lineColor = isProfit ? green : red
 
     const chart = createChart(containerRef.current, {
       layout: {
-        background: { color: '#111827' },
-        textColor: '#9ca3af',
+        background: { color: '#0f1420' },
+        textColor: '#5a6a80',
       },
       grid: {
-        vertLines: { color: '#1f2937' },
-        horzLines: { color: '#1f2937' },
+        vertLines: { color: '#1a2030' },
+        horzLines: { color: '#1a2030' },
       },
       width: containerRef.current.clientWidth,
-      height: 400,
+      height: 350,
       crosshair: { mode: 0 },
-      rightPriceScale: { borderColor: '#374151' },
-      timeScale: { borderColor: '#374151', timeVisible: false },
+      rightPriceScale: { borderColor: '#2a3548' },
+      timeScale: { borderColor: '#2a3548', timeVisible: false },
     })
 
     const areaSeries = chart.addAreaSeries({
-      topColor: isProfit ? 'rgba(16,185,129,0.25)' : 'rgba(239,68,68,0.25)',
-      bottomColor: isProfit ? 'rgba(16,185,129,0.0)' : 'rgba(239,68,68,0.0)',
+      topColor: isProfit ? 'rgba(0,200,83,0.2)' : 'rgba(255,23,68,0.2)',
+      bottomColor: isProfit ? 'rgba(0,200,83,0.0)' : 'rgba(255,23,68,0.0)',
       lineColor,
       lineWidth: 2,
     })
 
     const costLine = chart.addLineSeries({
-      color: '#f59e0b',
+      color: '#ff9800',
       lineWidth: 1,
       lineStyle: 2,
       crosshairMarkerVisible: false,
@@ -82,18 +82,18 @@ export default function Chart({ holding }) {
     }
   }, [holding])
 
-  const sym = currencySymbol(holding.currency)
-
   return (
-    <div className="bg-gray-900 rounded-lg border border-gray-800 p-4">
-      <div className="flex items-center justify-between mb-4">
+    <div className="bg-bb-surface rounded border border-bb-border-hi p-3">
+      <div className="flex items-center justify-between mb-3">
         <div>
-          <h2 className="text-lg font-bold">{holding.ticker}</h2>
-          <span className="text-sm text-gray-400">{holding.name}</span>
+          <h2 className="text-sm font-bold text-gray-100">{holding.name}</h2>
+          <span className="text-xxs text-bb-muted">{holding.ticker}</span>
         </div>
         <div className="text-right">
-          <div className="text-xs text-gray-500">Avg Cost</div>
-          <div className="text-orange-400 font-medium">{sym}{holding.avgCost.toFixed(2)}</div>
+          <div className="text-xxs text-bb-muted uppercase">Avg Cost</div>
+          <div className="text-xs text-bb-amber font-medium tabular-nums">
+            {fmtCurrency(holding.avgCost, holding.currency)}
+          </div>
         </div>
       </div>
       <div ref={containerRef} />
