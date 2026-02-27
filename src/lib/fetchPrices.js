@@ -1,7 +1,14 @@
 /**
  * Client-side Yahoo Finance price fetching via CORS proxy.
  * Used as a fallback for tickers not in the pre-fetched portfolio.json.
- * Supports ISINs by resolving them via the Yahoo Finance search API.
+ *
+ * Accepts ANY input as ticker:
+ *  - Standard tickers: AAPL, GOOGL, BTC-USD
+ *  - ISINs: FR0010147603, US0378331005
+ *  - Product names: "Carmignac Investissement", "Apple"
+ *
+ * Strategy: try chart API directly first. If it fails, search Yahoo Finance
+ * to resolve the input to a valid symbol, then fetch the chart.
  */
 
 const PROXY = 'https://corsproxy.io/?url='
@@ -18,16 +25,13 @@ const CLASS_MAP = {
   INDEX: 'stock',
 }
 
-// ISIN pattern: 2 letter country code + 9 alphanum + 1 check digit
-const ISIN_RE = /^[A-Z]{2}[A-Z0-9]{9}[0-9]$/
-
 /**
- * Resolve an ISIN to a Yahoo Finance ticker symbol + name via search API.
- * Returns { symbol, name } or null.
+ * Search Yahoo Finance for a query (name, ISIN, or partial ticker).
+ * Returns { symbol, name, quoteType } or null.
  */
-async function resolveISIN(isin) {
+async function searchYahoo(query) {
   try {
-    const params = new URLSearchParams({ q: isin, quotesCount: 5, newsCount: 0 })
+    const params = new URLSearchParams({ q: query, quotesCount: 5, newsCount: 0 })
     const url = `${PROXY}${encodeURIComponent(`${YF_SEARCH}?${params}`)}`
     const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
     if (!res.ok) return null
@@ -36,7 +40,6 @@ async function resolveISIN(isin) {
     const quotes = json?.quotes || []
     if (quotes.length === 0) return null
 
-    // Pick the first result — usually the best match
     const best = quotes[0]
     return {
       symbol: best.symbol,
@@ -44,53 +47,83 @@ async function resolveISIN(isin) {
       quoteType: best.quoteType || best.typeDisp || '',
     }
   } catch (err) {
-    console.warn(`[fetchPrices] Failed to resolve ISIN ${isin}:`, err.message)
+    console.warn(`[fetchPrices] Search failed for "${query}":`, err.message)
     return null
   }
 }
 
 /**
- * Fetch price data for a single ticker from Yahoo Finance.
- * Returns { ticker, name, currentPrice, previousClose, dayChange, dayChangePercent, class, history }
- * or null on failure.
+ * Fetch chart data for a Yahoo Finance symbol.
+ * Returns the raw chart result or null.
  */
-async function fetchOneTicker(ticker) {
+async function fetchChart(symbol) {
   try {
-    // If it looks like an ISIN, resolve to a Yahoo symbol first
-    let yahooSymbol = ticker
-    let resolvedName = null
-    let resolvedType = null
-
-    if (ISIN_RE.test(ticker)) {
-      const resolved = await resolveISIN(ticker)
-      if (!resolved) return null
-      yahooSymbol = resolved.symbol
-      resolvedName = resolved.name
-      resolvedType = resolved.quoteType
-    }
-
     const params = new URLSearchParams({
       range: '1y',
       interval: '1d',
       includePrePost: 'false',
     })
-    const url = `${PROXY}${encodeURIComponent(`${YF_CHART}${encodeURIComponent(yahooSymbol)}?${params}`)}`
+    const url = `${PROXY}${encodeURIComponent(`${YF_CHART}${encodeURIComponent(symbol)}?${params}`)}`
     const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
     if (!res.ok) return null
 
     const json = await res.json()
-    const result = json?.chart?.result?.[0]
-    if (!result) return null
+    return json?.chart?.result?.[0] || null
+  } catch {
+    return null
+  }
+}
 
-    const meta = result.meta
+/**
+ * Heuristic: does this look like a standard ticker or known format?
+ * Standard tickers: 1-10 uppercase alphanumeric chars, may contain dots, dashes
+ * ISINs: exactly 12 chars, 2 letter prefix + 9 alphanum + 1 digit
+ */
+function looksLikeSymbol(input) {
+  // Standard ticker: short, uppercase, alphanumeric with . or -
+  if (/^[A-Z0-9][A-Z0-9.\-]{0,11}$/.test(input)) return true
+  return false
+}
+
+/**
+ * Fetch price data for a single input (ticker, ISIN, or product name).
+ * Returns { ticker, resolvedSymbol, name, currentPrice, ... } or null.
+ */
+async function fetchOneTicker(input) {
+  try {
+    let chartResult = null
+    let resolvedSymbol = input
+    let resolvedName = null
+    let resolvedType = null
+
+    if (looksLikeSymbol(input)) {
+      // Try direct chart fetch first (fast path for tickers & ISINs)
+      chartResult = await fetchChart(input)
+    }
+
+    // If direct fetch failed (or input looks like a name), search first
+    if (!chartResult) {
+      const search = await searchYahoo(input)
+      if (!search) return null
+
+      resolvedSymbol = search.symbol
+      resolvedName = search.name
+      resolvedType = search.quoteType
+
+      // Now fetch chart with the resolved symbol
+      chartResult = await fetchChart(resolvedSymbol)
+      if (!chartResult) return null
+    }
+
+    const meta = chartResult.meta
     const currentPrice = meta.regularMarketPrice
     const quoteType = resolvedType || meta.instrumentType || meta.quoteType || ''
     const assetClass = CLASS_MAP[quoteType] || 'other'
-    const name = resolvedName || meta.longName || meta.shortName || ticker
+    const name = resolvedName || meta.longName || meta.shortName || input
 
     // Build history from timestamps + closes
-    const timestamps = result.timestamp || []
-    const closes = result.indicators?.quote?.[0]?.close || []
+    const timestamps = chartResult.timestamp || []
+    const closes = chartResult.indicators?.quote?.[0]?.close || []
     const history = []
     for (let i = 0; i < timestamps.length; i++) {
       if (closes[i] != null) {
@@ -102,7 +135,7 @@ async function fetchOneTicker(ticker) {
       }
     }
 
-    // Compute intraday change from the last two history points (not chartPreviousClose which is range-start)
+    // Compute intraday change from the last two history points
     let previousClose = currentPrice
     if (history.length >= 2) {
       previousClose = history[history.length - 2].close
@@ -113,7 +146,8 @@ async function fetchOneTicker(ticker) {
     const dayChangePercent = previousClose !== 0 ? (dayChange / previousClose) * 100 : 0
 
     return {
-      ticker, // keep original ticker (ISIN or symbol) as the key
+      ticker: input, // keep original input as the key
+      resolvedSymbol, // the actual Yahoo symbol (for reference)
       name,
       currentPrice: Math.round(currentPrice * 100) / 100,
       previousClose: Math.round(previousClose * 100) / 100,
@@ -123,14 +157,14 @@ async function fetchOneTicker(ticker) {
       history,
     }
   } catch (err) {
-    console.warn(`[fetchPrices] Failed to fetch ${ticker}:`, err.message)
+    console.warn(`[fetchPrices] Failed to fetch "${input}":`, err.message)
     return null
   }
 }
 
 /**
- * Fetch prices for multiple tickers in parallel.
- * Returns a Map<ticker, priceData>.
+ * Fetch prices for multiple inputs in parallel.
+ * Returns a Map<originalInput, priceData>.
  */
 export async function fetchMissingPrices(tickers) {
   if (!tickers || tickers.length === 0) return new Map()

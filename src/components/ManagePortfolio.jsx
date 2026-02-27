@@ -118,12 +118,13 @@ export default function ManagePortfolio({ holdings, onSave }) {
   const handleSave = () => {
     const clean = rows
       .filter(r => r.ticker)
-      .map(({ ticker, shares, avgCost, currency, broker }) => ({
+      .map(({ ticker, shares, avgCost, currency, broker, class: cls }) => ({
         ticker,
         shares: Number(shares) || 0,
         avgCost: Number(avgCost) || 0,
         currency: currency || 'USD',
         broker: broker || '',
+        ...(cls ? { class: cls } : {}),
       }))
     onSave(clean)
     setSaved(true)

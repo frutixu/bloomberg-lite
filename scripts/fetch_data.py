@@ -26,6 +26,8 @@ QUOTE_TYPE_MAP = {
 }
 
 ISIN_RE = re.compile(r"^[A-Z]{2}[A-Z0-9]{9}[0-9]$")
+# Standard Yahoo ticker: short, uppercase alphanum with optional . or -
+TICKER_RE = re.compile(r"^[A-Z0-9][A-Z0-9.\-]{0,11}$")
 
 
 def detect_class(info):
@@ -34,17 +36,27 @@ def detect_class(info):
     return QUOTE_TYPE_MAP.get(qt, "other")
 
 
-def resolve_isin(isin):
-    """Resolve an ISIN to a Yahoo Finance ticker symbol using yfinance search."""
+def search_yahoo(query):
+    """Search Yahoo Finance for any query (name, ISIN, partial ticker).
+    Returns (symbol, name) or (None, None)."""
     try:
-        results = yf.Search(isin)
+        results = yf.Search(query)
         quotes = results.quotes if hasattr(results, "quotes") else []
         if quotes:
             best = quotes[0]
             return best.get("symbol"), best.get("longname") or best.get("shortname")
     except Exception as e:
-        print(f"  ISIN search failed for {isin}: {e}")
+        print(f"  Search failed for '{query}': {e}")
     return None, None
+
+
+def needs_resolution(ticker):
+    """Check if a ticker needs search resolution (ISIN or product name)."""
+    if ISIN_RE.match(ticker):
+        return True
+    if not TICKER_RE.match(ticker):
+        return True  # Looks like a product name (has spaces, lowercase, etc.)
+    return False
 
 
 def fetch_data():
@@ -53,23 +65,23 @@ def fetch_data():
 
     holdings_map = {h["ticker"]: h for h in config["holdings"]}
 
-    # Resolve ISINs to Yahoo symbols before bulk download
-    isin_to_symbol = {}  # original ISIN -> yahoo symbol
-    isin_names = {}      # original ISIN -> resolved name
-    yf_tickers = []      # list of Yahoo-compatible symbols for download
+    # Resolve ISINs and product names to Yahoo symbols before bulk download
+    resolved_symbols = {}  # original input -> yahoo symbol
+    resolved_names = {}    # original input -> resolved name
+    yf_tickers = []        # list of Yahoo-compatible symbols for download
 
     for h in config["holdings"]:
         ticker = h["ticker"]
-        if ISIN_RE.match(ticker):
-            symbol, name = resolve_isin(ticker)
+        if needs_resolution(ticker):
+            symbol, name = search_yahoo(ticker)
             if symbol:
-                print(f"  ISIN {ticker} -> {symbol} ({name})")
-                isin_to_symbol[ticker] = symbol
+                print(f"  '{ticker}' -> {symbol} ({name})")
+                resolved_symbols[ticker] = symbol
                 if name:
-                    isin_names[ticker] = name
+                    resolved_names[ticker] = name
                 yf_tickers.append(symbol)
             else:
-                print(f"  ISIN {ticker}: could not resolve, skipping")
+                print(f"  '{ticker}': could not resolve, skipping")
         else:
             yf_tickers.append(ticker)
 
@@ -80,7 +92,7 @@ def fetch_data():
     for orig_ticker in holdings_map:
         try:
             # Use resolved symbol for ISINs
-            yf_symbol = isin_to_symbol.get(orig_ticker, orig_ticker)
+            yf_symbol = resolved_symbols.get(orig_ticker, orig_ticker)
 
             t = yf.Ticker(yf_symbol)
             info = t.info
@@ -109,7 +121,7 @@ def fetch_data():
             asset_class = detect_class(info)
 
             # Use resolved ISIN name if available, otherwise Yahoo name
-            display_name = isin_names.get(orig_ticker) or info.get("shortName", orig_ticker)
+            display_name = resolved_names.get(orig_ticker) or info.get("shortName", orig_ticker)
 
             holdings.append({
                 "ticker": orig_ticker,  # keep original ISIN/ticker as key
