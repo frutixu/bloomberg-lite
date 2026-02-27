@@ -1,10 +1,16 @@
 {
   "holdings": [
-    { "ticker": "AAPL", "shares": 10, "avgCost": 150.00, "currency": "USD" },
-    { "ticker": "MSFT", "shares": 5, "avgCost": 280.00, "currency": "USD" },
-    { "ticker": "GOOGL", "shares": 8, "avgCost": 120.00, "currency": "USD" },
-    { "ticker": "AMZN", "shares": 3, "avgCost": 140.00, "currency": "USD" },
-    { "ticker": "NVDA", "shares": 15, "avgCost": 45.00, "currency": "USD" },
-    { "ticker": "TSLA", "shares": 6, "avgCost": 200.00, "currency": "USD" }
+    { "ticker": "AAPL", "shares": 10, "avgCost": 150.00, "currency": "USD", "broker": "Saxo" },
+    { "ticker": "MSFT", "shares": 5, "avgCost": 280.00, "currency": "USD", "broker": "Saxo" },
+    { "ticker": "GOOGL", "shares": 8, "avgCost": 120.00, "currency": "USD", "broker": "Bourso" },
+    { "ticker": "AMZN", "shares": 3, "avgCost": 140.00, "currency": "USD", "broker": "Bourso" },
+    { "ticker": "NVDA", "shares": 15, "avgCost": 45.00, "currency": "USD", "broker": "Lux" },
+    { "ticker": "TSLA", "shares": 6, "avgCost": 200.00, "currency": "USD", "broker": "Saxo" },
+    { "ticker": "SPY", "shares": 5, "avgCost": 430.00, "currency": "USD", "broker": "Saxo" },
+    { "ticker": "QQQ", "shares": 4, "avgCost": 360.00, "currency": "USD", "broker": "Bourso" },
+    { "ticker": "LYX.PA", "shares": 20, "avgCost": 25.00, "currency": "EUR", "broker": "Bourso" },
+    { "ticker": "BTC-USD", "shares": 0.5, "avgCost": 42000.00, "currency": "USD", "broker": "Lux" },
+    { "ticker": "ETH-USD", "shares": 5, "avgCost": 2200.00, "currency": "USD", "broker": "Lux" },
+    { "ticker": "TLT", "shares": 20, "avgCost": 98.00, "currency": "USD", "broker": "Saxo" }
   ]
 }
