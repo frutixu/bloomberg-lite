@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-27T19:53:52.069797Z",
+  "lastUpdated": "2026-02-27T20:27:07.051341Z",
   "holdings": [
     {
       "ticker": "AAPL",
@@ -9,10 +9,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 265.43,
+      "currentPrice": 266.71,
       "previousClose": 272.95,
-      "dayChange": -7.52,
-      "dayChangePercent": -2.75,
+      "dayChange": -6.24,
+      "dayChangePercent": -2.28,
       "history": [
         {
           "date": "2025-02-27",
@@ -1020,7 +1020,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 265.43
+          "close": 266.71
         }
       ]
     },
@@ -1032,10 +1032,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 392.54,
+      "currentPrice": 394.38,
       "previousClose": 401.72,
-      "dayChange": -9.18,
-      "dayChangePercent": -2.29,
+      "dayChange": -7.34,
+      "dayChangePercent": -1.83,
       "history": [
         {
           "date": "2025-02-27",
@@ -2043,7 +2043,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 392.54
+          "close": 394.38
         }
       ]
     },
@@ -2055,10 +2055,10 @@
       "currency": "USD",
       "broker": "Bourso",
       "class": "stock",
-      "currentPrice": 306.8,
+      "currentPrice": 308.19,
       "previousClose": 307.38,
-      "dayChange": -0.58,
-      "dayChangePercent": -0.19,
+      "dayChange": 0.81,
+      "dayChangePercent": 0.26,
       "history": [
         {
           "date": "2025-02-27",
@@ -3066,7 +3066,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 306.8
+          "close": 308.19
         }
       ]
     },
@@ -3078,10 +3078,10 @@
       "currency": "USD",
       "broker": "Bourso",
       "class": "stock",
-      "currentPrice": 208.59,
+      "currentPrice": 209.46,
       "previousClose": 207.92,
-      "dayChange": 0.67,
-      "dayChangePercent": 0.32,
+      "dayChange": 1.54,
+      "dayChangePercent": 0.74,
       "history": [
         {
           "date": "2025-02-27",
@@ -4089,7 +4089,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 208.59
+          "close": 209.46
         }
       ]
     },
@@ -4101,10 +4101,10 @@
       "currency": "USD",
       "broker": "Lux",
       "class": "stock",
-      "currentPrice": 179.15,
+      "currentPrice": 178.91,
       "previousClose": 184.89,
-      "dayChange": -5.74,
-      "dayChangePercent": -3.1,
+      "dayChange": -5.98,
+      "dayChangePercent": -3.23,
       "history": [
         {
           "date": "2025-02-27",
@@ -5112,7 +5112,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 179.15
+          "close": 178.91
         }
       ]
     },
@@ -5124,10 +5124,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 399.23,
+      "currentPrice": 400.79,
       "previousClose": 408.58,
-      "dayChange": -9.35,
-      "dayChangePercent": -2.29,
+      "dayChange": -7.79,
+      "dayChangePercent": -1.91,
       "history": [
         {
           "date": "2025-02-27",
@@ -6135,7 +6135,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 399.23
+          "close": 400.79
         }
       ]
     },
@@ -6147,10 +6147,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 683.29,
+      "currentPrice": 685.83,
       "previousClose": 689.3,
-      "dayChange": -6.01,
-      "dayChangePercent": -0.87,
+      "dayChange": -3.47,
+      "dayChangePercent": -0.5,
       "history": [
         {
           "date": "2025-02-27",
@@ -7158,7 +7158,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 683.29
+          "close": 685.83
         }
       ]
     },
@@ -7170,10 +7170,10 @@
       "currency": "USD",
       "broker": "Bourso",
       "class": "etf",
-      "currentPrice": 604.74,
+      "currentPrice": 607.35,
       "previousClose": 609.24,
-      "dayChange": -4.5,
-      "dayChangePercent": -0.74,
+      "dayChange": -1.89,
+      "dayChangePercent": -0.31,
       "history": [
         {
           "date": "2025-02-27",
@@ -8181,7 +8181,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 604.74
+          "close": 607.35
         }
       ]
     },
@@ -8193,10 +8193,10 @@
       "currency": "USD",
       "broker": "Lux",
       "class": "crypto",
-      "currentPrice": 65391.95,
+      "currentPrice": 65622.29,
       "previousClose": 67453.77,
-      "dayChange": -2061.82,
-      "dayChangePercent": -3.06,
+      "dayChange": -1831.48,
+      "dayChangePercent": -2.72,
       "history": [
         {
           "date": "2025-02-27",
@@ -9660,7 +9660,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 65391.95
+          "close": 65622.29
         }
       ]
     },
@@ -9672,10 +9672,10 @@
       "currency": "USD",
       "broker": "Lux",
       "class": "crypto",
-      "currentPrice": 1921.25,
+      "currentPrice": 1924.83,
       "previousClose": 2026.79,
-      "dayChange": -105.54,
-      "dayChangePercent": -5.21,
+      "dayChange": -101.96,
+      "dayChangePercent": -5.03,
       "history": [
         {
           "date": "2025-02-27",
@@ -11139,7 +11139,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 1921.25
+          "close": 1924.83
         }
       ]
     },
@@ -11151,10 +11151,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 90.78,
+      "currentPrice": 90.72,
       "previousClose": 90.27,
-      "dayChange": 0.51,
-      "dayChangePercent": 0.56,
+      "dayChange": 0.45,
+      "dayChangePercent": 0.5,
       "history": [
         {
           "date": "2025-02-27",
@@ -12162,7 +12162,7 @@
         },
         {
           "date": "2026-02-27",
-          "close": 90.78
+          "close": 90.72
         }
       ]
     }
