@@ -7,6 +7,7 @@ import ManagePortfolio from './components/ManagePortfolio'
 import { fetchMissingPrices } from './lib/fetchPrices'
 
 const STORAGE_KEY = 'bloomberg-lite-holdings'
+const DISMISSED_KEY = 'bloomberg-lite-dismissed'
 const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
 
 function loadConfig() {
@@ -19,6 +20,18 @@ function loadConfig() {
 
 function saveConfig(holdings) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(holdings))
+}
+
+function loadDismissed() {
+  try {
+    const d = localStorage.getItem(DISMISSED_KEY)
+    if (d) return new Set(JSON.parse(d))
+  } catch {}
+  return new Set()
+}
+
+function saveDismissed(set) {
+  localStorage.setItem(DISMISSED_KEY, JSON.stringify([...set]))
 }
 
 export default function App() {
@@ -49,14 +62,15 @@ export default function App() {
 
         const saved = loadConfig()
         if (saved) {
-          // Sync: update class from fetched data + add new tickers
+          // Sync: update class from fetched data + add new tickers (but not dismissed ones)
           const savedTickers = new Set(saved.map(h => h.ticker))
+          const dismissed = loadDismissed()
           const updated = saved.map(h => ({
             ...h,
             class: fetchedClassMap[h.ticker] || h.class || undefined,
           }))
           const newFromFetch = json.holdings
-            .filter(h => !savedTickers.has(h.ticker))
+            .filter(h => !savedTickers.has(h.ticker) && !dismissed.has(h.ticker))
             .map(h => ({
               ticker: h.ticker,
               shares: h.shares,
@@ -147,7 +161,29 @@ export default function App() {
   }, [holdings, priceData])
 
   const handleSaveHoldings = useCallback((newHoldings) => {
-    setHoldings(newHoldings)
+    // Track removed tickers so they don't get re-added from server data
+    setHoldings(prev => {
+      if (prev) {
+        const newTickers = new Set(newHoldings.map(h => h.ticker))
+        const removed = prev.filter(h => !newTickers.has(h.ticker)).map(h => h.ticker)
+        if (removed.length > 0) {
+          const dismissed = loadDismissed()
+          removed.forEach(t => dismissed.add(t))
+          saveDismissed(dismissed)
+        }
+        // If a previously dismissed ticker is re-added, un-dismiss it
+        const dismissed = loadDismissed()
+        let changed = false
+        for (const h of newHoldings) {
+          if (dismissed.has(h.ticker)) {
+            dismissed.delete(h.ticker)
+            changed = true
+          }
+        }
+        if (changed) saveDismissed(dismissed)
+      }
+      return newHoldings
+    })
     saveConfig(newHoldings)
     // Reset fetched tracker so new tickers get fetched
     fetchedRef.current = new Set()
