@@ -1,0 +1,10 @@
+{
+  "holdings": [
+    { "ticker": "AAPL", "shares": 10, "avgCost": 150.00, "class": "stock" },
+    { "ticker": "MSFT", "shares": 5, "avgCost": 280.00, "class": "stock" },
+    { "ticker": "GOOGL", "shares": 8, "avgCost": 120.00, "class": "stock" },
+    { "ticker": "AMZN", "shares": 3, "avgCost": 140.00, "class": "stock" },
+    { "ticker": "NVDA", "shares": 15, "avgCost": 45.00, "class": "stock" },
+    { "ticker": "TSLA", "shares": 6, "avgCost": 200.00, "class": "stock" }
+  ]
+}
