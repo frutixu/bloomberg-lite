@@ -13,6 +13,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
   const [newShares, setNewShares] = useState('')
   const [newCost, setNewCost] = useState('')
   const [newCurrency, setNewCurrency] = useState('EUR')
+  const [newBroker, setNewBroker] = useState('')
   const [saved, setSaved] = useState(false)
 
   const updateRow = (index, field, value) => {
@@ -44,21 +45,24 @@ export default function ManagePortfolio({ holdings, onSave }) {
       shares: Number(newShares) || 0,
       avgCost: Number(newCost) || 0,
       currency: newCurrency,
+      broker: newBroker.trim(),
     }])
     setNewTicker('')
     setNewShares('')
     setNewCost('')
+    setNewBroker('')
     setSaved(false)
   }
 
   const handleSave = () => {
     const clean = rows
       .filter(r => r.ticker)
-      .map(({ ticker, shares, avgCost, currency }) => ({
+      .map(({ ticker, shares, avgCost, currency, broker }) => ({
         ticker,
         shares: Number(shares) || 0,
         avgCost: Number(avgCost) || 0,
         currency: currency || 'USD',
+        broker: broker || '',
       }))
     onSave(clean)
     setSaved(true)
@@ -122,6 +126,7 @@ export default function ManagePortfolio({ holdings, onSave }) {
           <thead>
             <tr className="border-b border-gray-800">
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Ticker / ISIN</th>
+              <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Broker</th>
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Ccy</th>
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">Shares</th>
               <th className="text-left text-xs text-gray-500 uppercase tracking-wider px-4 py-3">PRU</th>
@@ -138,6 +143,15 @@ export default function ManagePortfolio({ holdings, onSave }) {
                     value={row.ticker}
                     onChange={e => updateRow(i, 'ticker', e.target.value)}
                     className={`${inputBase} w-28 font-bold`}
+                  />
+                </td>
+                <td className="px-4 py-2.5">
+                  <input
+                    type="text"
+                    value={row.broker || ''}
+                    onChange={e => updateRow(i, 'broker', e.target.value)}
+                    placeholder="--"
+                    className={`${inputBase} w-20 placeholder-gray-600`}
                   />
                 </td>
                 <td className="px-4 py-2.5">
@@ -200,6 +214,14 @@ export default function ManagePortfolio({ holdings, onSave }) {
             onKeyDown={handleKeyDown}
             placeholder="TICKER"
             className={`${inputBase} w-28 placeholder-gray-600 font-bold border-gray-600`}
+          />
+          <input
+            type="text"
+            value={newBroker}
+            onChange={e => setNewBroker(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Broker"
+            className={`${inputBase} w-20 placeholder-gray-600 border-gray-600`}
           />
           <select
             value={newCurrency}

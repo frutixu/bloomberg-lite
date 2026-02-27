@@ -76,6 +76,7 @@ def fetch_data():
                 "shares": h["shares"],
                 "avgCost": h["avgCost"],
                 "currency": h.get("currency", "USD"),
+                "broker": h.get("broker", ""),
                 "class": asset_class,
                 "currentPrice": round(current_price, 2),
                 "previousClose": round(previous_close, 2),

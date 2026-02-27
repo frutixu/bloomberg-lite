@@ -27,7 +27,9 @@ export default function StockCard({ holding, isSelected, onClick }) {
         </span>
       </div>
       <div className="text-lg font-semibold mb-1">{fmt(currentPrice)}</div>
-      <div className="text-xs text-gray-500 mb-2">{shares} shares</div>
+      <div className="text-xs text-gray-500 mb-2">
+        {shares} shares{holding.broker ? <span className="text-gray-600"> · {holding.broker}</span> : null}
+      </div>
       <div
         className={`text-xs font-medium ${totalPL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
       >

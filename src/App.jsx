@@ -46,6 +46,7 @@ export default function App() {
             shares: h.shares,
             avgCost: h.avgCost,
             currency: h.currency || 'USD',
+            broker: h.broker || '',
           }))
           setHoldings(initial)
           saveConfig(initial)
@@ -100,6 +101,7 @@ export default function App() {
       shares: h.shares,
       avgCost: h.avgCost,
       currency: h.currency || 'USD',
+      broker: h.broker || '',
       class: price?.class || 'other',  // auto-detected from Yahoo Finance
       currentPrice: price?.currentPrice ?? h.avgCost,
       previousClose: price?.previousClose ?? h.avgCost,
