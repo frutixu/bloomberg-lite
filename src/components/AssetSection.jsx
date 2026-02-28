@@ -5,7 +5,7 @@ const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
 
 const ASSET_CLASSES = {
   stock:     { label: 'EQUITIES' },
-  etf:       { label: 'ETFs' },
+  etf:       { label: 'ETFs & FUNDS' },
   fund:      { label: 'FUNDS' },
   bond:      { label: 'FIXED INCOME' },
   crypto:    { label: 'CRYPTO' },

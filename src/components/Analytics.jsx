@@ -154,7 +154,7 @@ export default function Analytics({ mergedHoldings = [], fxRates = {} }) {
   const assetData = useMemo(() => {
     const groups = {}
     for (const h of analytics.enriched) {
-      const cls = h.class || 'other'
+      const cls = (h.class === 'fund' ? 'etf' : h.class) || 'other'
       groups[cls] = (groups[cls] || 0) + h.mktValueEur
     }
     return Object.entries(groups)

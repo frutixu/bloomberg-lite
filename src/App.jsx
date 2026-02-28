@@ -8,7 +8,7 @@ import { fetchMissingPrices, fetchFXRates } from './lib/fetchPrices'
 import { fmtCurrency } from './lib/format'
 import { hasToken, readConfig, writeConfig } from './lib/githubStorage'
 
-const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
+const SECTION_ORDER = ['stock', 'etf', 'bond', 'crypto', 'commodity', 'other']
 
 /** Safe number — returns 0 for NaN/Infinity/undefined */
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
@@ -258,7 +258,7 @@ export default function App() {
   // ── Group by class, sort by descending market value ──
   const grouped = {}
   for (const h of mergedHoldings) {
-    const cls = h.class || 'other'
+    const cls = (h.class === 'fund' ? 'etf' : h.class) || 'other'
     if (!grouped[cls]) grouped[cls] = []
     grouped[cls].push(h)
   }
