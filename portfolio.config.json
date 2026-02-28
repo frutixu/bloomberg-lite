@@ -139,6 +139,41 @@
       "avgCost": 5.21,
       "currency": "EUR",
       "broker": "PER"
+    },
+    {
+      "ticker": "US02079K1079",
+      "shares": 100,
+      "avgCost": 27.89,
+      "currency": "EUR",
+      "broker": "ORD"
+    },
+    {
+      "ticker": "FR0000073272",
+      "shares": 34,
+      "avgCost": 83.33,
+      "currency": "EUR",
+      "broker": "ORD"
+    },
+    {
+      "ticker": "FR0011047513",
+      "shares": 0.4,
+      "avgCost": 101.08,
+      "currency": "EUR",
+      "broker": "ORD"
+    },
+    {
+      "ticker": "GB00BLD4ZL17",
+      "shares": 75,
+      "avgCost": 96.63,
+      "currency": "EUR",
+      "broker": "ORD"
+    },
+    {
+      "ticker": "XS2940466316",
+      "shares": 748,
+      "avgCost": 10.07,
+      "currency": "EUR",
+      "broker": "ORD"
     }
   ]
 }
