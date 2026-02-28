@@ -31,24 +31,24 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
           : 'border-l-2 border-l-transparent'
       }`}
     >
-      <td className="py-1.5 px-3 text-left overflow-hidden">
-        <div className="flex items-baseline gap-2 min-w-0">
-          <span className="text-gray-100 text-xs font-medium truncate" title={name}>{name}</span>
-          <span className="text-bb-muted-dim text-xxs flex-shrink-0">{ticker}</span>
+      <td className="py-1.5 px-2 sm:px-3 text-left overflow-hidden">
+        <div className="min-w-0">
+          <span className="text-gray-100 text-xs font-medium truncate block" title={name}>{name}</span>
+          <span className="text-bb-muted-dim text-xxs hidden sm:inline">{ticker}</span>
         </div>
       </td>
       <td className="py-1.5 px-2 text-right text-xxs text-bb-muted hidden md:table-cell">{currency}</td>
-      <td className="py-1.5 px-2 text-right text-xs text-gray-200 tabular-nums">{fmt(currentPrice)}</td>
-      <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden sm:table-cell">{fmt(avgCost)}</td>
-      <td className={`py-1.5 px-2 text-right text-xs tabular-nums ${dayClr}`}>
+      <td className="py-1.5 px-2 text-right text-xs text-gray-200 tabular-nums hidden sm:table-cell">{fmt(currentPrice)}</td>
+      <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden md:table-cell">{fmt(avgCost)}</td>
+      <td className={`py-1.5 px-1 sm:px-2 text-right text-xs tabular-nums ${dayClr}`}>
         {sign(dayChangePercent)}{Math.abs(dayChangePercent).toFixed(2)}%
       </td>
       <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden md:table-cell">{shares}</td>
-      <td className="py-1.5 px-2 text-right text-xs text-gray-300 tabular-nums hidden sm:table-cell">{fmt(mktValue)}</td>
-      <td className={`py-1.5 px-2 text-right text-xs font-medium tabular-nums ${plClr}`}>
+      <td className="py-1.5 px-2 text-right text-xs text-gray-300 tabular-nums hidden md:table-cell">{fmt(mktValue)}</td>
+      <td className={`py-1.5 px-2 text-right text-xs font-medium tabular-nums hidden sm:table-cell ${plClr}`}>
         {sign(totalPL)}{fmt(Math.abs(totalPL))}
       </td>
-      <td className={`py-1.5 px-2 text-right text-xs tabular-nums ${plClr}`}>
+      <td className={`py-1.5 px-1 sm:px-2 text-right text-xs tabular-nums ${plClr}`}>
         {sign(totalPLPct)}{Math.abs(totalPLPct).toFixed(1)}%
       </td>
       <td className="py-1.5 px-2 text-right text-xxs text-bb-muted-dim hidden lg:table-cell">{broker}</td>

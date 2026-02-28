@@ -296,30 +296,28 @@ export default function App() {
 
             {/* Portfolio summary strip */}
             {totalEurValue > 0 && (
-              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2.5 bg-bb-surface border border-bb-border-hi rounded">
-                <div className="flex items-baseline gap-2">
+              <div className="grid grid-cols-3 sm:flex sm:flex-wrap sm:items-center sm:justify-between gap-x-6 gap-y-1 px-3 sm:px-4 py-2 sm:py-2.5 bg-bb-surface border border-bb-border-hi rounded">
+                <div className="col-span-3 sm:col-span-1 flex items-baseline gap-2">
                   <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">Portfolio</span>
-                  <span className="text-base font-semibold text-gray-100 tabular-nums">{fmtCurrency(totalEurValue, 'EUR')}</span>
+                  <span className="text-sm sm:text-base font-semibold text-gray-100 tabular-nums">{fmtCurrency(totalEurValue, 'EUR')}</span>
                 </div>
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-bb-muted text-xxs uppercase">P&L</span>
-                    <span className={`font-medium tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                      {totalEurPL >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalEurPL), 'EUR')}
-                    </span>
-                    <span className={`text-xxs tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                      ({totalEurPLPct >= 0 ? '+' : ''}{totalEurPLPct.toFixed(1)}%)
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-bb-muted text-xxs uppercase">Day</span>
-                    <span className={`font-medium tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                      {totalDayPLEur >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalDayPLEur), 'EUR')}
-                    </span>
-                    <span className={`text-xxs tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                      ({totalDayPLPct >= 0 ? '+' : ''}{totalDayPLPct.toFixed(2)}%)
-                    </span>
-                  </div>
+                <div className="flex items-center gap-1 text-xs">
+                  <span className="text-bb-muted text-xxs uppercase">P&L</span>
+                  <span className={`font-medium tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                    {totalEurPL >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalEurPL), 'EUR')}
+                  </span>
+                  <span className={`text-xxs tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                    {totalEurPLPct >= 0 ? '+' : ''}{totalEurPLPct.toFixed(1)}%
+                  </span>
+                </div>
+                <div className="col-span-2 flex items-center gap-1 text-xs">
+                  <span className="text-bb-muted text-xxs uppercase">Day</span>
+                  <span className={`font-medium tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                    {totalDayPLEur >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalDayPLEur), 'EUR')}
+                  </span>
+                  <span className={`text-xxs tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                    {totalDayPLPct >= 0 ? '+' : ''}{totalDayPLPct.toFixed(2)}%
+                  </span>
                 </div>
               </div>
             )}

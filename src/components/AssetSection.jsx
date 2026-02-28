@@ -89,25 +89,25 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
         <colgroup>
           <col /> {/* Name — takes remaining space */}
           <col className="hidden md:table-column" style={{ width: 40 }} />
-          <col style={{ width: 90 }} />
           <col className="hidden sm:table-column" style={{ width: 90 }} />
-          <col style={{ width: 70 }} />
+          <col className="hidden md:table-column" style={{ width: 90 }} />
+          <col style={{ width: 65 }} />
           <col className="hidden md:table-column" style={{ width: 60 }} />
+          <col className="hidden md:table-column" style={{ width: 100 }} />
           <col className="hidden sm:table-column" style={{ width: 100 }} />
-          <col style={{ width: 100 }} />
-          <col style={{ width: 70 }} />
+          <col style={{ width: 60 }} />
           <col className="hidden lg:table-column" style={{ width: 50 }} />
         </colgroup>
         <thead>
           <tr className="border-b border-bb-border">
             <th className="text-left text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-3">Name</th>
             <th className={`${thCls} hidden md:table-cell`}>Ccy</th>
-            <th className={thCls}>Last</th>
-            <th className={`${thCls} hidden sm:table-cell`}>PRU</th>
+            <th className={`${thCls} hidden sm:table-cell`}>Last</th>
+            <th className={`${thCls} hidden md:table-cell`}>PRU</th>
             <th className={thCls}>Chg%</th>
             <th className={`${thCls} hidden md:table-cell`}>Qty</th>
-            <th className={`${thCls} hidden sm:table-cell`}>Mkt Val</th>
-            <th className={thCls}>P&L</th>
+            <th className={`${thCls} hidden md:table-cell`}>Mkt Val</th>
+            <th className={`${thCls} hidden sm:table-cell`}>P&L</th>
             <th className={thCls}>P&L%</th>
             <th className={`${thCls} hidden lg:table-cell`}>Brkr</th>
           </tr>
