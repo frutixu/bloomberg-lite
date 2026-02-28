@@ -2,13 +2,15 @@
  * GitHub-backed storage for portfolio holdings.
  * Uses the GitHub Contents API to read/write portfolio.config.json.
  *
- * Requires a fine-grained PAT with "Contents: Read and write" on the repo.
+ * Reading: uses token if available, caches in sessionStorage as fallback.
+ * Writing: requires a fine-grained PAT with "Contents: Read and write".
  */
 
 const REPO = 'frutixu/bloomberg-lite'
 const FILE_PATH = 'portfolio.config.json'
 const API_BASE = 'https://api.github.com'
 const TOKEN_KEY = 'bloomberg-lite-gh-token'
+const CACHE_KEY = 'bloomberg-lite-config-cache'
 
 export function getToken() {
   try { return localStorage.getItem(TOKEN_KEY) || '' } catch { return '' }
@@ -22,36 +24,68 @@ export function hasToken() {
   return getToken().length > 0
 }
 
+/** Cache config in sessionStorage (survives refresh, clears on tab close) */
+function cacheConfig(config) {
+  try {
+    sessionStorage.setItem(CACHE_KEY, JSON.stringify(config))
+  } catch { /* noop */ }
+}
+
+/** Read cached config from sessionStorage */
+function getCachedConfig() {
+  try {
+    const raw = sessionStorage.getItem(CACHE_KEY)
+    if (!raw) return null
+    const parsed = JSON.parse(raw)
+    if (parsed && Array.isArray(parsed.holdings)) return parsed
+  } catch { /* noop */ }
+  return null
+}
+
 /**
  * Read portfolio.config.json from the repo.
  * Returns { holdings: [...], _sha } where _sha is needed for updates.
+ * Falls back to sessionStorage cache if API call fails.
  */
 export async function readConfig() {
   const token = getToken()
   if (!token) throw new Error('No GitHub token configured')
 
-  const res = await fetch(`${API_BASE}/repos/${REPO}/contents/${FILE_PATH}`, {
-    headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json' },
-  })
-
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}))
-    throw new Error(body.message || `GitHub API ${res.status}`)
-  }
-
-  const data = await res.json()
-  let content
   try {
-    content = JSON.parse(atob(data.content))
-  } catch {
-    throw new Error('portfolio.config.json is not valid JSON')
-  }
+    const res = await fetch(`${API_BASE}/repos/${REPO}/contents/${FILE_PATH}`, {
+      headers: { Authorization: `Bearer ${token}`, Accept: 'application/vnd.github.v3+json' },
+      signal: AbortSignal.timeout(8000),
+    })
 
-  if (!content || !Array.isArray(content.holdings)) {
-    throw new Error('portfolio.config.json has invalid format')
-  }
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}))
+      throw new Error(body.message || `GitHub API ${res.status}`)
+    }
 
-  return { ...content, _sha: data.sha }
+    const data = await res.json()
+    let content
+    try {
+      content = JSON.parse(atob(data.content))
+    } catch {
+      throw new Error('portfolio.config.json is not valid JSON')
+    }
+
+    if (!content || !Array.isArray(content.holdings)) {
+      throw new Error('portfolio.config.json has invalid format')
+    }
+
+    const result = { ...content, _sha: data.sha }
+    cacheConfig(result) // cache for fallback
+    return result
+  } catch (err) {
+    // Try sessionStorage cache before giving up
+    const cached = getCachedConfig()
+    if (cached) {
+      console.warn('[githubStorage] API failed, using cached config:', err.message)
+      return cached
+    }
+    throw err
+  }
 }
 
 /**
@@ -103,5 +137,7 @@ export async function writeConfig(holdings, sha) {
   }
 
   const data = await res.json()
-  return data?.content?.sha ?? null
+  const result = { holdings, _sha: data?.content?.sha ?? null }
+  cacheConfig(result) // update cache after successful write
+  return result._sha
 }
