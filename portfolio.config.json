@@ -71,24 +71,24 @@
       "broker": "Lux"
     },
     {
-      "ticker": "TLT",
-      "shares": 20,
-      "avgCost": 98,
-      "currency": "USD",
-      "broker": "Saxo"
-    },
-    {
-      "ticker": "ISHARES MSCI CHINA ACC UCITS ETF",
-      "shares": 200,
-      "avgCost": 6.107,
-      "currency": "SAXO",
-      "broker": "Saxo"
-    },
-    {
       "ticker": "LINDE PLC",
       "shares": 17,
       "avgCost": 295.37,
       "currency": "EUR",
+      "broker": "Saxo"
+    },
+    {
+      "ticker": "STADLER RAIL AG",
+      "shares": 50,
+      "avgCost": 42.79,
+      "currency": "CHF",
+      "broker": "Saxo"
+    },
+    {
+      "ticker": "ROCHE HOLDING AG",
+      "shares": 4,
+      "avgCost": 263.7,
+      "currency": "CHF",
       "broker": "Saxo"
     }
   ]
