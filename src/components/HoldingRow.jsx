@@ -37,6 +37,7 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
           <span className="text-bb-muted-dim text-xxs flex-shrink-0">{ticker}</span>
         </div>
       </td>
+      <td className="py-1.5 px-2 text-right text-xxs text-bb-muted hidden md:table-cell">{currency}</td>
       <td className="py-1.5 px-2 text-right text-xs text-gray-200 tabular-nums">{fmt(currentPrice)}</td>
       <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden sm:table-cell">{fmt(avgCost)}</td>
       <td className={`py-1.5 px-2 text-right text-xs tabular-nums ${dayClr}`}>

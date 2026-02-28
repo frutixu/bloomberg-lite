@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Header from './components/Header'
-import PortfolioSummary from './components/PortfolioSummary'
+// PortfolioSummary removed — currency shown per row instead
 import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
@@ -267,7 +267,6 @@ export default function App() {
                 FETCHING LIVE PRICES...
               </div>
             )}
-            <PortfolioSummary holdings={mergedHoldings} />
             {SECTION_ORDER.map(cls =>
               grouped[cls] ? (
                 <AssetSection

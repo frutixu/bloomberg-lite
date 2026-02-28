@@ -55,6 +55,7 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
         <thead>
           <tr className="border-b border-bb-border">
             <th className="text-left text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-3">Name</th>
+            <th className={`${thCls} hidden md:table-cell`} style={{ width: 40 }}>Ccy</th>
             <th className={thCls} style={{ width: 90 }}>Last</th>
             <th className={`${thCls} hidden sm:table-cell`} style={{ width: 90 }}>PRU</th>
             <th className={thCls} style={{ width: 70 }}>Chg%</th>
