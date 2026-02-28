@@ -7,31 +7,31 @@ export default function Header({ lastUpdated, tab, onTabChange }) {
 
   return (
     <header className="border-b border-bb-border-hi bg-bb-bg/90 backdrop-blur-sm sticky top-0 z-10">
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2 sm:gap-6 min-w-0">
+          <div className="flex items-center gap-1.5 flex-shrink-0">
             <div className="w-1.5 h-1.5 rounded-full bg-bb-amber animate-pulse" />
-            <h1 className="text-sm font-bold tracking-[0.2em] text-bb-amber">BLOOMBERG LITE</h1>
+            <h1 className="text-xs sm:text-sm font-bold tracking-[0.15em] sm:tracking-[0.2em] text-bb-amber">BB LITE</h1>
           </div>
           <nav className="flex gap-0.5">
-            {['dashboard', 'manage'].map(t => (
+            {['dashboard', 'analytics', 'manage'].map(t => (
               <button
                 key={t}
                 onClick={() => onTabChange(t)}
-                className={`px-3 py-1 text-xxs font-medium uppercase tracking-wider rounded transition-colors ${
+                className={`px-2 sm:px-3 py-1 text-xxs font-medium uppercase tracking-wider rounded transition-colors ${
                   tab === t ? 'bg-bb-amber/15 text-bb-amber' : 'text-bb-muted hover:text-gray-300'
                 }`}
               >
-                {t}
+                {t === 'dashboard' ? 'dash' : t === 'analytics' ? 'stats' : t}
               </button>
             ))}
           </nav>
         </div>
-        <div className="flex items-center gap-3">
-          <div className="text-xxs text-bb-muted-dim">{formatted}</div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <div className="text-xxs text-bb-muted-dim hidden sm:block">{formatted}</div>
           <button
             onClick={() => window.location.reload()}
-            className="text-bb-muted hover:text-bb-amber transition-colors p-1"
+            className="text-bb-muted hover:text-bb-amber transition-colors p-0.5"
             title="Refresh"
           >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import Header from './components/Header'
-// PortfolioSummary removed — currency shown per row instead
+import Analytics from './components/Analytics'
 import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
@@ -286,7 +286,7 @@ export default function App() {
     <div className="min-h-screen bg-bb-bg text-gray-100">
       <Header lastUpdated={lastUpdated} tab={tab} onTabChange={setTab} />
       <main className="max-w-7xl mx-auto px-4 py-3 space-y-3">
-        {tab === 'dashboard' ? (
+        {tab === 'dashboard' && (
           <>
             {fetchingLive && (
               <div className="text-bb-amber text-xxs animate-pulse text-center tracking-wider">
@@ -296,28 +296,30 @@ export default function App() {
 
             {/* Portfolio summary strip */}
             {totalEurValue > 0 && (
-              <div className="grid grid-cols-3 sm:flex sm:flex-wrap sm:items-center sm:justify-between gap-x-6 gap-y-1 px-3 sm:px-4 py-2 sm:py-2.5 bg-bb-surface border border-bb-border-hi rounded">
-                <div className="col-span-3 sm:col-span-1 flex items-baseline gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-6 px-3 sm:px-4 py-2 sm:py-2.5 bg-bb-surface border border-bb-border-hi rounded">
+                <div className="flex items-baseline gap-2">
                   <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">Portfolio</span>
                   <span className="text-sm sm:text-base font-semibold text-gray-100 tabular-nums">{fmtCurrency(totalEurValue, 'EUR')}</span>
                 </div>
-                <div className="flex items-center gap-1 text-xs">
-                  <span className="text-bb-muted text-xxs uppercase">P&L</span>
-                  <span className={`font-medium tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                    {totalEurPL >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalEurPL), 'EUR')}
-                  </span>
-                  <span className={`text-xxs tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                    {totalEurPLPct >= 0 ? '+' : ''}{totalEurPLPct.toFixed(1)}%
-                  </span>
-                </div>
-                <div className="col-span-2 flex items-center gap-1 text-xs">
-                  <span className="text-bb-muted text-xxs uppercase">Day</span>
-                  <span className={`font-medium tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                    {totalDayPLEur >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalDayPLEur), 'EUR')}
-                  </span>
-                  <span className={`text-xxs tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
-                    {totalDayPLPct >= 0 ? '+' : ''}{totalDayPLPct.toFixed(2)}%
-                  </span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-0.5 text-xs">
+                  <div className="flex items-center gap-1">
+                    <span className="text-bb-muted text-xxs uppercase">P&L</span>
+                    <span className={`font-medium tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalEurPL >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalEurPL), 'EUR')}
+                    </span>
+                    <span className={`text-xxs tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalEurPLPct >= 0 ? '+' : ''}{totalEurPLPct.toFixed(1)}%
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-bb-muted text-xxs uppercase">Day</span>
+                    <span className={`font-medium tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalDayPLEur >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalDayPLEur), 'EUR')}
+                    </span>
+                    <span className={`text-xxs tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalDayPLPct >= 0 ? '+' : ''}{totalDayPLPct.toFixed(2)}%
+                    </span>
+                  </div>
                 </div>
               </div>
             )}
@@ -336,7 +338,11 @@ export default function App() {
             )}
             {selectedHolding && <Chart holding={selectedHolding} />}
           </>
-        ) : (
+        )}
+        {tab === 'analytics' && (
+          <Analytics mergedHoldings={mergedHoldings} fxRates={fxRates} />
+        )}
+        {tab === 'manage' && (
           <ManagePortfolio
             holdings={safeHoldings}
             onSave={handleSaveHoldings}
