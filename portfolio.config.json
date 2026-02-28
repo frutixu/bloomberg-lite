@@ -1,62 +1,6 @@
 {
   "holdings": [
     {
-      "ticker": "AAPL",
-      "shares": 10,
-      "avgCost": 150,
-      "currency": "USD",
-      "broker": "Saxo"
-    },
-    {
-      "ticker": "GOOGL",
-      "shares": 8,
-      "avgCost": 120,
-      "currency": "USD",
-      "broker": "Bourso"
-    },
-    {
-      "ticker": "AMZN",
-      "shares": 3,
-      "avgCost": 140,
-      "currency": "USD",
-      "broker": "Bourso"
-    },
-    {
-      "ticker": "NVDA",
-      "shares": 15,
-      "avgCost": 45,
-      "currency": "USD",
-      "broker": "Lux"
-    },
-    {
-      "ticker": "TSLA",
-      "shares": 6,
-      "avgCost": 200,
-      "currency": "USD",
-      "broker": "Saxo"
-    },
-    {
-      "ticker": "QQQ",
-      "shares": 4,
-      "avgCost": 360,
-      "currency": "USD",
-      "broker": "Bourso"
-    },
-    {
-      "ticker": "BTC-USD",
-      "shares": 0.5,
-      "avgCost": 42000,
-      "currency": "USD",
-      "broker": "Lux"
-    },
-    {
-      "ticker": "ETH-USD",
-      "shares": 5,
-      "avgCost": 2200,
-      "currency": "USD",
-      "broker": "Lux"
-    },
-    {
       "ticker": "LINDE PLC",
       "shares": 17,
       "avgCost": 295.37,
