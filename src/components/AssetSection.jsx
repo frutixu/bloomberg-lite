@@ -84,20 +84,32 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
         </div>
       </div>
 
-      {/* Table */}
-      <table className="w-full bb-table">
+      {/* Table — fixed layout so Name column truncates long text */}
+      <table className="w-full bb-table table-fixed">
+        <colgroup>
+          <col /> {/* Name — takes remaining space */}
+          <col className="hidden md:table-column" style={{ width: 40 }} />
+          <col style={{ width: 90 }} />
+          <col className="hidden sm:table-column" style={{ width: 90 }} />
+          <col style={{ width: 70 }} />
+          <col className="hidden md:table-column" style={{ width: 60 }} />
+          <col className="hidden sm:table-column" style={{ width: 100 }} />
+          <col style={{ width: 100 }} />
+          <col style={{ width: 70 }} />
+          <col className="hidden lg:table-column" style={{ width: 50 }} />
+        </colgroup>
         <thead>
           <tr className="border-b border-bb-border">
             <th className="text-left text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-3">Name</th>
-            <th className={`${thCls} hidden md:table-cell`} style={{ width: 40 }}>Ccy</th>
-            <th className={thCls} style={{ width: 90 }}>Last</th>
-            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 90 }}>PRU</th>
-            <th className={thCls} style={{ width: 70 }}>Chg%</th>
-            <th className={`${thCls} hidden md:table-cell`} style={{ width: 60 }}>Qty</th>
-            <th className={`${thCls} hidden sm:table-cell`} style={{ width: 100 }}>Mkt Val</th>
-            <th className={thCls} style={{ width: 100 }}>P&L</th>
-            <th className={thCls} style={{ width: 70 }}>P&L%</th>
-            <th className={`${thCls} hidden lg:table-cell`} style={{ width: 50 }}>Brkr</th>
+            <th className={`${thCls} hidden md:table-cell`}>Ccy</th>
+            <th className={thCls}>Last</th>
+            <th className={`${thCls} hidden sm:table-cell`}>PRU</th>
+            <th className={thCls}>Chg%</th>
+            <th className={`${thCls} hidden md:table-cell`}>Qty</th>
+            <th className={`${thCls} hidden sm:table-cell`}>Mkt Val</th>
+            <th className={thCls}>P&L</th>
+            <th className={thCls}>P&L%</th>
+            <th className={`${thCls} hidden lg:table-cell`}>Brkr</th>
           </tr>
         </thead>
         <tbody>

@@ -31,7 +31,7 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
           : 'border-l-2 border-l-transparent'
       }`}
     >
-      <td className="py-1.5 px-3 text-left">
+      <td className="py-1.5 px-3 text-left overflow-hidden">
         <div className="flex items-baseline gap-2 min-w-0">
           <span className="text-gray-100 text-xs font-medium truncate" title={name}>{name}</span>
           <span className="text-bb-muted-dim text-xxs flex-shrink-0">{ticker}</span>
