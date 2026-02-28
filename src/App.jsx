@@ -5,6 +5,7 @@ import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
 import { fetchMissingPrices, fetchFXRates } from './lib/fetchPrices'
+import { fmtCurrency } from './lib/format'
 import { hasToken, readConfig, writeConfig } from './lib/githubStorage'
 
 const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
@@ -265,6 +266,19 @@ export default function App() {
     grouped[cls].sort((a, b) => (b.currentPrice * b.shares) - (a.currentPrice * a.shares))
   }
 
+  // ── Portfolio-wide EUR totals ──
+  let totalEurValue = 0, totalEurCost = 0, totalDayPLEur = 0
+  for (const h of mergedHoldings) {
+    const rate = num(fxRates[h.currency]) || (h.currency === 'EUR' ? 1 : 0)
+    totalEurValue += h.currentPrice * h.shares * rate
+    totalEurCost += h.avgCost * h.shares * rate
+    totalDayPLEur += h.dayChange * h.shares * rate
+  }
+  const totalEurPL = totalEurValue - totalEurCost
+  const totalEurPLPct = totalEurCost > 0 ? (totalEurPL / totalEurCost) * 100 : 0
+  const prevEurValue = totalEurValue - totalDayPLEur
+  const totalDayPLPct = prevEurValue > 0 ? (totalDayPLEur / prevEurValue) * 100 : 0
+
   const selectedHolding = mergedHoldings.find(h => h.ticker === selectedTicker) || null
   const lastUpdated = priceData?.lastUpdated || new Date().toISOString()
 
@@ -279,6 +293,37 @@ export default function App() {
                 FETCHING LIVE PRICES...
               </div>
             )}
+
+            {/* Portfolio summary strip */}
+            {totalEurValue > 0 && (
+              <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2.5 bg-bb-surface border border-bb-border-hi rounded">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">Portfolio</span>
+                  <span className="text-base font-semibold text-gray-100 tabular-nums">{fmtCurrency(totalEurValue, 'EUR')}</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs">
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-bb-muted text-xxs uppercase">P&L</span>
+                    <span className={`font-medium tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalEurPL >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalEurPL), 'EUR')}
+                    </span>
+                    <span className={`text-xxs tabular-nums ${totalEurPL >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      ({totalEurPLPct >= 0 ? '+' : ''}{totalEurPLPct.toFixed(1)}%)
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-bb-muted text-xxs uppercase">Day</span>
+                    <span className={`font-medium tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      {totalDayPLEur >= 0 ? '+' : ''}{fmtCurrency(Math.abs(totalDayPLEur), 'EUR')}
+                    </span>
+                    <span className={`text-xxs tabular-nums ${totalDayPLEur >= 0 ? 'text-bb-green' : 'text-bb-red'}`}>
+                      ({totalDayPLPct >= 0 ? '+' : ''}{totalDayPLPct.toFixed(2)}%)
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {SECTION_ORDER.map(cls =>
               grouped[cls] ? (
                 <AssetSection
