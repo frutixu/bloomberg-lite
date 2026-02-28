@@ -44,7 +44,7 @@ export default function HoldingRow({ holding, isSelected, onClick }) {
         {sign(dayChangePercent)}{Math.abs(dayChangePercent).toFixed(2)}%
       </td>
       <td className="py-1.5 px-2 text-right text-xs text-bb-muted tabular-nums hidden md:table-cell">{shares}</td>
-      <td className="py-1.5 px-2 text-right text-xs text-gray-300 tabular-nums hidden md:table-cell">{fmt(mktValue)}</td>
+      <td className="py-1.5 px-2 text-right text-xs text-gray-300 tabular-nums hidden sm:table-cell">{fmt(mktValue)}</td>
       <td className={`py-1.5 px-2 text-right text-xs font-medium tabular-nums hidden sm:table-cell ${plClr}`}>
         {sign(totalPL)}{fmt(Math.abs(totalPL))}
       </td>

@@ -93,7 +93,7 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
           <col className="hidden md:table-column" style={{ width: 90 }} />
           <col style={{ width: 65 }} />
           <col className="hidden md:table-column" style={{ width: 60 }} />
-          <col className="hidden md:table-column" style={{ width: 100 }} />
+          <col className="hidden sm:table-column" style={{ width: 90 }} />
           <col className="hidden sm:table-column" style={{ width: 100 }} />
           <col style={{ width: 60 }} />
           <col className="hidden lg:table-column" style={{ width: 50 }} />
@@ -106,7 +106,7 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
             <th className={`${thCls} hidden md:table-cell`}>PRU</th>
             <th className={thCls}>Chg%</th>
             <th className={`${thCls} hidden md:table-cell`}>Qty</th>
-            <th className={`${thCls} hidden md:table-cell`}>Mkt Val</th>
+            <th className={`${thCls} hidden sm:table-cell`}>Mkt Val</th>
             <th className={`${thCls} hidden sm:table-cell`}>P&L</th>
             <th className={thCls}>P&L%</th>
             <th className={`${thCls} hidden lg:table-cell`}>Brkr</th>
