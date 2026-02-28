@@ -4,7 +4,7 @@ import Header from './components/Header'
 import AssetSection from './components/AssetSection'
 import Chart from './components/Chart'
 import ManagePortfolio from './components/ManagePortfolio'
-import { fetchMissingPrices } from './lib/fetchPrices'
+import { fetchMissingPrices, fetchFXRates } from './lib/fetchPrices'
 import { hasToken, readConfig, writeConfig } from './lib/githubStorage'
 
 const SECTION_ORDER = ['stock', 'etf', 'fund', 'bond', 'crypto', 'commodity', 'other']
@@ -46,6 +46,7 @@ export default function App() {
   const [fetchingLive, setFetchingLive] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState(null)
+  const [fxRates, setFxRates] = useState({ EUR: 1 })
   const fetchedRef = useRef(new Set())
 
   // ── Load holdings ──
@@ -107,6 +108,17 @@ export default function App() {
 
     return () => { cancelled = true }
   }, [])
+
+  // ── Fetch FX rates for currency conversion to EUR ──
+  useEffect(() => {
+    if (!holdings || holdings.length === 0) return
+    const currencies = [...new Set(holdings.map(h => h.currency || 'USD'))]
+    if (currencies.length <= 1 && currencies[0] === 'EUR') return // all EUR, no FX needed
+
+    fetchFXRates(currencies, 'EUR')
+      .then(rates => setFxRates(rates))
+      .catch(err => console.warn('[App] FX rates fetch failed:', err.message))
+  }, [holdings])
 
   // ── Fetch live prices for tickers not in pre-fetched data ──
   useEffect(() => {
@@ -275,6 +287,7 @@ export default function App() {
                   holdings={grouped[cls]}
                   selectedTicker={selectedTicker}
                   onSelect={setSelectedTicker}
+                  fxRates={fxRates}
                 />
               ) : null
             )}

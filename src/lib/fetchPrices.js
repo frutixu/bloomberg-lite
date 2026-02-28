@@ -157,3 +157,32 @@ export async function fetchMissingPrices(tickers) {
   })
   return priceMap
 }
+
+/**
+ * Fetch live FX rates to convert currencies into a base currency (default EUR).
+ * Returns { USD: 0.92, GBP: 1.17, CHF: 0.95, EUR: 1 } — rate to multiply by.
+ * Uses Yahoo Finance pairs like USDEUR=X. Never throws.
+ */
+export async function fetchFXRates(currencies, base = 'EUR') {
+  const rates = { [base]: 1 }
+  if (!Array.isArray(currencies)) return rates
+
+  const needed = [...new Set(currencies.filter(c => c && c !== base))]
+  if (needed.length === 0) return rates
+
+  const results = await Promise.allSettled(
+    needed.map(async (ccy) => {
+      const chart = await fetchChart(`${ccy}${base}=X`)
+      const rate = num(chart?.meta?.regularMarketPrice)
+      return { ccy, rate }
+    })
+  )
+
+  for (const r of results) {
+    if (r.status === 'fulfilled' && r.value.rate > 0) {
+      rates[r.value.ccy] = Math.round(r.value.rate * 10000) / 10000
+    }
+  }
+
+  return rates
+}
