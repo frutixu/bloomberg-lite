@@ -1,46 +1,38 @@
 /**
  * Client-side Yahoo Finance price fetching via CORS proxy.
- * Used as a fallback for tickers not in the pre-fetched portfolio.json.
+ * Fallback for tickers not in the pre-fetched portfolio.json.
  *
- * Accepts ANY input as ticker:
- *  - Standard tickers: AAPL, GOOGL, BTC-USD
- *  - ISINs: FR0010147603, US0378331005
- *  - Product names: "Carmignac Investissement", "Apple"
- *
- * Strategy: try chart API directly first. If it fails, search Yahoo Finance
- * to resolve the input to a valid symbol, then fetch the chart.
+ * Accepts ANY input: ticker (AAPL), ISIN (FR0010147603), or name ("Carmignac").
+ * Strategy: try chart API directly → if fail, search Yahoo → retry chart.
  */
 
 const PROXY = 'https://corsproxy.io/?url='
 const YF_CHART = 'https://query1.finance.yahoo.com/v8/finance/chart/'
 const YF_SEARCH = 'https://query1.finance.yahoo.com/v1/finance/search'
+const TIMEOUT_MS = 10_000
 
-// Map Yahoo quoteType to our internal class
 const CLASS_MAP = {
-  EQUITY: 'stock',
-  ETF: 'etf',
-  MUTUALFUND: 'fund',
-  CRYPTOCURRENCY: 'crypto',
-  FUTURE: 'commodity',
-  INDEX: 'stock',
+  EQUITY: 'stock', ETF: 'etf', MUTUALFUND: 'fund',
+  CRYPTOCURRENCY: 'crypto', FUTURE: 'commodity', INDEX: 'stock',
 }
 
-/**
- * Search Yahoo Finance for a query (name, ISIN, or partial ticker).
- * Returns { symbol, name, quoteType } or null.
- */
+/** Safe number coercion — returns 0 for anything non-finite */
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
+
+/** Search Yahoo Finance. Returns { symbol, name, quoteType } or null. */
 async function searchYahoo(query) {
   try {
     const params = new URLSearchParams({ q: query, quotesCount: 5, newsCount: 0 })
     const url = `${PROXY}${encodeURIComponent(`${YF_SEARCH}?${params}`)}`
-    const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
+    const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS) })
     if (!res.ok) return null
 
-    const json = await res.json()
-    const quotes = json?.quotes || []
-    if (quotes.length === 0) return null
+    const json = await res.json().catch(() => null)
+    const quotes = json?.quotes
+    if (!Array.isArray(quotes) || quotes.length === 0) return null
 
     const best = quotes[0]
+    if (!best?.symbol) return null
     return {
       symbol: best.symbol,
       name: best.longname || best.shortname || best.symbol,
@@ -52,42 +44,27 @@ async function searchYahoo(query) {
   }
 }
 
-/**
- * Fetch chart data for a Yahoo Finance symbol.
- * Returns the raw chart result or null.
- */
+/** Fetch chart data for a Yahoo symbol. Returns raw chart result or null. */
 async function fetchChart(symbol) {
   try {
-    const params = new URLSearchParams({
-      range: '1y',
-      interval: '1d',
-      includePrePost: 'false',
-    })
+    const params = new URLSearchParams({ range: '1y', interval: '1d', includePrePost: 'false' })
     const url = `${PROXY}${encodeURIComponent(`${YF_CHART}${encodeURIComponent(symbol)}?${params}`)}`
-    const res = await fetch(url, { signal: AbortSignal.timeout(10000) })
+    const res = await fetch(url, { signal: AbortSignal.timeout(TIMEOUT_MS) })
     if (!res.ok) return null
 
-    const json = await res.json()
-    return json?.chart?.result?.[0] || null
+    const json = await res.json().catch(() => null)
+    return json?.chart?.result?.[0] ?? null
   } catch {
     return null
   }
 }
 
-/**
- * Heuristic: does this look like a standard ticker or known format?
- * Standard tickers: 1-10 uppercase alphanumeric chars, may contain dots, dashes
- * ISINs: exactly 12 chars, 2 letter prefix + 9 alphanum + 1 digit
- */
-function looksLikeSymbol(input) {
-  // Standard ticker: short, uppercase, alphanumeric with . or -
-  if (/^[A-Z0-9][A-Z0-9.\-]{0,11}$/.test(input)) return true
-  return false
-}
+/** Does input look like a standard ticker/ISIN (uppercase alphanum with . or -)? */
+const looksLikeSymbol = (s) => /^[A-Z0-9][A-Z0-9.\-]{0,11}$/.test(s)
 
 /**
- * Fetch price data for a single input (ticker, ISIN, or product name).
- * Returns { ticker, resolvedSymbol, name, currentPrice, ... } or null.
+ * Fetch price data for one input (ticker, ISIN, or name).
+ * Returns normalized price object or null — never throws.
  */
 async function fetchOneTicker(input) {
   try {
@@ -96,63 +73,67 @@ async function fetchOneTicker(input) {
     let resolvedName = null
     let resolvedType = null
 
+    // Fast path: try direct chart fetch for ticker-like inputs
     if (looksLikeSymbol(input)) {
-      // Try direct chart fetch first (fast path for tickers & ISINs)
       chartResult = await fetchChart(input)
     }
 
-    // If direct fetch failed (or input looks like a name), search first
+    // Slow path: search Yahoo to resolve, then fetch chart
     if (!chartResult) {
       const search = await searchYahoo(input)
       if (!search) return null
-
       resolvedSymbol = search.symbol
       resolvedName = search.name
       resolvedType = search.quoteType
-
-      // Now fetch chart with the resolved symbol
       chartResult = await fetchChart(resolvedSymbol)
       if (!chartResult) return null
     }
 
     const meta = chartResult.meta
-    const currentPrice = meta.regularMarketPrice
+    if (!meta) return null
+
+    const currentPrice = num(meta.regularMarketPrice)
+    if (currentPrice === 0) return null // no valid price
+
     const quoteType = resolvedType || meta.instrumentType || meta.quoteType || ''
     const assetClass = CLASS_MAP[quoteType] || 'other'
     const name = resolvedName || meta.longName || meta.shortName || input
 
     // Build history from timestamps + closes
-    const timestamps = chartResult.timestamp || []
-    const closes = chartResult.indicators?.quote?.[0]?.close || []
+    const timestamps = Array.isArray(chartResult.timestamp) ? chartResult.timestamp : []
+    const rawCloses = chartResult.indicators?.quote?.[0]?.close
+    const closes = Array.isArray(rawCloses) ? rawCloses : []
     const history = []
     for (let i = 0; i < timestamps.length; i++) {
-      if (closes[i] != null) {
+      const c = num(closes[i])
+      if (c > 0) {
         const d = new Date(timestamps[i] * 1000)
-        history.push({
-          date: d.toISOString().slice(0, 10),
-          close: Math.round(closes[i] * 100) / 100,
-        })
+        if (!isNaN(d.getTime())) {
+          history.push({ date: d.toISOString().slice(0, 10), close: Math.round(c * 100) / 100 })
+        }
       }
     }
 
-    // Compute intraday change from the last two history points
+    // Intraday change from the last two history points
     let previousClose = currentPrice
     if (history.length >= 2) {
       previousClose = history[history.length - 2].close
-    } else if (meta.previousClose != null) {
-      previousClose = meta.previousClose
+    } else {
+      const pc = num(meta.previousClose)
+      if (pc > 0) previousClose = pc
     }
+
     const dayChange = currentPrice - previousClose
-    const dayChangePercent = previousClose !== 0 ? (dayChange / previousClose) * 100 : 0
+    const dayChangePercent = previousClose > 0 ? (dayChange / previousClose) * 100 : 0
 
     return {
-      ticker: input, // keep original input as the key
-      resolvedSymbol, // the actual Yahoo symbol (for reference)
+      ticker: input,
+      resolvedSymbol,
       name,
       currentPrice: Math.round(currentPrice * 100) / 100,
       previousClose: Math.round(previousClose * 100) / 100,
       dayChange: Math.round(dayChange * 100) / 100,
-      dayChangePercent: Math.round(dayChangePercent * 100) / 100,
+      dayChangePercent: Math.round(num(dayChangePercent) * 100) / 100,
       class: assetClass,
       history,
     }
@@ -164,19 +145,15 @@ async function fetchOneTicker(input) {
 
 /**
  * Fetch prices for multiple inputs in parallel.
- * Returns a Map<originalInput, priceData>.
+ * Returns Map<originalInput, priceData>. Never throws.
  */
 export async function fetchMissingPrices(tickers) {
-  if (!tickers || tickers.length === 0) return new Map()
+  if (!Array.isArray(tickers) || tickers.length === 0) return new Map()
 
-  const results = await Promise.allSettled(tickers.map(t => fetchOneTicker(t)))
+  const results = await Promise.allSettled(tickers.map(fetchOneTicker))
   const priceMap = new Map()
-
   results.forEach((r, i) => {
-    if (r.status === 'fulfilled' && r.value) {
-      priceMap.set(tickers[i], r.value)
-    }
+    if (r.status === 'fulfilled' && r.value) priceMap.set(tickers[i], r.value)
   })
-
   return priceMap
 }

@@ -1,10 +1,18 @@
 import { fmtCurrency } from '../lib/format'
 
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
+
 export default function StockCard({ holding, isSelected, onClick }) {
-  const { ticker, shares, avgCost, currentPrice, dayChangePercent, currency } = holding
-  const totalPL = (currentPrice - avgCost) * shares
-  const totalPLPercent = ((currentPrice - avgCost) / avgCost) * 100
+  const ticker = holding?.ticker || '—'
+  const shares = num(holding?.shares)
+  const avgCost = num(holding?.avgCost)
+  const currentPrice = num(holding?.currentPrice)
+  const dayChangePercent = num(holding?.dayChangePercent)
+  const currency = holding?.currency || 'USD'
   const fmt = (v) => fmtCurrency(v, currency)
+
+  const totalPL = (currentPrice - avgCost) * shares
+  const totalPLPercent = avgCost > 0 ? ((currentPrice - avgCost) / avgCost) * 100 : 0
 
   return (
     <div
@@ -17,25 +25,18 @@ export default function StockCard({ holding, isSelected, onClick }) {
         <span className="font-bold text-sm">{ticker}</span>
         <span
           className={`text-xs px-1.5 py-0.5 rounded font-medium ${
-            dayChangePercent >= 0
-              ? 'bg-emerald-500/10 text-emerald-400'
-              : 'bg-red-500/10 text-red-400'
+            dayChangePercent >= 0 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-red-500/10 text-red-400'
           }`}
         >
-          {dayChangePercent >= 0 ? '+' : ''}
-          {dayChangePercent.toFixed(2)}%
+          {dayChangePercent >= 0 ? '+' : ''}{dayChangePercent.toFixed(2)}%
         </span>
       </div>
       <div className="text-lg font-semibold mb-1">{fmt(currentPrice)}</div>
       <div className="text-xs text-gray-500 mb-2">
-        {shares} shares{holding.broker ? <span className="text-gray-600"> · {holding.broker}</span> : null}
+        {shares} shares{holding?.broker ? <span className="text-gray-600"> · {holding.broker}</span> : null}
       </div>
-      <div
-        className={`text-xs font-medium ${totalPL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}
-      >
-        P&L: {totalPL >= 0 ? '+' : ''}
-        {fmt(totalPL)} ({totalPLPercent >= 0 ? '+' : ''}
-        {totalPLPercent.toFixed(1)}%)
+      <div className={`text-xs font-medium ${totalPL >= 0 ? 'text-emerald-400' : 'text-red-400'}`}>
+        P&L: {totalPL >= 0 ? '+' : ''}{fmt(totalPL)} ({totalPLPercent >= 0 ? '+' : ''}{totalPLPercent.toFixed(1)}%)
       </div>
     </div>
   )

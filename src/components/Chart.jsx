@@ -2,32 +2,32 @@ import { useEffect, useRef } from 'react'
 import { createChart } from 'lightweight-charts'
 import { fmtCurrency } from '../lib/format'
 
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
+
 export default function Chart({ holding }) {
   const containerRef = useRef(null)
   const chartRef = useRef(null)
 
   useEffect(() => {
-    if (!containerRef.current || !holding.history || holding.history.length === 0) return
+    if (!containerRef.current) return
+    if (!holding || !Array.isArray(holding.history) || holding.history.length === 0) return
 
+    // Cleanup previous chart
     if (chartRef.current) {
       chartRef.current.remove()
       chartRef.current = null
     }
 
-    const isProfit = holding.currentPrice >= holding.avgCost
+    const avgCost = num(holding.avgCost)
+    const currentPrice = num(holding.currentPrice)
+    const isProfit = currentPrice >= avgCost
     const green = '#00c853'
     const red = '#ff1744'
     const lineColor = isProfit ? green : red
 
     const chart = createChart(containerRef.current, {
-      layout: {
-        background: { color: '#0f1420' },
-        textColor: '#5a6a80',
-      },
-      grid: {
-        vertLines: { color: '#1a2030' },
-        horzLines: { color: '#1a2030' },
-      },
+      layout: { background: { color: '#0f1420' }, textColor: '#5a6a80' },
+      grid: { vertLines: { color: '#1a2030' }, horzLines: { color: '#1a2030' } },
       width: containerRef.current.clientWidth,
       height: 350,
       crosshair: { mode: 0 },
@@ -49,17 +49,22 @@ export default function Chart({ holding }) {
       crosshairMarkerVisible: false,
     })
 
-    const chartData = holding.history.map(h => ({
-      time: h.date,
-      value: h.close,
-    }))
+    // Filter out invalid history entries
+    const chartData = holding.history
+      .filter(h => h && h.date && Number.isFinite(num(h.close)))
+      .map(h => ({ time: h.date, value: num(h.close) }))
+
+    if (chartData.length === 0) {
+      chart.remove()
+      return
+    }
 
     areaSeries.setData(chartData)
 
-    if (chartData.length > 1) {
+    if (chartData.length > 1 && avgCost > 0) {
       costLine.setData([
-        { time: chartData[0].time, value: holding.avgCost },
-        { time: chartData[chartData.length - 1].time, value: holding.avgCost },
+        { time: chartData[0].time, value: avgCost },
+        { time: chartData[chartData.length - 1].time, value: avgCost },
       ])
     }
 
@@ -82,17 +87,22 @@ export default function Chart({ holding }) {
     }
   }, [holding])
 
+  if (!holding) return null
+
+  const name = holding.name || holding.ticker || '—'
+  const ticker = holding.ticker || ''
+
   return (
     <div className="bg-bb-surface rounded border border-bb-border-hi p-3">
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h2 className="text-sm font-bold text-gray-100">{holding.name}</h2>
-          <span className="text-xxs text-bb-muted">{holding.ticker}</span>
+          <h2 className="text-sm font-bold text-gray-100">{name}</h2>
+          <span className="text-xxs text-bb-muted">{ticker}</span>
         </div>
         <div className="text-right">
           <div className="text-xxs text-bb-muted uppercase">Avg Cost</div>
           <div className="text-xs text-bb-amber font-medium tabular-nums">
-            {fmtCurrency(holding.avgCost, holding.currency)}
+            {fmtCurrency(num(holding.avgCost), holding.currency)}
           </div>
         </div>
       </div>

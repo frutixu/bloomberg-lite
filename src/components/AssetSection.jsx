@@ -1,6 +1,8 @@
 import HoldingRow from './HoldingRow'
 import { fmtCurrency } from '../lib/format'
 
+const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
+
 const ASSET_CLASSES = {
   stock:     { label: 'EQUITIES' },
   etf:       { label: 'ETFs' },
@@ -15,22 +17,20 @@ export { ASSET_CLASSES }
 
 export default function AssetSection({ assetClass, holdings, selectedTicker, onSelect }) {
   const config = ASSET_CLASSES[assetClass] || ASSET_CLASSES.other
-  if (holdings.length === 0) return null
+  if (!Array.isArray(holdings) || holdings.length === 0) return null
 
-  // Section totals by currency
   const byCurrency = {}
   for (const h of holdings) {
     const c = h.currency || 'USD'
     if (!byCurrency[c]) byCurrency[c] = { value: 0, cost: 0 }
-    byCurrency[c].value += h.currentPrice * h.shares
-    byCurrency[c].cost += h.avgCost * h.shares
+    byCurrency[c].value += num(h.currentPrice) * num(h.shares)
+    byCurrency[c].cost += num(h.avgCost) * num(h.shares)
   }
 
   const thCls = 'text-right text-xxs font-normal text-bb-amber-dim uppercase tracking-wider py-1 px-2'
 
   return (
     <div className="overflow-x-auto">
-      {/* Section header bar — wraps on mobile */}
       <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 px-3 py-1.5 bg-bb-surface border-b border-bb-border-hi">
         <span className="text-xxs font-bold uppercase tracking-widest text-bb-amber">
           {config.label}
@@ -38,7 +38,7 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
         <div className="flex flex-wrap items-center gap-x-4 gap-y-0.5 text-xxs">
           {Object.entries(byCurrency).map(([currency, { value, cost }]) => {
             const pl = value - cost
-            const pct = cost !== 0 ? (pl / cost) * 100 : 0
+            const pct = cost > 0 ? (pl / cost) * 100 : 0
             return (
               <span key={currency} className="flex items-center gap-2">
                 <span className="text-bb-muted">{fmtCurrency(value, currency)}</span>
@@ -51,7 +51,6 @@ export default function AssetSection({ assetClass, holdings, selectedTicker, onS
         </div>
       </div>
 
-      {/* Table */}
       <table className="w-full bb-table">
         <thead>
           <tr className="border-b border-bb-border">
