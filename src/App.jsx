@@ -246,7 +246,7 @@ export default function App() {
       avgCost: num(h.avgCost),
       currency: h.currency || 'USD',
       broker: h.broker || '',
-      class: price?.class || h.class || 'other',
+      class: h.class || price?.class || 'other',
       currentPrice: num(price?.currentPrice) || num(h.avgCost),
       previousClose: num(price?.previousClose) || num(h.avgCost),
       dayChange: num(price?.dayChange),

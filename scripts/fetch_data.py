@@ -118,7 +118,7 @@ def fetch_data():
             ]
 
             h = holdings_map[orig_ticker]
-            asset_class = detect_class(info)
+            asset_class = h.get("class") or detect_class(info)
 
             # Use resolved ISIN name if available, otherwise Yahoo name
             display_name = resolved_names.get(orig_ticker) or info.get("shortName", orig_ticker)
