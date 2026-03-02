@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-02T19:11:52.549935Z",
+  "lastUpdated": "2026-03-02T19:51:35.330102Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -2936,7 +2936,7 @@
     },
     {
       "ticker": "LU0128498267",
-      "name": "Pictet-Short-Term Money Market CHF",
+      "name": "Pictet-Short-Term Money Market CHF P",
       "shares": 134.178,
       "avgCost": 125.014,
       "currency": "EUR",
@@ -8040,10 +8040,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 306.54,
+      "currentPrice": 307.38,
       "previousClose": 311.43,
-      "dayChange": -4.89,
-      "dayChangePercent": -1.57,
+      "dayChange": -4.05,
+      "dayChangePercent": -1.3,
       "history": [
         {
           "date": "2025-03-03",
@@ -9047,7 +9047,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 306.54
+          "close": 307.38
         }
       ]
     },
@@ -22429,10 +22429,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 265.35,
+      "currentPrice": 266.36,
       "previousClose": 264.18,
-      "dayChange": 1.17,
-      "dayChangePercent": 0.44,
+      "dayChange": 2.18,
+      "dayChangePercent": 0.83,
       "history": [
         {
           "date": "2025-03-03",
@@ -23436,7 +23436,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 265.35
+          "close": 266.36
         }
       ]
     },
@@ -23448,10 +23448,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 67.99,
+      "currentPrice": 68.39,
       "previousClose": 68.08,
-      "dayChange": -0.09,
-      "dayChangePercent": -0.13,
+      "dayChange": 0.31,
+      "dayChangePercent": 0.46,
       "history": [
         {
           "date": "2025-03-03",
@@ -24455,7 +24455,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 67.99
+          "close": 68.39
         }
       ]
     },
@@ -24467,10 +24467,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 363.2,
+      "currentPrice": 364.11,
       "previousClose": 357.05,
-      "dayChange": 6.15,
-      "dayChangePercent": 1.72,
+      "dayChange": 7.06,
+      "dayChangePercent": 1.98,
       "history": [
         {
           "date": "2025-03-03",
@@ -25474,7 +25474,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 363.2
+          "close": 364.11
         }
       ]
     },
@@ -25486,10 +25486,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 505.62,
+      "currentPrice": 508.85,
       "previousClose": 508.08,
-      "dayChange": -2.46,
-      "dayChangePercent": -0.48,
+      "dayChange": 0.77,
+      "dayChangePercent": 0.15,
       "history": [
         {
           "date": "2025-03-03",
@@ -26493,7 +26493,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 505.62
+          "close": 508.85
         }
       ]
     },
@@ -27540,10 +27540,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 27.19,
+      "currentPrice": 27.31,
       "previousClose": 27.65,
-      "dayChange": -0.45,
-      "dayChangePercent": -1.65,
+      "dayChange": -0.34,
+      "dayChangePercent": -1.23,
       "history": [
         {
           "date": "2025-03-03",
@@ -28547,7 +28547,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 27.19
+          "close": 27.31
         }
       ]
     },
@@ -35580,10 +35580,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 5335.2,
+      "currentPrice": 5341.3,
       "previousClose": 5230.5,
-      "dayChange": 104.7,
-      "dayChangePercent": 2.0,
+      "dayChange": 110.8,
+      "dayChangePercent": 2.12,
       "history": [
         {
           "date": "2025-03-03",
@@ -36591,7 +36591,7 @@
         },
         {
           "date": "2026-03-02",
-          "close": 5335.2
+          "close": 5341.3
         }
       ]
     }
