@@ -16,6 +16,11 @@ const CLASS_MAP = {
   CRYPTOCURRENCY: 'crypto', FUTURE: 'commodity', INDEX: 'stock',
 }
 
+// Manual ISIN → Yahoo symbol mapping for ISINs that Yahoo can't auto-resolve
+const MANUAL_SYMBOLS = {
+  'XC0009655157': { symbol: 'GC=F', name: 'Gold', class: 'commodity' },
+}
+
 /** Safe number coercion — returns 0 for anything non-finite */
 const num = (v) => { const n = Number(v); return Number.isFinite(n) ? n : 0 }
 
@@ -73,8 +78,18 @@ async function fetchOneTicker(input) {
     let resolvedName = null
     let resolvedType = null
 
+    // Check manual mapping first
+    const manual = MANUAL_SYMBOLS[input]
+    if (manual) {
+      resolvedSymbol = manual.symbol
+      resolvedName = manual.name
+      resolvedType = manual.class
+      chartResult = await fetchChart(resolvedSymbol)
+      if (!chartResult) return null
+    }
+
     // Fast path: try direct chart fetch for ticker-like inputs
-    if (looksLikeSymbol(input)) {
+    if (!chartResult && looksLikeSymbol(input)) {
       chartResult = await fetchChart(input)
     }
 
@@ -96,7 +111,7 @@ async function fetchOneTicker(input) {
     if (currentPrice === 0) return null // no valid price
 
     const quoteType = resolvedType || meta.instrumentType || meta.quoteType || ''
-    const assetClass = CLASS_MAP[quoteType] || 'other'
+    const assetClass = manual?.class || CLASS_MAP[quoteType] || 'other'
     const name = resolvedName || meta.longName || meta.shortName || input
 
     // Build history from timestamps + closes

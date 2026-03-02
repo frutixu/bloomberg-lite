@@ -29,6 +29,11 @@ ISIN_RE = re.compile(r"^[A-Z]{2}[A-Z0-9]{9}[0-9]$")
 # Standard Yahoo ticker: short, uppercase alphanum with optional . or -
 TICKER_RE = re.compile(r"^[A-Z0-9][A-Z0-9.\-]{0,11}$")
 
+# Manual ISIN → Yahoo symbol mapping for ISINs that Yahoo can't auto-resolve
+MANUAL_SYMBOLS = {
+    "XC0009655157": ("GC=F", "Gold"),
+}
+
 
 def detect_class(info):
     """Auto-detect asset class from Yahoo Finance info."""
@@ -72,7 +77,13 @@ def fetch_data():
 
     for h in config["holdings"]:
         ticker = h["ticker"]
-        if needs_resolution(ticker):
+        if ticker in MANUAL_SYMBOLS:
+            symbol, name = MANUAL_SYMBOLS[ticker]
+            print(f"  '{ticker}' -> {symbol} ({name}) [manual]")
+            resolved_symbols[ticker] = symbol
+            resolved_names[ticker] = name
+            yf_tickers.append(symbol)
+        elif needs_resolution(ticker):
             symbol, name = search_yahoo(ticker)
             if symbol:
                 print(f"  '{ticker}' -> {symbol} ({name})")
