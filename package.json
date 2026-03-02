@@ -6,17 +6,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:encrypt": "vite build && staticrypt dist/index.html -d dist --short --remember 30 --template-color-primary '#ff9800' --template-color-secondary '#0a0e17' --template-title 'Bloomberg Lite' --template-button 'UNLOCK' --template-placeholder 'Password'",
     "preview": "vite preview"
   },
   "dependencies": {
+    "lightweight-charts": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lightweight-charts": "^4.1.0"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32",
+    "staticrypt": "^3.5.4",
     "tailwindcss": "^3.4.0",
     "vite": "^5.0.0"
   }
