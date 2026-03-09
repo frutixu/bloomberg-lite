@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-09T20:34:06.482858Z",
+  "lastUpdated": "2026-03-09T21:04:44.284984Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -10104,7 +10104,7 @@
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Mon\u00e9taire Plus E C",
+      "name": "SG Montaire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
@@ -21411,14 +21411,14 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 27.3,
-      "previousClose": 27.3,
+      "currentPrice": 27.6,
+      "previousClose": 27.6,
       "dayChange": 0.0,
       "dayChangePercent": 0.0,
       "history": [
         {
           "date": "2026-03-09",
-          "close": 27.3
+          "close": 27.6
         }
       ]
     },
@@ -35612,10 +35612,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 5147.4,
+      "currentPrice": 5144.2,
       "previousClose": 5146.1,
-      "dayChange": 1.3,
-      "dayChangePercent": 0.03,
+      "dayChange": -1.9,
+      "dayChangePercent": -0.04,
       "history": [
         {
           "date": "2025-03-10",
@@ -36623,7 +36623,7 @@
         },
         {
           "date": "2026-03-09",
-          "close": 5147.4
+          "close": 5144.2
         }
       ]
     }
