@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-03-19T18:05:17.872538Z",
+  "lastUpdated": "2026-03-19T19:15:28.537054Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Latitude",
+      "name": "Carmignac Investissement Lat A EUR Acc",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -8072,10 +8072,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 303.65,
+      "currentPrice": 305.98,
       "previousClose": 306.3,
-      "dayChange": -2.65,
-      "dayChangePercent": -0.87,
+      "dayChange": -0.32,
+      "dayChangePercent": -0.11,
       "history": [
         {
           "date": "2025-03-19",
@@ -9083,7 +9083,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 303.65
+          "close": 305.98
         }
       ]
     },
@@ -22561,10 +22561,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 247.73,
+      "currentPrice": 249.15,
       "previousClose": 249.94,
-      "dayChange": -2.21,
-      "dayChangePercent": -0.88,
+      "dayChange": -0.79,
+      "dayChangePercent": -0.31,
       "history": [
         {
           "date": "2025-03-19",
@@ -23572,7 +23572,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 247.73
+          "close": 249.15
         }
       ]
     },
@@ -23584,10 +23584,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 52.79,
+      "currentPrice": 53.9,
       "previousClose": 55.45,
-      "dayChange": -2.66,
-      "dayChangePercent": -4.8,
+      "dayChange": -1.55,
+      "dayChangePercent": -2.8,
       "history": [
         {
           "date": "2025-03-19",
@@ -24595,7 +24595,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 52.79
+          "close": 53.9
         }
       ]
     },
@@ -24607,10 +24607,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 349.99,
+      "currentPrice": 350.85,
       "previousClose": 353.36,
-      "dayChange": -3.37,
-      "dayChangePercent": -0.95,
+      "dayChange": -2.51,
+      "dayChangePercent": -0.71,
       "history": [
         {
           "date": "2025-03-19",
@@ -25618,7 +25618,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 349.99
+          "close": 350.85
         }
       ]
     },
@@ -25630,10 +25630,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 488.65,
+      "currentPrice": 490.04,
       "previousClose": 488.57,
-      "dayChange": 0.08,
-      "dayChangePercent": 0.02,
+      "dayChange": 1.47,
+      "dayChangePercent": 0.3,
       "history": [
         {
           "date": "2025-03-19",
@@ -26641,7 +26641,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 488.65
+          "close": 490.04
         }
       ]
     },
@@ -27692,10 +27692,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 27.42,
+      "currentPrice": 27.65,
       "previousClose": 27.32,
-      "dayChange": 0.1,
-      "dayChangePercent": 0.38,
+      "dayChange": 0.33,
+      "dayChangePercent": 1.19,
       "history": [
         {
           "date": "2025-03-19",
@@ -28703,7 +28703,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 27.42
+          "close": 27.65
         }
       ]
     },
@@ -35780,10 +35780,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4626.9,
+      "currentPrice": 4642.6,
       "previousClose": 4889.9,
-      "dayChange": -263.0,
-      "dayChangePercent": -5.38,
+      "dayChange": -247.3,
+      "dayChangePercent": -5.06,
       "history": [
         {
           "date": "2025-03-19",
@@ -36795,7 +36795,7 @@
         },
         {
           "date": "2026-03-19",
-          "close": 4626.9
+          "close": 4642.6
         }
       ]
     }
