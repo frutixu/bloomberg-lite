@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-20T17:36:04.738799Z",
+  "lastUpdated": "2026-03-20T18:24:31.769385Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -8072,10 +8072,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 299.02,
+      "currentPrice": 298.55,
       "previousClose": 305.73,
-      "dayChange": -6.71,
-      "dayChangePercent": -2.2,
+      "dayChange": -7.18,
+      "dayChangePercent": -2.35,
       "history": [
         {
           "date": "2025-03-20",
@@ -8131,7 +8131,7 @@
         },
         {
           "date": "2025-04-08",
-          "close": 146.07
+          "close": 146.08
         },
         {
           "date": "2025-04-09",
@@ -8631,7 +8631,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.79
+          "close": 246.8
         },
         {
           "date": "2025-10-08",
@@ -9083,7 +9083,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 299.02
+          "close": 298.55
         }
       ]
     },
@@ -22567,7 +22567,7 @@
       "class": "stock",
       "currentPrice": 247.9,
       "previousClose": 248.96,
-      "dayChange": -1.07,
+      "dayChange": -1.06,
       "dayChangePercent": -0.43,
       "history": [
         {
@@ -23588,10 +23588,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 52.22,
+      "currentPrice": 52.06,
       "previousClose": 53.62,
-      "dayChange": -1.4,
-      "dayChangePercent": -2.61,
+      "dayChange": -1.56,
+      "dayChangePercent": -2.91,
       "history": [
         {
           "date": "2025-03-20",
@@ -24599,7 +24599,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 52.22
+          "close": 52.06
         }
       ]
     },
@@ -24611,10 +24611,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 347.24,
+      "currentPrice": 344.76,
       "previousClose": 349.63,
-      "dayChange": -2.39,
-      "dayChangePercent": -0.68,
+      "dayChange": -4.88,
+      "dayChangePercent": -1.39,
       "history": [
         {
           "date": "2025-03-20",
@@ -25622,7 +25622,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 347.24
+          "close": 344.76
         }
       ]
     },
@@ -25634,10 +25634,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 489.88,
+      "currentPrice": 487.64,
       "previousClose": 489.8,
-      "dayChange": 0.08,
-      "dayChangePercent": 0.02,
+      "dayChange": -2.16,
+      "dayChangePercent": -0.44,
       "history": [
         {
           "date": "2025-03-20",
@@ -25661,7 +25661,7 @@
         },
         {
           "date": "2025-03-27",
-          "close": 458.55
+          "close": 458.54
         },
         {
           "date": "2025-03-28",
@@ -26645,7 +26645,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 489.88
+          "close": 487.64
         }
       ]
     },
@@ -27696,10 +27696,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 26.86,
+      "currentPrice": 26.84,
       "previousClose": 27.41,
-      "dayChange": -0.55,
-      "dayChangePercent": -1.99,
+      "dayChange": -0.57,
+      "dayChangePercent": -2.06,
       "history": [
         {
           "date": "2025-03-20",
@@ -28707,7 +28707,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 26.86
+          "close": 26.84
         }
       ]
     },
@@ -33840,7 +33840,7 @@
     },
     {
       "ticker": "IE00BJ5JPG56",
-      "name": "iShares MSCI China UCITS ETF",
+      "name": "iShares MSCI China UCITS ETF USD Acc",
       "shares": 200,
       "avgCost": 6.107,
       "currency": "EUR",
@@ -36823,10 +36823,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4578.3,
+      "currentPrice": 4567.4,
       "previousClose": 4600.7,
-      "dayChange": -22.4,
-      "dayChangePercent": -0.49,
+      "dayChange": -33.3,
+      "dayChangePercent": -0.72,
       "history": [
         {
           "date": "2025-03-20",
@@ -37838,7 +37838,7 @@
         },
         {
           "date": "2026-03-20",
-          "close": 4578.3
+          "close": 4567.4
         }
       ]
     }
