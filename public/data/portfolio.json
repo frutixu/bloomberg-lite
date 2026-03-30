@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-03-30T09:11:25.535901Z",
+  "lastUpdated": "2026-03-30T10:40:31.118336Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Latitude",
+      "name": "Carmignac Investissement Lat A EUR Acc",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -3952,10 +3952,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 362.2,
+      "currentPrice": 361.95,
       "previousClose": 361.64,
-      "dayChange": 0.56,
-      "dayChangePercent": 0.15,
+      "dayChange": 0.31,
+      "dayChangePercent": 0.09,
       "history": [
         {
           "date": "2025-03-31",
@@ -4975,7 +4975,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 362.2
+          "close": 361.95
         }
       ]
     },
@@ -4987,10 +4987,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 320.82,
+      "currentPrice": 320.74,
       "previousClose": 320.57,
-      "dayChange": 0.24,
-      "dayChangePercent": 0.08,
+      "dayChange": 0.16,
+      "dayChangePercent": 0.05,
       "history": [
         {
           "date": "2025-03-31",
@@ -6010,7 +6010,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 320.82
+          "close": 320.74
         }
       ]
     },
@@ -7005,10 +7005,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 6.33,
+      "currentPrice": 6.32,
       "previousClose": 6.32,
-      "dayChange": 0.01,
-      "dayChangePercent": 0.18,
+      "dayChange": -0.0,
+      "dayChangePercent": -0.07,
       "history": [
         {
           "date": "2025-03-31",
@@ -8028,7 +8028,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 6.33
+          "close": 6.32
         }
       ]
     },
@@ -8075,7 +8075,7 @@
         },
         {
           "date": "2025-04-08",
-          "close": 146.08
+          "close": 146.07
         },
         {
           "date": "2025-04-09",
@@ -9059,10 +9059,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 279.4,
+      "currentPrice": 279.2,
       "previousClose": 278.4,
-      "dayChange": 1.0,
-      "dayChangePercent": 0.36,
+      "dayChange": 0.8,
+      "dayChangePercent": 0.29,
       "history": [
         {
           "date": "2025-03-31",
@@ -10082,13 +10082,13 @@
         },
         {
           "date": "2026-03-30",
-          "close": 279.4
+          "close": 279.2
         }
       ]
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Mon\u00e9taire Plus E C",
+      "name": "SG Montaire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
@@ -11085,10 +11085,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 6.76,
+      "currentPrice": 6.73,
       "previousClose": 6.58,
-      "dayChange": 0.18,
-      "dayChangePercent": 2.78,
+      "dayChange": 0.15,
+      "dayChangePercent": 2.34,
       "history": [
         {
           "date": "2025-03-31",
@@ -12104,7 +12104,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 6.76
+          "close": 6.73
         }
       ]
     },
@@ -12116,10 +12116,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 1151.4,
+      "currentPrice": 1142.4,
       "previousClose": 1146.4,
-      "dayChange": 5.0,
-      "dayChangePercent": 0.44,
+      "dayChange": -4.0,
+      "dayChangePercent": -0.35,
       "history": [
         {
           "date": "2025-03-31",
@@ -13139,7 +13139,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 1151.4
+          "close": 1142.4
         }
       ]
     },
@@ -13151,10 +13151,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 61.9,
+      "currentPrice": 61.76,
       "previousClose": 62.08,
-      "dayChange": -0.18,
-      "dayChangePercent": -0.29,
+      "dayChange": -0.32,
+      "dayChangePercent": -0.52,
       "history": [
         {
           "date": "2025-03-31",
@@ -14174,7 +14174,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 61.9
+          "close": 61.76
         }
       ]
     },
@@ -14186,10 +14186,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 311.2,
+      "currentPrice": 313.0,
       "previousClose": 310.0,
-      "dayChange": 1.2,
-      "dayChangePercent": 0.39,
+      "dayChange": 3.0,
+      "dayChangePercent": 0.97,
       "history": [
         {
           "date": "2025-03-31",
@@ -15209,7 +15209,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 311.2
+          "close": 313.0
         }
       ]
     },
@@ -15221,10 +15221,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 243.1,
+      "currentPrice": 244.4,
       "previousClose": 237.9,
-      "dayChange": 5.2,
-      "dayChangePercent": 2.19,
+      "dayChange": 6.5,
+      "dayChangePercent": 2.73,
       "history": [
         {
           "date": "2025-03-31",
@@ -16244,7 +16244,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 243.1
+          "close": 244.4
         }
       ]
     },
@@ -16256,10 +16256,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 80.0,
+      "currentPrice": 80.12,
       "previousClose": 78.49,
-      "dayChange": 1.51,
-      "dayChangePercent": 1.92,
+      "dayChange": 1.63,
+      "dayChangePercent": 2.08,
       "history": [
         {
           "date": "2025-03-31",
@@ -17279,7 +17279,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 80.0
+          "close": 80.12
         }
       ]
     },
@@ -17291,10 +17291,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 174.22,
+      "currentPrice": 173.8,
       "previousClose": 172.94,
-      "dayChange": 1.28,
-      "dayChangePercent": 0.74,
+      "dayChange": 0.86,
+      "dayChangePercent": 0.5,
       "history": [
         {
           "date": "2025-03-31",
@@ -18314,7 +18314,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 174.22
+          "close": 173.8
         }
       ]
     },
@@ -18326,10 +18326,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 16.67,
+      "currentPrice": 16.59,
       "previousClose": 16.6,
-      "dayChange": 0.07,
-      "dayChangePercent": 0.39,
+      "dayChange": -0.01,
+      "dayChangePercent": -0.09,
       "history": [
         {
           "date": "2025-03-31",
@@ -19349,7 +19349,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 16.67
+          "close": 16.59
         }
       ]
     },
@@ -19361,10 +19361,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 458.95,
+      "currentPrice": 456.95,
       "previousClose": 455.75,
-      "dayChange": 3.2,
-      "dayChangePercent": 0.7,
+      "dayChange": 1.2,
+      "dayChangePercent": 0.26,
       "history": [
         {
           "date": "2025-03-31",
@@ -20384,7 +20384,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 458.95
+          "close": 456.95
         }
       ]
     },
@@ -20396,10 +20396,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "etf",
-      "currentPrice": 81.21,
+      "currentPrice": 81.1,
       "previousClose": 81.17,
-      "dayChange": 0.04,
-      "dayChangePercent": 0.05,
+      "dayChange": -0.07,
+      "dayChangePercent": -0.09,
       "history": [
         {
           "date": "2025-03-31",
@@ -21419,7 +21419,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 81.21
+          "close": 81.1
         }
       ]
     },
@@ -21450,10 +21450,10 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 52.74,
+      "currentPrice": 51.94,
       "previousClose": 53.78,
-      "dayChange": -1.04,
-      "dayChangePercent": -1.93,
+      "dayChange": -1.84,
+      "dayChangePercent": -3.42,
       "history": [
         {
           "date": "2025-03-31",
@@ -22473,7 +22473,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 52.74
+          "close": 51.94
         }
       ]
     },
@@ -26561,10 +26561,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 65.12,
+      "currentPrice": 65.46,
       "previousClose": 64.7,
-      "dayChange": 0.42,
-      "dayChangePercent": 0.65,
+      "dayChange": 0.76,
+      "dayChangePercent": 1.17,
       "history": [
         {
           "date": "2025-03-31",
@@ -27584,7 +27584,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 65.12
+          "close": 65.46
         }
       ]
     },
@@ -28608,1013 +28608,6 @@
       ]
     },
     {
-      "ticker": "CH0012032048",
-      "name": "Roche Holding AG",
-      "shares": 4,
-      "avgCost": 263.7,
-      "currency": "CHF",
-      "broker": "Saxo",
-      "class": "stock",
-      "currentPrice": 312.5,
-      "previousClose": 312.8,
-      "dayChange": -0.3,
-      "dayChangePercent": -0.1,
-      "history": [
-        {
-          "date": "2025-03-31",
-          "close": 281.87
-        },
-        {
-          "date": "2025-04-01",
-          "close": 283.72
-        },
-        {
-          "date": "2025-04-02",
-          "close": 278.28
-        },
-        {
-          "date": "2025-04-03",
-          "close": 270.23
-        },
-        {
-          "date": "2025-04-04",
-          "close": 254.03
-        },
-        {
-          "date": "2025-04-07",
-          "close": 238.79
-        },
-        {
-          "date": "2025-04-08",
-          "close": 242.58
-        },
-        {
-          "date": "2025-04-09",
-          "close": 228.41
-        },
-        {
-          "date": "2025-04-10",
-          "close": 235.78
-        },
-        {
-          "date": "2025-04-11",
-          "close": 236.56
-        },
-        {
-          "date": "2025-04-14",
-          "close": 244.23
-        },
-        {
-          "date": "2025-04-15",
-          "close": 247.82
-        },
-        {
-          "date": "2025-04-16",
-          "close": 246.85
-        },
-        {
-          "date": "2025-04-17",
-          "close": 248.01
-        },
-        {
-          "date": "2025-04-22",
-          "close": 247.23
-        },
-        {
-          "date": "2025-04-23",
-          "close": 250.44
-        },
-        {
-          "date": "2025-04-24",
-          "close": 254.51
-        },
-        {
-          "date": "2025-04-25",
-          "close": 254.12
-        },
-        {
-          "date": "2025-04-28",
-          "close": 257.23
-        },
-        {
-          "date": "2025-04-29",
-          "close": 260.91
-        },
-        {
-          "date": "2025-04-30",
-          "close": 261.3
-        },
-        {
-          "date": "2025-05-02",
-          "close": 264.31
-        },
-        {
-          "date": "2025-05-05",
-          "close": 263.92
-        },
-        {
-          "date": "2025-05-06",
-          "close": 263.34
-        },
-        {
-          "date": "2025-05-07",
-          "close": 258.29
-        },
-        {
-          "date": "2025-05-08",
-          "close": 252.18
-        },
-        {
-          "date": "2025-05-09",
-          "close": 249.95
-        },
-        {
-          "date": "2025-05-12",
-          "close": 254.12
-        },
-        {
-          "date": "2025-05-13",
-          "close": 251.31
-        },
-        {
-          "date": "2025-05-14",
-          "close": 246.94
-        },
-        {
-          "date": "2025-05-15",
-          "close": 249.37
-        },
-        {
-          "date": "2025-05-16",
-          "close": 251.99
-        },
-        {
-          "date": "2025-05-19",
-          "close": 252.28
-        },
-        {
-          "date": "2025-05-20",
-          "close": 255.58
-        },
-        {
-          "date": "2025-05-21",
-          "close": 254.8
-        },
-        {
-          "date": "2025-05-22",
-          "close": 251.5
-        },
-        {
-          "date": "2025-05-23",
-          "close": 252.18
-        },
-        {
-          "date": "2025-05-26",
-          "close": 254.7
-        },
-        {
-          "date": "2025-05-27",
-          "close": 253.15
-        },
-        {
-          "date": "2025-05-28",
-          "close": 252.47
-        },
-        {
-          "date": "2025-05-30",
-          "close": 257.62
-        },
-        {
-          "date": "2025-06-02",
-          "close": 256.84
-        },
-        {
-          "date": "2025-06-03",
-          "close": 255.97
-        },
-        {
-          "date": "2025-06-04",
-          "close": 259.26
-        },
-        {
-          "date": "2025-06-05",
-          "close": 259.75
-        },
-        {
-          "date": "2025-06-06",
-          "close": 260.24
-        },
-        {
-          "date": "2025-06-10",
-          "close": 261.79
-        },
-        {
-          "date": "2025-06-11",
-          "close": 261.88
-        },
-        {
-          "date": "2025-06-12",
-          "close": 264.5
-        },
-        {
-          "date": "2025-06-13",
-          "close": 261.69
-        },
-        {
-          "date": "2025-06-16",
-          "close": 255.09
-        },
-        {
-          "date": "2025-06-17",
-          "close": 253.83
-        },
-        {
-          "date": "2025-06-18",
-          "close": 251.41
-        },
-        {
-          "date": "2025-06-19",
-          "close": 252.28
-        },
-        {
-          "date": "2025-06-20",
-          "close": 251.6
-        },
-        {
-          "date": "2025-06-23",
-          "close": 252.76
-        },
-        {
-          "date": "2025-06-24",
-          "close": 254.32
-        },
-        {
-          "date": "2025-06-25",
-          "close": 251.7
-        },
-        {
-          "date": "2025-06-26",
-          "close": 254.32
-        },
-        {
-          "date": "2025-06-27",
-          "close": 253.83
-        },
-        {
-          "date": "2025-06-30",
-          "close": 250.73
-        },
-        {
-          "date": "2025-07-01",
-          "close": 252.96
-        },
-        {
-          "date": "2025-07-02",
-          "close": 252.38
-        },
-        {
-          "date": "2025-07-03",
-          "close": 249.95
-        },
-        {
-          "date": "2025-07-04",
-          "close": 252.28
-        },
-        {
-          "date": "2025-07-07",
-          "close": 249.46
-        },
-        {
-          "date": "2025-07-08",
-          "close": 250.05
-        },
-        {
-          "date": "2025-07-09",
-          "close": 252.28
-        },
-        {
-          "date": "2025-07-10",
-          "close": 255.19
-        },
-        {
-          "date": "2025-07-11",
-          "close": 249.17
-        },
-        {
-          "date": "2025-07-14",
-          "close": 250.05
-        },
-        {
-          "date": "2025-07-15",
-          "close": 247.43
-        },
-        {
-          "date": "2025-07-16",
-          "close": 248.59
-        },
-        {
-          "date": "2025-07-17",
-          "close": 249.37
-        },
-        {
-          "date": "2025-07-18",
-          "close": 250.82
-        },
-        {
-          "date": "2025-07-21",
-          "close": 248.01
-        },
-        {
-          "date": "2025-07-22",
-          "close": 246.55
-        },
-        {
-          "date": "2025-07-23",
-          "close": 253.54
-        },
-        {
-          "date": "2025-07-24",
-          "close": 257.23
-        },
-        {
-          "date": "2025-07-25",
-          "close": 251.5
-        },
-        {
-          "date": "2025-07-28",
-          "close": 252.86
-        },
-        {
-          "date": "2025-07-29",
-          "close": 251.79
-        },
-        {
-          "date": "2025-07-30",
-          "close": 251.89
-        },
-        {
-          "date": "2025-07-31",
-          "close": 249.46
-        },
-        {
-          "date": "2025-08-04",
-          "close": 247.43
-        },
-        {
-          "date": "2025-08-05",
-          "close": 247.82
-        },
-        {
-          "date": "2025-08-06",
-          "close": 241.22
-        },
-        {
-          "date": "2025-08-07",
-          "close": 241.7
-        },
-        {
-          "date": "2025-08-08",
-          "close": 239.08
-        },
-        {
-          "date": "2025-08-11",
-          "close": 238.99
-        },
-        {
-          "date": "2025-08-12",
-          "close": 239.08
-        },
-        {
-          "date": "2025-08-13",
-          "close": 242.28
-        },
-        {
-          "date": "2025-08-14",
-          "close": 242.67
-        },
-        {
-          "date": "2025-08-15",
-          "close": 248.4
-        },
-        {
-          "date": "2025-08-18",
-          "close": 248.4
-        },
-        {
-          "date": "2025-08-19",
-          "close": 252.47
-        },
-        {
-          "date": "2025-08-20",
-          "close": 254.61
-        },
-        {
-          "date": "2025-08-21",
-          "close": 254.7
-        },
-        {
-          "date": "2025-08-22",
-          "close": 253.73
-        },
-        {
-          "date": "2025-08-25",
-          "close": 252.18
-        },
-        {
-          "date": "2025-08-26",
-          "close": 251.5
-        },
-        {
-          "date": "2025-08-27",
-          "close": 254.8
-        },
-        {
-          "date": "2025-08-28",
-          "close": 253.25
-        },
-        {
-          "date": "2025-08-29",
-          "close": 252.57
-        },
-        {
-          "date": "2025-09-01",
-          "close": 252.47
-        },
-        {
-          "date": "2025-09-02",
-          "close": 254.22
-        },
-        {
-          "date": "2025-09-03",
-          "close": 261.5
-        },
-        {
-          "date": "2025-09-04",
-          "close": 267.51
-        },
-        {
-          "date": "2025-09-05",
-          "close": 266.06
-        },
-        {
-          "date": "2025-09-08",
-          "close": 262.08
-        },
-        {
-          "date": "2025-09-09",
-          "close": 261.69
-        },
-        {
-          "date": "2025-09-10",
-          "close": 258.2
-        },
-        {
-          "date": "2025-09-11",
-          "close": 260.43
-        },
-        {
-          "date": "2025-09-12",
-          "close": 256.65
-        },
-        {
-          "date": "2025-09-15",
-          "close": 252.67
-        },
-        {
-          "date": "2025-09-16",
-          "close": 250.73
-        },
-        {
-          "date": "2025-09-17",
-          "close": 252.67
-        },
-        {
-          "date": "2025-09-18",
-          "close": 253.73
-        },
-        {
-          "date": "2025-09-19",
-          "close": 257.23
-        },
-        {
-          "date": "2025-09-22",
-          "close": 263.05
-        },
-        {
-          "date": "2025-09-23",
-          "close": 257.32
-        },
-        {
-          "date": "2025-09-24",
-          "close": 252.18
-        },
-        {
-          "date": "2025-09-25",
-          "close": 247.43
-        },
-        {
-          "date": "2025-09-26",
-          "close": 245.97
-        },
-        {
-          "date": "2025-09-29",
-          "close": 248.49
-        },
-        {
-          "date": "2025-09-30",
-          "close": 252.18
-        },
-        {
-          "date": "2025-10-01",
-          "close": 273.92
-        },
-        {
-          "date": "2025-10-02",
-          "close": 275.86
-        },
-        {
-          "date": "2025-10-03",
-          "close": 278.28
-        },
-        {
-          "date": "2025-10-06",
-          "close": 279.84
-        },
-        {
-          "date": "2025-10-07",
-          "close": 279.93
-        },
-        {
-          "date": "2025-10-08",
-          "close": 282.65
-        },
-        {
-          "date": "2025-10-09",
-          "close": 284.88
-        },
-        {
-          "date": "2025-10-10",
-          "close": 281.58
-        },
-        {
-          "date": "2025-10-13",
-          "close": 281.48
-        },
-        {
-          "date": "2025-10-14",
-          "close": 277.7
-        },
-        {
-          "date": "2025-10-15",
-          "close": 275.66
-        },
-        {
-          "date": "2025-10-16",
-          "close": 276.83
-        },
-        {
-          "date": "2025-10-17",
-          "close": 275.27
-        },
-        {
-          "date": "2025-10-20",
-          "close": 272.75
-        },
-        {
-          "date": "2025-10-21",
-          "close": 272.46
-        },
-        {
-          "date": "2025-10-22",
-          "close": 272.17
-        },
-        {
-          "date": "2025-10-23",
-          "close": 263.53
-        },
-        {
-          "date": "2025-10-24",
-          "close": 263.15
-        },
-        {
-          "date": "2025-10-27",
-          "close": 259.46
-        },
-        {
-          "date": "2025-10-28",
-          "close": 253.35
-        },
-        {
-          "date": "2025-10-29",
-          "close": 252.67
-        },
-        {
-          "date": "2025-10-30",
-          "close": 253.93
-        },
-        {
-          "date": "2025-10-31",
-          "close": 251.21
-        },
-        {
-          "date": "2025-11-03",
-          "close": 251.79
-        },
-        {
-          "date": "2025-11-04",
-          "close": 256.16
-        },
-        {
-          "date": "2025-11-05",
-          "close": 257.23
-        },
-        {
-          "date": "2025-11-06",
-          "close": 257.32
-        },
-        {
-          "date": "2025-11-07",
-          "close": 260.43
-        },
-        {
-          "date": "2025-11-10",
-          "close": 270.62
-        },
-        {
-          "date": "2025-11-11",
-          "close": 280.13
-        },
-        {
-          "date": "2025-11-12",
-          "close": 281.78
-        },
-        {
-          "date": "2025-11-13",
-          "close": 281.29
-        },
-        {
-          "date": "2025-11-14",
-          "close": 277.6
-        },
-        {
-          "date": "2025-11-17",
-          "close": 278.67
-        },
-        {
-          "date": "2025-11-18",
-          "close": 297.59
-        },
-        {
-          "date": "2025-11-19",
-          "close": 300.99
-        },
-        {
-          "date": "2025-11-20",
-          "close": 302.54
-        },
-        {
-          "date": "2025-11-21",
-          "close": 306.23
-        },
-        {
-          "date": "2025-11-24",
-          "close": 301.67
-        },
-        {
-          "date": "2025-11-25",
-          "close": 304.29
-        },
-        {
-          "date": "2025-11-26",
-          "close": 303.61
-        },
-        {
-          "date": "2025-11-27",
-          "close": 300.11
-        },
-        {
-          "date": "2025-11-28",
-          "close": 298.27
-        },
-        {
-          "date": "2025-12-01",
-          "close": 299.82
-        },
-        {
-          "date": "2025-12-02",
-          "close": 304.0
-        },
-        {
-          "date": "2025-12-03",
-          "close": 304.48
-        },
-        {
-          "date": "2025-12-04",
-          "close": 300.89
-        },
-        {
-          "date": "2025-12-05",
-          "close": 301.67
-        },
-        {
-          "date": "2025-12-08",
-          "close": 308.27
-        },
-        {
-          "date": "2025-12-09",
-          "close": 305.94
-        },
-        {
-          "date": "2025-12-10",
-          "close": 312.44
-        },
-        {
-          "date": "2025-12-11",
-          "close": 308.46
-        },
-        {
-          "date": "2025-12-12",
-          "close": 307.39
-        },
-        {
-          "date": "2025-12-15",
-          "close": 312.34
-        },
-        {
-          "date": "2025-12-16",
-          "close": 310.89
-        },
-        {
-          "date": "2025-12-17",
-          "close": 307.68
-        },
-        {
-          "date": "2025-12-18",
-          "close": 310.01
-        },
-        {
-          "date": "2025-12-19",
-          "close": 315.83
-        },
-        {
-          "date": "2025-12-22",
-          "close": 315.45
-        },
-        {
-          "date": "2025-12-23",
-          "close": 319.81
-        },
-        {
-          "date": "2025-12-29",
-          "close": 317.97
-        },
-        {
-          "date": "2025-12-30",
-          "close": 318.45
-        },
-        {
-          "date": "2026-01-05",
-          "close": 315.83
-        },
-        {
-          "date": "2026-01-06",
-          "close": 320.1
-        },
-        {
-          "date": "2026-01-07",
-          "close": 328.16
-        },
-        {
-          "date": "2026-01-08",
-          "close": 329.32
-        },
-        {
-          "date": "2026-01-09",
-          "close": 330.68
-        },
-        {
-          "date": "2026-01-12",
-          "close": 332.33
-        },
-        {
-          "date": "2026-01-13",
-          "close": 330.78
-        },
-        {
-          "date": "2026-01-14",
-          "close": 333.88
-        },
-        {
-          "date": "2026-01-15",
-          "close": 335.43
-        },
-        {
-          "date": "2026-01-16",
-          "close": 338.54
-        },
-        {
-          "date": "2026-01-19",
-          "close": 336.5
-        },
-        {
-          "date": "2026-01-20",
-          "close": 335.72
-        },
-        {
-          "date": "2026-01-21",
-          "close": 334.46
-        },
-        {
-          "date": "2026-01-22",
-          "close": 337.57
-        },
-        {
-          "date": "2026-01-23",
-          "close": 337.76
-        },
-        {
-          "date": "2026-01-26",
-          "close": 340.09
-        },
-        {
-          "date": "2026-01-27",
-          "close": 339.61
-        },
-        {
-          "date": "2026-01-28",
-          "close": 328.25
-        },
-        {
-          "date": "2026-01-29",
-          "close": 336.7
-        },
-        {
-          "date": "2026-01-30",
-          "close": 340.29
-        },
-        {
-          "date": "2026-02-02",
-          "close": 343.97
-        },
-        {
-          "date": "2026-02-03",
-          "close": 342.03
-        },
-        {
-          "date": "2026-02-04",
-          "close": 349.89
-        },
-        {
-          "date": "2026-02-05",
-          "close": 348.05
-        },
-        {
-          "date": "2026-02-06",
-          "close": 345.82
-        },
-        {
-          "date": "2026-02-09",
-          "close": 343.29
-        },
-        {
-          "date": "2026-02-10",
-          "close": 340.67
-        },
-        {
-          "date": "2026-02-11",
-          "close": 346.2
-        },
-        {
-          "date": "2026-02-12",
-          "close": 349.02
-        },
-        {
-          "date": "2026-02-13",
-          "close": 349.31
-        },
-        {
-          "date": "2026-02-16",
-          "close": 350.67
-        },
-        {
-          "date": "2026-02-17",
-          "close": 358.24
-        },
-        {
-          "date": "2026-02-18",
-          "close": 358.33
-        },
-        {
-          "date": "2026-02-19",
-          "close": 357.27
-        },
-        {
-          "date": "2026-02-20",
-          "close": 356.88
-        },
-        {
-          "date": "2026-02-23",
-          "close": 359.4
-        },
-        {
-          "date": "2026-02-24",
-          "close": 362.89
-        },
-        {
-          "date": "2026-02-25",
-          "close": 358.14
-        },
-        {
-          "date": "2026-02-26",
-          "close": 352.8
-        },
-        {
-          "date": "2026-02-27",
-          "close": 356.1
-        },
-        {
-          "date": "2026-03-02",
-          "close": 352.12
-        },
-        {
-          "date": "2026-03-03",
-          "close": 344.85
-        },
-        {
-          "date": "2026-03-04",
-          "close": 348.14
-        },
-        {
-          "date": "2026-03-05",
-          "close": 341.06
-        },
-        {
-          "date": "2026-03-06",
-          "close": 331.07
-        },
-        {
-          "date": "2026-03-09",
-          "close": 322.53
-        },
-        {
-          "date": "2026-03-10",
-          "close": 325.25
-        },
-        {
-          "date": "2026-03-11",
-          "close": 320.2
-        },
-        {
-          "date": "2026-03-12",
-          "close": 318.2
-        },
-        {
-          "date": "2026-03-13",
-          "close": 320.7
-        },
-        {
-          "date": "2026-03-16",
-          "close": 322.3
-        },
-        {
-          "date": "2026-03-17",
-          "close": 323.9
-        },
-        {
-          "date": "2026-03-18",
-          "close": 314.8
-        },
-        {
-          "date": "2026-03-19",
-          "close": 305.7
-        },
-        {
-          "date": "2026-03-20",
-          "close": 300.9
-        },
-        {
-          "date": "2026-03-23",
-          "close": 303.9
-        },
-        {
-          "date": "2026-03-24",
-          "close": 305.8
-        },
-        {
-          "date": "2026-03-25",
-          "close": 312.0
-        },
-        {
-          "date": "2026-03-26",
-          "close": 312.8
-        },
-        {
-          "date": "2026-03-27",
-          "close": 312.5
-        }
-      ]
-    },
-    {
       "ticker": "CH0002178181",
       "name": "Stadler Rail AG",
       "shares": 50,
@@ -29622,10 +28615,10 @@
       "currency": "CHF",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 19.77,
+      "currentPrice": 19.68,
       "previousClose": 19.62,
-      "dayChange": 0.15,
-      "dayChangePercent": 0.76,
+      "dayChange": 0.06,
+      "dayChangePercent": 0.31,
       "history": [
         {
           "date": "2025-03-31",
@@ -30621,7 +29614,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 19.77
+          "close": 19.68
         }
       ]
     },
@@ -30633,10 +29626,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 45.35,
+      "currentPrice": 45.25,
       "previousClose": 45.32,
-      "dayChange": 0.03,
-      "dayChangePercent": 0.07,
+      "dayChange": -0.07,
+      "dayChangePercent": -0.15,
       "history": [
         {
           "date": "2025-03-31",
@@ -31648,7 +30641,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 45.35
+          "close": 45.25
         }
       ]
     },
@@ -31660,10 +30653,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 92.07,
+      "currentPrice": 91.79,
       "previousClose": 91.58,
-      "dayChange": 0.49,
-      "dayChangePercent": 0.54,
+      "dayChange": 0.21,
+      "dayChangePercent": 0.22,
       "history": [
         {
           "date": "2025-03-31",
@@ -32683,7 +31676,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 92.07
+          "close": 91.79
         }
       ]
     },
@@ -32695,10 +31688,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 70.94,
+      "currentPrice": 70.85,
       "previousClose": 70.3,
-      "dayChange": 0.64,
-      "dayChangePercent": 0.91,
+      "dayChange": 0.55,
+      "dayChangePercent": 0.78,
       "history": [
         {
           "date": "2025-03-31",
@@ -33710,7 +32703,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 70.94
+          "close": 70.85
         }
       ]
     },
@@ -34757,10 +33750,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 14.17,
+      "currentPrice": 14.16,
       "previousClose": 13.88,
-      "dayChange": 0.29,
-      "dayChangePercent": 2.09,
+      "dayChange": 0.28,
+      "dayChangePercent": 2.03,
       "history": [
         {
           "date": "2025-03-31",
@@ -35648,7 +34641,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 14.17
+          "close": 14.16
         }
       ]
     },
@@ -35660,10 +34653,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 7.97,
+      "currentPrice": 7.95,
       "previousClose": 8.08,
-      "dayChange": -0.11,
-      "dayChangePercent": -1.36,
+      "dayChange": -0.13,
+      "dayChangePercent": -1.56,
       "history": [
         {
           "date": "2025-03-31",
@@ -36675,7 +35668,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 7.97
+          "close": 7.95
         }
       ]
     },
@@ -36687,10 +35680,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4568.5,
+      "currentPrice": 4560.0,
       "previousClose": 4492.0,
-      "dayChange": 76.5,
-      "dayChangePercent": 1.7,
+      "dayChange": 68.0,
+      "dayChangePercent": 1.51,
       "history": [
         {
           "date": "2025-03-31",
@@ -37698,7 +36691,7 @@
         },
         {
           "date": "2026-03-30",
-          "close": 4568.5
+          "close": 4560.0
         }
       ]
     }
