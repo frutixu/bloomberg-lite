@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-04-03T19:00:22.883247Z",
+  "lastUpdated": "2026-04-03T19:46:12.091718Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Latitude",
+      "name": "Carmignac Investissement Lat A EUR Acc",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 407.88,
-      "previousClose": 407.81,
-      "dayChange": 0.07,
-      "dayChangePercent": 0.02,
+      "currentPrice": 407.24,
+      "previousClose": 407.88,
+      "dayChange": -0.64,
+      "dayChangePercent": -0.16,
       "history": [
         {
           "date": "2025-04-02",
@@ -993,6 +993,10 @@
         {
           "date": "2026-04-01",
           "close": 407.88
+        },
+        {
+          "date": "2026-04-02",
+          "close": 407.24
         }
       ]
     },
@@ -6062,10 +6066,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "fund",
-      "currentPrice": 194.37,
-      "previousClose": 192.91,
-      "dayChange": 1.46,
-      "dayChangePercent": 0.76,
+      "currentPrice": 194.09,
+      "previousClose": 194.37,
+      "dayChange": -0.28,
+      "dayChangePercent": -0.14,
       "history": [
         {
           "date": "2025-04-02",
@@ -7042,6 +7046,10 @@
         {
           "date": "2026-04-01",
           "close": 194.37
+        },
+        {
+          "date": "2026-04-02",
+          "close": 194.09
         }
       ]
     },
@@ -8111,7 +8119,7 @@
         },
         {
           "date": "2025-04-08",
-          "close": 146.08
+          "close": 146.07
         },
         {
           "date": "2025-04-09",
@@ -8611,7 +8619,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.8
+          "close": 246.79
         },
         {
           "date": "2025-10-08",
@@ -10144,7 +10152,7 @@
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Mon\u00e9taire Plus E C",
+      "name": "SG Montaire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
