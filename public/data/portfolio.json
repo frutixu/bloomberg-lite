@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-02T21:01:45.632136Z",
+  "lastUpdated": "2026-04-03T08:53:24.776173Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -8111,7 +8111,7 @@
         },
         {
           "date": "2025-04-08",
-          "close": 146.07
+          "close": 146.08
         },
         {
           "date": "2025-04-09",
@@ -8611,7 +8611,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.79
+          "close": 246.8
         },
         {
           "date": "2025-10-08",
@@ -34903,9 +34903,9 @@
       "broker": "Saxo",
       "class": "etf",
       "currentPrice": 14.1,
-      "previousClose": 14.34,
-      "dayChange": -0.25,
-      "dayChangePercent": -1.73,
+      "previousClose": 15.75,
+      "dayChange": -1.66,
+      "dayChangePercent": -10.53,
       "history": [
         {
           "date": "2025-04-02",
@@ -35790,6 +35790,10 @@
         {
           "date": "2026-03-31",
           "close": 14.34
+        },
+        {
+          "date": "2026-04-01",
+          "close": 15.75
         },
         {
           "date": "2026-04-02",
@@ -36836,15 +36840,11 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4697.8,
+      "currentPrice": 4651.5,
       "previousClose": 4783.2,
-      "dayChange": -85.4,
-      "dayChangePercent": -1.79,
+      "dayChange": -131.7,
+      "dayChangePercent": -2.75,
       "history": [
-        {
-          "date": "2025-04-02",
-          "close": 3139.9
-        },
         {
           "date": "2025-04-03",
           "close": 3097.0
@@ -37851,7 +37851,7 @@
         },
         {
           "date": "2026-04-02",
-          "close": 4697.8
+          "close": 4651.5
         }
       ]
     }
