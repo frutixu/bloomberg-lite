@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-16T20:07:06.716336Z",
+  "lastUpdated": "2026-04-16T21:04:48.843698Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Lat A EUR Acc",
+      "name": "Carmignac Investissement Latitude",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -10064,7 +10064,7 @@
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Montaire Plus E C",
+      "name": "SG Mon\u00e9taire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
@@ -23439,7 +23439,7 @@
       "currentPrice": 68.28,
       "previousClose": 68.7,
       "dayChange": -0.42,
-      "dayChangePercent": -0.62,
+      "dayChangePercent": -0.61,
       "history": [
         {
           "date": "2025-04-17",
@@ -24451,10 +24451,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 334.95,
+      "currentPrice": 334.92,
       "previousClose": 338.88,
-      "dayChange": -3.93,
-      "dayChangePercent": -1.16,
+      "dayChange": -3.96,
+      "dayChangePercent": -1.17,
       "history": [
         {
           "date": "2025-04-17",
@@ -24710,7 +24710,7 @@
         },
         {
           "date": "2025-07-21",
-          "close": 293.18
+          "close": 293.19
         },
         {
           "date": "2025-07-22",
@@ -25454,7 +25454,7 @@
         },
         {
           "date": "2026-04-16",
-          "close": 334.95
+          "close": 334.92
         }
       ]
     },
@@ -27512,10 +27512,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 27.2,
+      "currentPrice": 27.22,
       "previousClose": 27.19,
-      "dayChange": 0.01,
-      "dayChangePercent": 0.04,
+      "dayChange": 0.03,
+      "dayChangePercent": 0.11,
       "history": [
         {
           "date": "2025-04-17",
@@ -28515,7 +28515,7 @@
         },
         {
           "date": "2026-04-16",
-          "close": 27.2
+          "close": 27.22
         }
       ]
     },
@@ -35564,10 +35564,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4815.9,
+      "currentPrice": 4810.3,
       "previousClose": 4800.0,
-      "dayChange": 15.9,
-      "dayChangePercent": 0.33,
+      "dayChange": 10.3,
+      "dayChangePercent": 0.21,
       "history": [
         {
           "date": "2025-04-16",
@@ -36575,7 +36575,7 @@
         },
         {
           "date": "2026-04-16",
-          "close": 4815.9
+          "close": 4810.3
         }
       ]
     }
