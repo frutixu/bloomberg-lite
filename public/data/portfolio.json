@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-21T18:46:12.120120Z",
+  "lastUpdated": "2026-04-21T20:02:40.904892Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Lat A EUR Acc",
+      "name": "Carmignac Investissement Latitude",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -8044,15 +8044,11 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 330.97,
+      "currentPrice": 330.47,
       "previousClose": 335.4,
-      "dayChange": -4.43,
-      "dayChangePercent": -1.32,
+      "dayChange": -4.93,
+      "dayChangePercent": -1.47,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 149.34
-        },
         {
           "date": "2025-04-22",
           "close": 153.37
@@ -8519,7 +8515,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.8
+          "close": 246.79
         },
         {
           "date": "2025-10-08",
@@ -9055,7 +9051,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 330.97
+          "close": 330.47
         }
       ]
     },
@@ -22497,15 +22493,11 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 267.12,
+      "currentPrice": 266.17,
       "previousClose": 273.05,
-      "dayChange": -5.93,
-      "dayChangePercent": -2.17,
+      "dayChange": -6.88,
+      "dayChangePercent": -2.52,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 192.32
-        },
         {
           "date": "2025-04-22",
           "close": 198.87
@@ -23508,7 +23500,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 267.12
+          "close": 266.17
         }
       ]
     },
@@ -23520,15 +23512,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 68.04,
+      "currentPrice": 67.57,
       "previousClose": 70.18,
-      "dayChange": -2.14,
-      "dayChangePercent": -3.05,
+      "dayChange": -2.61,
+      "dayChangePercent": -3.72,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 32.57
-        },
         {
           "date": "2025-04-22",
           "close": 33.67
@@ -24531,7 +24519,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 68.04
+          "close": 67.57
         }
       ]
     },
@@ -24543,15 +24531,11 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 325.16,
+      "currentPrice": 325.43,
       "previousClose": 332.14,
-      "dayChange": -6.98,
-      "dayChangePercent": -2.1,
+      "dayChange": -6.71,
+      "dayChangePercent": -2.02,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 268.25
-        },
         {
           "date": "2025-04-22",
           "close": 269.84
@@ -24798,7 +24782,7 @@
         },
         {
           "date": "2025-07-21",
-          "close": 293.18
+          "close": 293.19
         },
         {
           "date": "2025-07-22",
@@ -25554,7 +25538,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 325.16
+          "close": 325.43
         }
       ]
     },
@@ -25566,15 +25550,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 495.14,
+      "currentPrice": 494.84,
       "previousClose": 498.15,
-      "dayChange": -3.01,
-      "dayChangePercent": -0.61,
+      "dayChange": -3.31,
+      "dayChangePercent": -0.66,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 437.94
-        },
         {
           "date": "2025-04-22",
           "close": 448.56
@@ -26577,7 +26557,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 495.14
+          "close": 494.84
         }
       ]
     },
@@ -27624,15 +27604,11 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 27.47,
+      "currentPrice": 27.32,
       "previousClose": 27.52,
-      "dayChange": -0.06,
-      "dayChangePercent": -0.2,
+      "dayChange": -0.2,
+      "dayChangePercent": -0.73,
       "history": [
-        {
-          "date": "2025-04-21",
-          "close": 20.55
-        },
         {
           "date": "2025-04-22",
           "close": 21.01
@@ -28635,7 +28611,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 27.47
+          "close": 27.32
         }
       ]
     },
@@ -32741,7 +32717,7 @@
     },
     {
       "ticker": "IE00BJ5JPG56",
-      "name": "iShares MSCI China UCITS ETF",
+      "name": "iShares MSCI China UCITS ETF USD Acc",
       "shares": 200,
       "avgCost": 6.107,
       "currency": "EUR",
@@ -35712,10 +35688,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4721.9,
+      "currentPrice": 4695.9,
       "previousClose": 4806.6,
-      "dayChange": -84.7,
-      "dayChangePercent": -1.76,
+      "dayChange": -110.7,
+      "dayChangePercent": -2.3,
       "history": [
         {
           "date": "2025-04-21",
@@ -36727,7 +36703,7 @@
         },
         {
           "date": "2026-04-21",
-          "close": 4721.9
+          "close": 4695.9
         }
       ]
     }
