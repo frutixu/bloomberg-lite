@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-27T16:08:02.037396Z",
+  "lastUpdated": "2026-04-27T17:41:39.603714Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -8044,10 +8044,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 349.02,
+      "currentPrice": 350.12,
       "previousClose": 342.32,
-      "dayChange": 6.7,
-      "dayChangePercent": 1.96,
+      "dayChange": 7.8,
+      "dayChangePercent": 2.28,
       "history": [
         {
           "date": "2025-04-28",
@@ -8499,7 +8499,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.79
+          "close": 246.8
         },
         {
           "date": "2025-10-08",
@@ -9051,7 +9051,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 349.02
+          "close": 350.12
         }
       ]
     },
@@ -22493,10 +22493,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 266.79,
+      "currentPrice": 266.87,
       "previousClose": 271.06,
-      "dayChange": -4.27,
-      "dayChangePercent": -1.58,
+      "dayChange": -4.19,
+      "dayChangePercent": -1.55,
       "history": [
         {
           "date": "2025-04-28",
@@ -23500,7 +23500,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 266.79
+          "close": 266.87
         }
       ]
     },
@@ -23512,10 +23512,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 60.4,
+      "currentPrice": 60.6,
       "previousClose": 61.05,
-      "dayChange": -0.65,
-      "dayChangePercent": -1.06,
+      "dayChange": -0.45,
+      "dayChangePercent": -0.74,
       "history": [
         {
           "date": "2025-04-28",
@@ -24519,7 +24519,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 60.4
+          "close": 60.6
         }
       ]
     },
@@ -24531,10 +24531,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 314.07,
+      "currentPrice": 312.39,
       "previousClose": 313.21,
-      "dayChange": 0.86,
-      "dayChangePercent": 0.27,
+      "dayChange": -0.82,
+      "dayChangePercent": -0.26,
       "history": [
         {
           "date": "2025-04-28",
@@ -25538,7 +25538,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 314.07
+          "close": 312.39
         }
       ]
     },
@@ -25550,10 +25550,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 508.7,
+      "currentPrice": 507.7,
       "previousClose": 510.3,
-      "dayChange": -1.6,
-      "dayChangePercent": -0.31,
+      "dayChange": -2.6,
+      "dayChangePercent": -0.51,
       "history": [
         {
           "date": "2025-04-28",
@@ -26557,7 +26557,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 508.7
+          "close": 507.7
         }
       ]
     },
@@ -27604,10 +27604,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 26.92,
+      "currentPrice": 26.88,
       "previousClose": 27.0,
-      "dayChange": -0.08,
-      "dayChangePercent": -0.28,
+      "dayChange": -0.12,
+      "dayChangePercent": -0.44,
       "history": [
         {
           "date": "2025-04-28",
@@ -28611,7 +28611,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 26.92
+          "close": 26.88
         }
       ]
     },
@@ -32717,7 +32717,7 @@
     },
     {
       "ticker": "IE00BJ5JPG56",
-      "name": "iShares MSCI China UCITS ETF USD Acc",
+      "name": "iShares MSCI China UCITS ETF",
       "shares": 200,
       "avgCost": 6.107,
       "currency": "EUR",
@@ -35688,10 +35688,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4684.3,
+      "currentPrice": 4695.4,
       "previousClose": 4722.3,
-      "dayChange": -38.0,
-      "dayChangePercent": -0.8,
+      "dayChange": -26.9,
+      "dayChangePercent": -0.57,
       "history": [
         {
           "date": "2025-04-28",
@@ -36699,7 +36699,7 @@
         },
         {
           "date": "2026-04-27",
-          "close": 4684.3
+          "close": 4695.4
         }
       ]
     }
