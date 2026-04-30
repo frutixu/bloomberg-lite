@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-30T20:08:37.557029Z",
+  "lastUpdated": "2026-04-30T21:15:26.651534Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -8515,7 +8515,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.8
+          "close": 246.79
         },
         {
           "date": "2025-10-08",
@@ -12859,7 +12859,7 @@
         },
         {
           "date": "2025-12-31",
-          "close": 918.13
+          "close": 918.14
         },
         {
           "date": "2026-01-02",
@@ -12923,7 +12923,7 @@
         },
         {
           "date": "2026-01-23",
-          "close": 1174.02
+          "close": 1174.03
         },
         {
           "date": "2026-01-26",
@@ -24611,10 +24611,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 344.4,
+      "currentPrice": 344.3,
       "previousClose": 338.73,
-      "dayChange": 5.67,
-      "dayChangePercent": 1.67,
+      "dayChange": 5.57,
+      "dayChangePercent": 1.64,
       "history": [
         {
           "date": "2025-05-01",
@@ -24834,7 +24834,7 @@
         },
         {
           "date": "2025-07-21",
-          "close": 293.18
+          "close": 293.19
         },
         {
           "date": "2025-07-22",
@@ -25618,7 +25618,7 @@
         },
         {
           "date": "2026-04-30",
-          "close": 344.4
+          "close": 344.3
         }
       ]
     },
@@ -32817,7 +32817,7 @@
     },
     {
       "ticker": "IE00BJ5JPG56",
-      "name": "iShares MSCI China UCITS ETF",
+      "name": "iShares MSCI China UCITS ETF USD Acc",
       "shares": 200,
       "avgCost": 6.107,
       "currency": "EUR",
@@ -35800,10 +35800,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4629.3,
+      "currentPrice": 4636.0,
       "previousClose": 4545.2,
-      "dayChange": 84.1,
-      "dayChangePercent": 1.85,
+      "dayChange": 90.8,
+      "dayChangePercent": 2.0,
       "history": [
         {
           "date": "2025-04-30",
@@ -36815,7 +36815,7 @@
         },
         {
           "date": "2026-04-30",
-          "close": 4629.3
+          "close": 4636.0
         }
       ]
     }
