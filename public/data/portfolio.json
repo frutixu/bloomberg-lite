@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-05-01T10:58:02.510417Z",
+  "lastUpdated": "2026-05-01T12:01:45.874598Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Latitude",
+      "name": "Carmignac Investissement Lat A EUR Acc",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -8535,7 +8535,7 @@
         },
         {
           "date": "2025-10-07",
-          "close": 246.79
+          "close": 246.8
         },
         {
           "date": "2025-10-08",
@@ -12231,7 +12231,7 @@
         },
         {
           "date": "2025-05-14",
-          "close": 681.15
+          "close": 681.16
         },
         {
           "date": "2025-05-15",
@@ -24858,7 +24858,7 @@
         },
         {
           "date": "2025-07-21",
-          "close": 293.19
+          "close": 293.18
         },
         {
           "date": "2025-07-22",
@@ -29746,10 +29746,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 52.17,
+      "currentPrice": 52.16,
       "previousClose": 51.92,
-      "dayChange": 0.25,
-      "dayChangePercent": 0.48,
+      "dayChange": 0.24,
+      "dayChangePercent": 0.46,
       "history": [
         {
           "date": "2025-05-01",
@@ -30765,7 +30765,7 @@
         },
         {
           "date": "2026-05-01",
-          "close": 52.17
+          "close": 52.16
         }
       ]
     },
@@ -31816,10 +31816,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 75.95,
+      "currentPrice": 75.76,
       "previousClose": 75.91,
-      "dayChange": 0.04,
-      "dayChangePercent": 0.05,
+      "dayChange": -0.15,
+      "dayChangePercent": -0.2,
       "history": [
         {
           "date": "2025-05-01",
@@ -32835,7 +32835,7 @@
         },
         {
           "date": "2026-05-01",
-          "close": 75.95
+          "close": 75.76
         }
       ]
     },
@@ -33886,10 +33886,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 13.74,
+      "currentPrice": 13.67,
       "previousClose": 13.66,
-      "dayChange": 0.08,
-      "dayChangePercent": 0.56,
+      "dayChange": 0.01,
+      "dayChangePercent": 0.06,
       "history": [
         {
           "date": "2025-05-01",
@@ -34781,7 +34781,7 @@
         },
         {
           "date": "2026-05-01",
-          "close": 13.74
+          "close": 13.67
         }
       ]
     },
@@ -34793,10 +34793,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 8.72,
+      "currentPrice": 8.73,
       "previousClose": 8.73,
-      "dayChange": -0.01,
-      "dayChangePercent": -0.13,
+      "dayChange": -0.0,
+      "dayChangePercent": -0.01,
       "history": [
         {
           "date": "2025-05-01",
@@ -35812,7 +35812,7 @@
         },
         {
           "date": "2026-05-01",
-          "close": 8.72
+          "close": 8.73
         }
       ]
     },
@@ -35824,10 +35824,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4583.0,
+      "currentPrice": 4583.9,
       "previousClose": 4614.7,
-      "dayChange": -31.7,
-      "dayChangePercent": -0.69,
+      "dayChange": -30.8,
+      "dayChangePercent": -0.67,
       "history": [
         {
           "date": "2025-05-01",
@@ -36839,7 +36839,7 @@
         },
         {
           "date": "2026-05-01",
-          "close": 4583.0
+          "close": 4583.9
         }
       ]
     }
