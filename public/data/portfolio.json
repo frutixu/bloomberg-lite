@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-11T16:47:01.805167Z",
+  "lastUpdated": "2026-05-11T18:58:13.111455Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -9,10 +9,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 423.24,
-      "previousClose": 423.6,
-      "dayChange": -0.36,
-      "dayChangePercent": -0.08,
+      "currentPrice": 428.32,
+      "previousClose": 423.24,
+      "dayChange": 5.08,
+      "dayChangePercent": 1.2,
       "history": [
         {
           "date": "2025-05-12",
@@ -985,6 +985,10 @@
         {
           "date": "2026-05-06",
           "close": 423.24
+        },
+        {
+          "date": "2026-05-07",
+          "close": 428.32
         }
       ]
     },
@@ -997,9 +1001,9 @@
       "broker": "LIF EU",
       "class": "fund",
       "currentPrice": 11.97,
-      "previousClose": 11.96,
-      "dayChange": 0.01,
-      "dayChangePercent": 0.08,
+      "previousClose": 11.97,
+      "dayChange": 0.0,
+      "dayChangePercent": 0.0,
       "history": [
         {
           "date": "2025-05-12",
@@ -1962,8 +1966,16 @@
           "close": 11.82
         },
         {
+          "date": "2026-05-05",
+          "close": 11.89
+        },
+        {
           "date": "2026-05-06",
           "close": 11.96
+        },
+        {
+          "date": "2026-05-07",
+          "close": 11.97
         },
         {
           "date": "2026-05-08",
@@ -1980,9 +1992,9 @@
       "broker": "LIF EU",
       "class": "fund",
       "currentPrice": 153.49,
-      "previousClose": 153.17,
-      "dayChange": 0.32,
-      "dayChangePercent": 0.21,
+      "previousClose": 153.4,
+      "dayChange": 0.09,
+      "dayChangePercent": 0.06,
       "history": [
         {
           "date": "2025-05-13",
@@ -2923,6 +2935,10 @@
         {
           "date": "2026-05-05",
           "close": 153.17
+        },
+        {
+          "date": "2026-05-06",
+          "close": 153.4
         },
         {
           "date": "2026-05-07",
@@ -8040,10 +8056,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 390.71,
+      "currentPrice": 387.8,
       "previousClose": 397.05,
-      "dayChange": -6.34,
-      "dayChangePercent": -1.6,
+      "dayChange": -9.25,
+      "dayChangePercent": -2.33,
       "history": [
         {
           "date": "2025-05-12",
@@ -9047,7 +9063,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 390.71
+          "close": 387.8
         }
       ]
     },
@@ -10088,16 +10104,16 @@
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Mon\u00e9taire Plus E C",
+      "name": "SG Montaire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
       "broker": "ORD",
       "class": "fund",
-      "currentPrice": 109.42,
-      "previousClose": 109.41,
-      "dayChange": 0.0,
-      "dayChangePercent": 0.0,
+      "currentPrice": 109.44,
+      "previousClose": 109.42,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.02,
       "history": [
         {
           "date": "2025-05-12",
@@ -11078,6 +11094,10 @@
         {
           "date": "2026-05-07",
           "close": 109.42
+        },
+        {
+          "date": "2026-05-11",
+          "close": 109.44
         }
       ]
     },
@@ -12787,7 +12807,7 @@
         },
         {
           "date": "2025-12-31",
-          "close": 918.14
+          "close": 918.13
         },
         {
           "date": "2026-01-02",
@@ -12851,7 +12871,7 @@
         },
         {
           "date": "2026-01-23",
-          "close": 1174.03
+          "close": 1174.02
         },
         {
           "date": "2026-01-26",
@@ -22489,10 +22509,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 291.32,
+      "currentPrice": 291.3,
       "previousClose": 293.32,
-      "dayChange": -2.0,
-      "dayChangePercent": -0.68,
+      "dayChange": -2.02,
+      "dayChangePercent": -0.69,
       "history": [
         {
           "date": "2025-05-12",
@@ -23496,7 +23516,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 291.32
+          "close": 291.3
         }
       ]
     },
@@ -23508,10 +23528,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 64.25,
+      "currentPrice": 64.77,
       "previousClose": 61.65,
-      "dayChange": 2.6,
-      "dayChangePercent": 4.21,
+      "dayChange": 3.12,
+      "dayChangePercent": 5.06,
       "history": [
         {
           "date": "2025-05-12",
@@ -24515,7 +24535,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 64.25
+          "close": 64.77
         }
       ]
     },
@@ -24527,10 +24547,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 343.93,
+      "currentPrice": 342.3,
       "previousClose": 346.53,
-      "dayChange": -2.6,
-      "dayChangePercent": -0.75,
+      "dayChange": -4.23,
+      "dayChangePercent": -1.22,
       "history": [
         {
           "date": "2025-05-12",
@@ -25534,7 +25554,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 343.93
+          "close": 342.3
         }
       ]
     },
@@ -25546,10 +25566,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 504.85,
+      "currentPrice": 503.13,
       "previousClose": 493.16,
-      "dayChange": 11.69,
-      "dayChangePercent": 2.37,
+      "dayChange": 9.97,
+      "dayChangePercent": 2.02,
       "history": [
         {
           "date": "2025-05-12",
@@ -26553,7 +26573,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 504.85
+          "close": 503.13
         }
       ]
     },
@@ -27600,10 +27620,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 25.8,
+      "currentPrice": 25.7,
       "previousClose": 25.68,
-      "dayChange": 0.12,
-      "dayChangePercent": 0.47,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.1,
       "history": [
         {
           "date": "2025-05-12",
@@ -28607,7 +28627,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 25.8
+          "close": 25.7
         }
       ]
     },
@@ -35684,10 +35704,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4727.9,
+      "currentPrice": 4736.0,
       "previousClose": 4720.4,
-      "dayChange": 7.5,
-      "dayChangePercent": 0.16,
+      "dayChange": 15.6,
+      "dayChangePercent": 0.33,
       "history": [
         {
           "date": "2025-05-12",
@@ -36695,7 +36715,7 @@
         },
         {
           "date": "2026-05-11",
-          "close": 4727.9
+          "close": 4736.0
         }
       ]
     }
