@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-25T18:53:12.544221Z",
+  "lastUpdated": "2026-05-25T20:22:11.762111Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -6026,10 +6026,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "fund",
-      "currentPrice": 206.48,
-      "previousClose": 206.34,
-      "dayChange": 0.14,
-      "dayChangePercent": 0.07,
+      "currentPrice": 208.7,
+      "previousClose": 206.48,
+      "dayChange": 2.22,
+      "dayChangePercent": 1.08,
       "history": [
         {
           "date": "2025-05-27",
@@ -7002,6 +7002,10 @@
         {
           "date": "2026-05-21",
           "close": 206.48
+        },
+        {
+          "date": "2026-05-22",
+          "close": 208.7
         }
       ]
     },
@@ -13754,7 +13758,7 @@
         },
         {
           "date": "2025-12-31",
-          "close": 918.14
+          "close": 918.13
         },
         {
           "date": "2026-01-02",
@@ -13818,7 +13822,7 @@
         },
         {
           "date": "2026-01-23",
-          "close": 1174.03
+          "close": 1174.02
         },
         {
           "date": "2026-01-26",
