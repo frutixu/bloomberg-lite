@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-06-19T19:17:49.196605Z",
+  "lastUpdated": "2026-06-19T20:51:29.744651Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
-      "name": "Carmignac Investissement Lat A EUR Acc",
+      "name": "Carmignac Investissement Latitude",
       "shares": 48.165,
       "avgCost": 352.7,
       "currency": "EUR",
@@ -10160,7 +10160,7 @@
     },
     {
       "ticker": "FR0011047513",
-      "name": "SG Montaire Plus E C",
+      "name": "SG Mon\u00e9taire Plus E C",
       "shares": 0.4,
       "avgCost": 101.08,
       "currency": "EUR",
@@ -26678,10 +26678,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 362.83,
-      "previousClose": 364.11,
-      "dayChange": -1.28,
-      "dayChangePercent": -0.35,
+      "currentPrice": 350.01,
+      "previousClose": 362.83,
+      "dayChange": -12.82,
+      "dayChangePercent": -3.53,
       "history": [
         {
           "date": "2025-06-20",
@@ -27682,6 +27682,10 @@
         {
           "date": "2026-06-17",
           "close": 362.83
+        },
+        {
+          "date": "2026-06-18",
+          "close": 350.01
         }
       ]
     },
