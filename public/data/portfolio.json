@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T17:56:11.931666Z",
+  "lastUpdated": "2026-07-03T19:22:54.512615Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -9,10 +9,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 432.89,
-      "previousClose": 426.48,
-      "dayChange": 6.41,
-      "dayChangePercent": 1.5,
+      "currentPrice": 434.3,
+      "previousClose": 432.89,
+      "dayChange": 1.41,
+      "dayChangePercent": 0.33,
       "history": [
         {
           "date": "2025-07-03",
@@ -989,6 +989,10 @@
         {
           "date": "2026-07-01",
           "close": 432.89
+        },
+        {
+          "date": "2026-07-02",
+          "close": 434.3
         }
       ]
     },
@@ -1000,10 +1004,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 12.02,
-      "previousClose": 12.05,
-      "dayChange": -0.03,
-      "dayChangePercent": -0.25,
+      "currentPrice": 12.03,
+      "previousClose": 12.02,
+      "dayChange": 0.01,
+      "dayChangePercent": 0.08,
       "history": [
         {
           "date": "2025-07-03",
@@ -1988,6 +1992,10 @@
         {
           "date": "2026-07-02",
           "close": 12.02
+        },
+        {
+          "date": "2026-07-03",
+          "close": 12.03
         }
       ]
     },
@@ -1999,10 +2007,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 154.76,
-      "previousClose": 154.79,
-      "dayChange": -0.03,
-      "dayChangePercent": -0.02,
+      "currentPrice": 154.86,
+      "previousClose": 154.76,
+      "dayChange": 0.1,
+      "dayChangePercent": 0.06,
       "history": [
         {
           "date": "2025-07-03",
@@ -2955,6 +2963,10 @@
         {
           "date": "2026-07-01",
           "close": 154.76
+        },
+        {
+          "date": "2026-07-02",
+          "close": 154.86
         }
       ]
     },
@@ -3953,6 +3965,10 @@
         },
         {
           "date": "2026-07-02",
+          "close": 119.84
+        },
+        {
+          "date": "2026-07-03",
           "close": 119.84
         }
       ]
@@ -6062,10 +6078,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "fund",
-      "currentPrice": 219.74,
-      "previousClose": 219.72,
-      "dayChange": 0.02,
-      "dayChangePercent": 0.01,
+      "currentPrice": 220.96,
+      "previousClose": 219.74,
+      "dayChange": 1.22,
+      "dayChangePercent": 0.56,
       "history": [
         {
           "date": "2025-07-03",
@@ -7042,6 +7058,10 @@
         {
           "date": "2026-07-01",
           "close": 219.74
+        },
+        {
+          "date": "2026-07-02",
+          "close": 220.96
         }
       ]
     },
@@ -10150,7 +10170,7 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "fund",
-      "currentPrice": 109.75,
+      "currentPrice": 109.76,
       "previousClose": 109.75,
       "dayChange": 0.01,
       "dayChangePercent": 0.01,
@@ -11138,6 +11158,10 @@
         {
           "date": "2026-07-02",
           "close": 109.75
+        },
+        {
+          "date": "2026-07-03",
+          "close": 109.76
         }
       ]
     },
