@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-20T20:18:59.544290Z",
+  "lastUpdated": "2026-07-20T21:42:20.379252Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -1000,10 +1000,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 11.96,
+      "currentPrice": 11.93,
       "previousClose": 11.96,
-      "dayChange": 0.0,
-      "dayChangePercent": 0.0,
+      "dayChange": -0.03,
+      "dayChangePercent": -0.25,
       "history": [
         {
           "date": "2025-07-21",
@@ -1984,6 +1984,10 @@
         {
           "date": "2026-07-17",
           "close": 11.96
+        },
+        {
+          "date": "2026-07-20",
+          "close": 11.93
         }
       ]
     },
@@ -1995,10 +1999,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 154.84,
-      "previousClose": 154.85,
-      "dayChange": -0.01,
-      "dayChangePercent": -0.01,
+      "currentPrice": 154.86,
+      "previousClose": 154.84,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.01,
       "history": [
         {
           "date": "2025-07-21",
@@ -2947,6 +2951,10 @@
         {
           "date": "2026-07-16",
           "close": 154.84
+        },
+        {
+          "date": "2026-07-17",
+          "close": 154.86
         }
       ]
     },
@@ -2960,7 +2968,7 @@
       "class": "fund",
       "currentPrice": 119.82,
       "previousClose": 119.82,
-      "dayChange": -0.0,
+      "dayChange": -0.01,
       "dayChangePercent": -0.0,
       "history": [
         {
@@ -3941,6 +3949,10 @@
         },
         {
           "date": "2026-07-17",
+          "close": 119.82
+        },
+        {
+          "date": "2026-07-20",
           "close": 119.82
         }
       ]
@@ -6042,10 +6054,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "fund",
-      "currentPrice": 222.96,
-      "previousClose": 222.66,
-      "dayChange": 0.3,
-      "dayChangePercent": 0.13,
+      "currentPrice": 223.69,
+      "previousClose": 222.96,
+      "dayChange": 0.73,
+      "dayChangePercent": 0.33,
       "history": [
         {
           "date": "2025-07-21",
@@ -7018,6 +7030,10 @@
         {
           "date": "2026-07-16",
           "close": 222.96
+        },
+        {
+          "date": "2026-07-17",
+          "close": 223.69
         }
       ]
     },
@@ -10118,10 +10134,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "fund",
-      "currentPrice": 109.85,
-      "previousClose": 109.84,
-      "dayChange": 0.01,
-      "dayChangePercent": 0.01,
+      "currentPrice": 109.87,
+      "previousClose": 109.85,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.02,
       "history": [
         {
           "date": "2025-07-21",
@@ -11102,6 +11118,10 @@
         {
           "date": "2026-07-17",
           "close": 109.85
+        },
+        {
+          "date": "2026-07-20",
+          "close": 109.87
         }
       ]
     },
@@ -25551,10 +25571,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 58.81,
+      "currentPrice": 58.79,
       "previousClose": 58.38,
-      "dayChange": 0.42,
-      "dayChangePercent": 0.73,
+      "dayChange": 0.41,
+      "dayChangePercent": 0.7,
       "history": [
         {
           "date": "2025-07-21",
@@ -25794,7 +25814,7 @@
         },
         {
           "date": "2025-10-13",
-          "close": 42.32
+          "close": 42.33
         },
         {
           "date": "2025-10-14",
@@ -26558,7 +26578,7 @@
         },
         {
           "date": "2026-07-20",
-          "close": 58.81
+          "close": 58.79
         }
       ]
     },
@@ -36664,10 +36684,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4009.8,
+      "currentPrice": 4011.8,
       "previousClose": 4012.7,
-      "dayChange": -2.9,
-      "dayChangePercent": -0.07,
+      "dayChange": -0.9,
+      "dayChangePercent": -0.02,
       "history": [
         {
           "date": "2025-07-21",
@@ -37671,7 +37691,7 @@
         },
         {
           "date": "2026-07-20",
-          "close": 4009.8
+          "close": 4011.8
         }
       ]
     }
