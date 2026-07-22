@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-22T17:25:39.245943Z",
+  "lastUpdated": "2026-07-22T18:40:58.107725Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -8092,10 +8092,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 347.48,
+      "currentPrice": 346.14,
       "previousClose": 346.19,
-      "dayChange": 1.29,
-      "dayChangePercent": 0.37,
+      "dayChange": -0.05,
+      "dayChangePercent": -0.01,
       "history": [
         {
           "date": "2025-07-22",
@@ -9103,7 +9103,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 347.48
+          "close": 346.14
         }
       ]
     },
@@ -24624,10 +24624,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 323.4,
+      "currentPrice": 324.44,
       "previousClose": 327.74,
-      "dayChange": -4.34,
-      "dayChangePercent": -1.32,
+      "dayChange": -3.3,
+      "dayChangePercent": -1.01,
       "history": [
         {
           "date": "2025-07-22",
@@ -25635,7 +25635,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 323.4
+          "close": 324.44
         }
       ]
     },
@@ -25647,10 +25647,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 64.45,
+      "currentPrice": 64.36,
       "previousClose": 62.56,
-      "dayChange": 1.89,
-      "dayChangePercent": 3.02,
+      "dayChange": 1.8,
+      "dayChangePercent": 2.87,
       "history": [
         {
           "date": "2025-07-22",
@@ -25886,7 +25886,7 @@
         },
         {
           "date": "2025-10-13",
-          "close": 42.32
+          "close": 42.33
         },
         {
           "date": "2025-10-14",
@@ -26658,7 +26658,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 64.45
+          "close": 64.36
         }
       ]
     },
@@ -26670,10 +26670,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 373.38,
+      "currentPrice": 372.79,
       "previousClose": 367.73,
-      "dayChange": 5.65,
-      "dayChangePercent": 1.54,
+      "dayChange": 5.06,
+      "dayChangePercent": 1.38,
       "history": [
         {
           "date": "2025-07-22",
@@ -27681,7 +27681,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 373.38
+          "close": 372.79
         }
       ]
     },
@@ -27693,10 +27693,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 509.32,
+      "currentPrice": 510.5,
       "previousClose": 505.03,
-      "dayChange": 4.29,
-      "dayChangePercent": 0.85,
+      "dayChange": 5.47,
+      "dayChangePercent": 1.08,
       "history": [
         {
           "date": "2025-07-22",
@@ -28704,7 +28704,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 509.32
+          "close": 510.5
         }
       ]
     },
@@ -29755,10 +29755,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 24.92,
+      "currentPrice": 24.91,
       "previousClose": 24.94,
-      "dayChange": -0.02,
-      "dayChangePercent": -0.1,
+      "dayChange": -0.03,
+      "dayChangePercent": -0.12,
       "history": [
         {
           "date": "2025-07-22",
@@ -30766,7 +30766,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 24.92
+          "close": 24.91
         }
       ]
     },
@@ -36804,10 +36804,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4151.4,
+      "currentPrice": 4140.6,
       "previousClose": 4071.1,
-      "dayChange": 80.3,
-      "dayChangePercent": 1.97,
+      "dayChange": 69.5,
+      "dayChangePercent": 1.71,
       "history": [
         {
           "date": "2025-07-22",
@@ -37815,7 +37815,7 @@
         },
         {
           "date": "2026-07-22",
-          "close": 4151.4
+          "close": 4140.6
         }
       ]
     }
