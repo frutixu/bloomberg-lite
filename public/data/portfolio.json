@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-03T20:10:29.891935Z",
+  "lastUpdated": "2026-08-03T21:29:42.069575Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -23573,10 +23573,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 63.65,
+      "currentPrice": 63.64,
       "previousClose": 62.63,
       "dayChange": 1.01,
-      "dayChangePercent": 1.62,
+      "dayChangePercent": 1.61,
       "history": [
         {
           "date": "2025-08-04",
@@ -23776,7 +23776,7 @@
         },
         {
           "date": "2025-10-13",
-          "close": 42.32
+          "close": 42.33
         },
         {
           "date": "2025-10-14",
@@ -24580,7 +24580,7 @@
         },
         {
           "date": "2026-08-03",
-          "close": 63.65
+          "close": 63.64
         }
       ]
     },
@@ -24592,9 +24592,9 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 382.44,
+      "currentPrice": 382.43,
       "previousClose": 383.42,
-      "dayChange": -0.98,
+      "dayChange": -0.99,
       "dayChangePercent": -0.26,
       "history": [
         {
@@ -25599,7 +25599,7 @@
         },
         {
           "date": "2026-08-03",
-          "close": 382.44
+          "close": 382.43
         }
       ]
     },
@@ -27665,10 +27665,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 25.05,
+      "currentPrice": 25.03,
       "previousClose": 25.01,
-      "dayChange": 0.03,
-      "dayChangePercent": 0.14,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.08,
       "history": [
         {
           "date": "2025-08-04",
@@ -28672,7 +28672,7 @@
         },
         {
           "date": "2026-08-03",
-          "close": 25.05
+          "close": 25.03
         }
       ]
     },
@@ -34694,10 +34694,10 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4106.8,
+      "currentPrice": 4110.9,
       "previousClose": 4049.1,
-      "dayChange": 57.7,
-      "dayChangePercent": 1.43,
+      "dayChange": 61.8,
+      "dayChangePercent": 1.53,
       "history": [
         {
           "date": "2025-08-04",
@@ -35701,7 +35701,7 @@
         },
         {
           "date": "2026-08-03",
-          "close": 4106.8
+          "close": 4110.9
         }
       ]
     }
