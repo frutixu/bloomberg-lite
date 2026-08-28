@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-08-28T02:25:26.989646Z",
+  "lastUpdated": "2026-08-28T19:53:57.796744Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -14,10 +14,6 @@
       "dayChange": 0.9,
       "dayChangePercent": 0.2,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 389.15
-        },
         {
           "date": "2025-08-28",
           "close": 388.81
@@ -1013,10 +1009,6 @@
       "dayChange": -0.02,
       "dayChangePercent": -0.17,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 11.6
-        },
         {
           "date": "2025-08-28",
           "close": 11.6
@@ -2029,10 +2021,6 @@
       "dayChangePercent": 0.03,
       "history": [
         {
-          "date": "2025-08-27",
-          "close": 147.74
-        },
-        {
           "date": "2025-08-28",
           "close": 147.74
         },
@@ -3004,7 +2992,7 @@
       "dayChangePercent": 0.0,
       "history": [
         {
-          "date": "2026-08-27",
+          "date": "2026-08-28",
           "close": 238.45
         }
       ]
@@ -3017,15 +3005,11 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 426.62,
-      "previousClose": 426.17,
-      "dayChange": 0.45,
-      "dayChangePercent": 0.11,
+      "currentPrice": 431.76,
+      "previousClose": 426.62,
+      "dayChange": 5.14,
+      "dayChangePercent": 1.2,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 356.02
-        },
         {
           "date": "2025-08-28",
           "close": 355.02
@@ -4041,6 +4025,10 @@
         {
           "date": "2026-08-26",
           "close": 426.62
+        },
+        {
+          "date": "2026-08-28",
+          "close": 431.76
         }
       ]
     },
@@ -4052,15 +4040,11 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 386.92,
-      "previousClose": 387.1,
-      "dayChange": -0.18,
-      "dayChangePercent": -0.05,
+      "currentPrice": 387.73,
+      "previousClose": 386.92,
+      "dayChange": 0.81,
+      "dayChangePercent": 0.21,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 304.61
-        },
         {
           "date": "2025-08-28",
           "close": 303.37
@@ -5076,6 +5060,10 @@
         {
           "date": "2026-08-26",
           "close": 386.92
+        },
+        {
+          "date": "2026-08-28",
+          "close": 387.73
         }
       ]
     },
@@ -5092,10 +5080,6 @@
       "dayChange": 0.88,
       "dayChangePercent": 0.39,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 185.02
-        },
         {
           "date": "2025-08-28",
           "close": 184.0
@@ -6082,15 +6066,11 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "etf",
-      "currentPrice": 7.67,
-      "previousClose": 7.62,
-      "dayChange": 0.04,
-      "dayChangePercent": 0.54,
+      "currentPrice": 7.74,
+      "previousClose": 7.67,
+      "dayChange": 0.07,
+      "dayChangePercent": 0.94,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 5.55
-        },
         {
           "date": "2025-08-28",
           "close": 5.55
@@ -7106,6 +7086,10 @@
         {
           "date": "2026-08-26",
           "close": 7.67
+        },
+        {
+          "date": "2026-08-28",
+          "close": 7.74
         }
       ]
     },
@@ -7117,10 +7101,10 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 337.71,
-      "previousClose": 339.1,
-      "dayChange": -1.39,
-      "dayChangePercent": -0.41,
+      "currentPrice": 343.77,
+      "previousClose": 337.71,
+      "dayChange": 6.06,
+      "dayChangePercent": 1.79,
       "history": [
         {
           "date": "2025-08-28",
@@ -8125,6 +8109,10 @@
         {
           "date": "2026-08-27",
           "close": 337.71
+        },
+        {
+          "date": "2026-08-28",
+          "close": 343.77
         }
       ]
     },
@@ -8136,15 +8124,11 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 350.4,
-      "previousClose": 343.8,
-      "dayChange": 6.6,
-      "dayChangePercent": 1.92,
+      "currentPrice": 344.2,
+      "previousClose": 343.2,
+      "dayChange": 1.0,
+      "dayChangePercent": 0.29,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 284.01
-        },
         {
           "date": "2025-08-28",
           "close": 284.6
@@ -9160,6 +9144,14 @@
         {
           "date": "2026-08-26",
           "close": 350.4
+        },
+        {
+          "date": "2026-08-27",
+          "close": 343.2
+        },
+        {
+          "date": "2026-08-28",
+          "close": 344.2
         }
       ]
     },
@@ -9176,10 +9168,6 @@
       "dayChange": 0.01,
       "dayChangePercent": 0.01,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 108.01
-        },
         {
           "date": "2025-08-28",
           "close": 108.02
@@ -10178,15 +10166,11 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "etf",
-      "currentPrice": 55.23,
-      "previousClose": 56.04,
-      "dayChange": -0.81,
-      "dayChangePercent": -1.45,
+      "currentPrice": 61.84,
+      "previousClose": 55.23,
+      "dayChange": 6.61,
+      "dayChangePercent": 11.97,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 79.91
-        },
         {
           "date": "2025-08-28",
           "close": 80.31
@@ -11174,6 +11158,10 @@
         {
           "date": "2026-08-26",
           "close": 55.23
+        },
+        {
+          "date": "2026-08-28",
+          "close": 61.84
         }
       ]
     },
@@ -11185,15 +11173,11 @@
       "currency": "EUR",
       "broker": "ORD",
       "class": "stock",
-      "currentPrice": 7.8,
-      "previousClose": 7.9,
-      "dayChange": -0.1,
-      "dayChangePercent": -1.3,
+      "currentPrice": 7.92,
+      "previousClose": 7.8,
+      "dayChange": 0.12,
+      "dayChangePercent": 1.56,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 11.17
-        },
         {
           "date": "2025-08-28",
           "close": 11.28
@@ -12205,6 +12189,10 @@
         {
           "date": "2026-08-26",
           "close": 7.8
+        },
+        {
+          "date": "2026-08-28",
+          "close": 7.92
         }
       ]
     },
@@ -12216,15 +12204,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 1497.6,
-      "previousClose": 1501.0,
-      "dayChange": -3.4,
-      "dayChangePercent": -0.23,
+      "currentPrice": 1494.4,
+      "previousClose": 1486.4,
+      "dayChange": 8.0,
+      "dayChangePercent": 0.54,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 655.91
-        },
         {
           "date": "2025-08-28",
           "close": 650.05
@@ -13240,6 +13224,14 @@
         {
           "date": "2026-08-26",
           "close": 1497.6
+        },
+        {
+          "date": "2026-08-27",
+          "close": 1486.4
+        },
+        {
+          "date": "2026-08-28",
+          "close": 1494.4
         }
       ]
     },
@@ -13251,15 +13243,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 72.82,
-      "previousClose": 74.08,
-      "dayChange": -1.26,
-      "dayChangePercent": -1.7,
+      "currentPrice": 72.36,
+      "previousClose": 73.0,
+      "dayChange": -0.64,
+      "dayChangePercent": -0.88,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 64.4
-        },
         {
           "date": "2025-08-28",
           "close": 64.08
@@ -14275,6 +14263,14 @@
         {
           "date": "2026-08-26",
           "close": 72.82
+        },
+        {
+          "date": "2026-08-27",
+          "close": 73.0
+        },
+        {
+          "date": "2026-08-28",
+          "close": 72.36
         }
       ]
     },
@@ -14286,15 +14282,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 291.8,
-      "previousClose": 293.0,
-      "dayChange": -1.2,
-      "dayChangePercent": -0.41,
+      "currentPrice": 288.6,
+      "previousClose": 288.4,
+      "dayChange": 0.2,
+      "dayChangePercent": 0.07,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 267.82
-        },
         {
           "date": "2025-08-28",
           "close": 266.84
@@ -15310,6 +15302,14 @@
         {
           "date": "2026-08-26",
           "close": 291.8
+        },
+        {
+          "date": "2026-08-27",
+          "close": 288.4
+        },
+        {
+          "date": "2026-08-28",
+          "close": 288.6
         }
       ]
     },
@@ -15321,15 +15321,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 249.8,
-      "previousClose": 250.0,
-      "dayChange": -0.2,
-      "dayChangePercent": -0.08,
+      "currentPrice": 244.7,
+      "previousClose": 246.7,
+      "dayChange": -2.0,
+      "dayChangePercent": -0.81,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 223.18
-        },
         {
           "date": "2025-08-28",
           "close": 222.0
@@ -16345,6 +16341,14 @@
         {
           "date": "2026-08-26",
           "close": 249.8
+        },
+        {
+          "date": "2026-08-27",
+          "close": 246.7
+        },
+        {
+          "date": "2026-08-28",
+          "close": 244.7
         }
       ]
     },
@@ -16356,15 +16360,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 75.28,
-      "previousClose": 75.7,
-      "dayChange": -0.42,
-      "dayChangePercent": -0.55,
+      "currentPrice": 74.67,
+      "previousClose": 74.17,
+      "dayChange": 0.5,
+      "dayChangePercent": 0.67,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 50.38
-        },
         {
           "date": "2025-08-28",
           "close": 50.27
@@ -17380,6 +17380,14 @@
         {
           "date": "2026-08-26",
           "close": 75.28
+        },
+        {
+          "date": "2026-08-27",
+          "close": 74.17
+        },
+        {
+          "date": "2026-08-28",
+          "close": 74.67
         }
       ]
     },
@@ -17391,15 +17399,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 168.72,
-      "previousClose": 167.78,
-      "dayChange": 0.94,
-      "dayChangePercent": 0.56,
+      "currentPrice": 169.8,
+      "previousClose": 166.78,
+      "dayChange": 3.02,
+      "dayChangePercent": 1.81,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 158.47
-        },
         {
           "date": "2025-08-28",
           "close": 157.89
@@ -18415,6 +18419,14 @@
         {
           "date": "2026-08-26",
           "close": 168.72
+        },
+        {
+          "date": "2026-08-27",
+          "close": 166.78
+        },
+        {
+          "date": "2026-08-28",
+          "close": 169.8
         }
       ]
     },
@@ -18426,15 +18438,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 22.54,
-      "previousClose": 22.65,
-      "dayChange": -0.11,
-      "dayChangePercent": -0.49,
+      "currentPrice": 23.09,
+      "previousClose": 23.07,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.09,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 26.48
-        },
         {
           "date": "2025-08-28",
           "close": 26.63
@@ -19450,6 +19458,14 @@
         {
           "date": "2026-08-26",
           "close": 22.54
+        },
+        {
+          "date": "2026-08-27",
+          "close": 23.07
+        },
+        {
+          "date": "2026-08-28",
+          "close": 23.09
         }
       ]
     },
@@ -19461,15 +19477,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 453.8,
-      "previousClose": 450.7,
-      "dayChange": 3.1,
-      "dayChangePercent": 0.69,
+      "currentPrice": 458.15,
+      "previousClose": 447.4,
+      "dayChange": 10.75,
+      "dayChangePercent": 2.4,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 489.72
-        },
         {
           "date": "2025-08-28",
           "close": 500.55
@@ -20485,6 +20497,14 @@
         {
           "date": "2026-08-26",
           "close": 453.8
+        },
+        {
+          "date": "2026-08-27",
+          "close": 447.4
+        },
+        {
+          "date": "2026-08-28",
+          "close": 458.15
         }
       ]
     },
@@ -20496,15 +20516,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "etf",
-      "currentPrice": 100.48,
-      "previousClose": 100.38,
-      "dayChange": 0.1,
-      "dayChangePercent": 0.1,
+      "currentPrice": 102.72,
+      "previousClose": 100.48,
+      "dayChange": 2.24,
+      "dayChangePercent": 2.23,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 81.29
-        },
         {
           "date": "2025-08-28",
           "close": 81.31
@@ -21520,6 +21536,10 @@
         {
           "date": "2026-08-26",
           "close": 100.48
+        },
+        {
+          "date": "2026-08-28",
+          "close": 102.72
         }
       ]
     },
@@ -21531,15 +21551,11 @@
       "currency": "EUR",
       "broker": "PEA",
       "class": "stock",
-      "currentPrice": 26.8,
+      "currentPrice": 26.7,
       "previousClose": 26.8,
-      "dayChange": 0.0,
-      "dayChangePercent": 0.0,
+      "dayChange": -0.1,
+      "dayChangePercent": -0.37,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 25.43
-        },
         {
           "date": "2025-08-28",
           "close": 25.43
@@ -22555,6 +22571,14 @@
         {
           "date": "2026-08-26",
           "close": 26.8
+        },
+        {
+          "date": "2026-08-27",
+          "close": 26.8
+        },
+        {
+          "date": "2026-08-28",
+          "close": 26.7
         }
       ]
     },
@@ -22567,14 +22591,10 @@
       "broker": "PEA",
       "class": "stock",
       "currentPrice": 108.0,
-      "previousClose": 109.0,
-      "dayChange": -1.0,
-      "dayChangePercent": -0.92,
+      "previousClose": 110.5,
+      "dayChange": -2.5,
+      "dayChangePercent": -2.26,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 36.46
-        },
         {
           "date": "2025-08-28",
           "close": 36.81
@@ -23590,6 +23610,14 @@
         {
           "date": "2026-08-26",
           "close": 108.0
+        },
+        {
+          "date": "2026-08-27",
+          "close": 110.5
+        },
+        {
+          "date": "2026-08-28",
+          "close": 108.0
         }
       ]
     },
@@ -23601,10 +23629,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 314.58,
-      "previousClose": 313.45,
-      "dayChange": 1.13,
-      "dayChangePercent": 0.36,
+      "currentPrice": 319.74,
+      "previousClose": 314.58,
+      "dayChange": 5.16,
+      "dayChangePercent": 1.64,
       "history": [
         {
           "date": "2025-08-28",
@@ -24609,6 +24637,10 @@
         {
           "date": "2026-08-27",
           "close": 314.58
+        },
+        {
+          "date": "2026-08-28",
+          "close": 319.74
         }
       ]
     },
@@ -24620,10 +24652,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 78.42,
-      "previousClose": 79.0,
-      "dayChange": -0.58,
-      "dayChangePercent": -0.73,
+      "currentPrice": 76.39,
+      "previousClose": 78.42,
+      "dayChange": -2.03,
+      "dayChangePercent": -2.59,
       "history": [
         {
           "date": "2025-08-28",
@@ -25628,6 +25660,10 @@
         {
           "date": "2026-08-27",
           "close": 78.42
+        },
+        {
+          "date": "2026-08-28",
+          "close": 76.39
         }
       ]
     },
@@ -25639,10 +25675,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 380.06,
-      "previousClose": 382.02,
-      "dayChange": -1.96,
-      "dayChangePercent": -0.51,
+      "currentPrice": 379.46,
+      "previousClose": 380.06,
+      "dayChange": -0.6,
+      "dayChangePercent": -0.16,
       "history": [
         {
           "date": "2025-08-28",
@@ -26647,6 +26683,10 @@
         {
           "date": "2026-08-27",
           "close": 380.06
+        },
+        {
+          "date": "2026-08-28",
+          "close": 379.46
         }
       ]
     },
@@ -26658,10 +26698,10 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 485.35,
-      "previousClose": 490.33,
-      "dayChange": -4.98,
-      "dayChangePercent": -1.02,
+      "currentPrice": 488.37,
+      "previousClose": 485.35,
+      "dayChange": 3.02,
+      "dayChangePercent": 0.62,
       "history": [
         {
           "date": "2025-08-28",
@@ -27666,6 +27706,10 @@
         {
           "date": "2026-08-27",
           "close": 485.35
+        },
+        {
+          "date": "2026-08-28",
+          "close": 488.37
         }
       ]
     },
@@ -27677,15 +27721,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 67.6,
-      "previousClose": 67.2,
-      "dayChange": 0.4,
-      "dayChangePercent": 0.6,
+      "currentPrice": 63.2,
+      "previousClose": 64.5,
+      "dayChange": -1.3,
+      "dayChangePercent": -2.02,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 92.69
-        },
         {
           "date": "2025-08-28",
           "close": 93.97
@@ -28701,6 +28741,14 @@
         {
           "date": "2026-08-26",
           "close": 67.6
+        },
+        {
+          "date": "2026-08-27",
+          "close": 64.5
+        },
+        {
+          "date": "2026-08-28",
+          "close": 63.2
         }
       ]
     },
@@ -28712,10 +28760,10 @@
       "currency": "USD",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 28.02,
-      "previousClose": 28.3,
-      "dayChange": -0.28,
-      "dayChangePercent": -0.99,
+      "currentPrice": 27.91,
+      "previousClose": 28.02,
+      "dayChange": -0.11,
+      "dayChangePercent": -0.39,
       "history": [
         {
           "date": "2025-08-28",
@@ -29720,6 +29768,10 @@
         {
           "date": "2026-08-27",
           "close": 28.02
+        },
+        {
+          "date": "2026-08-28",
+          "close": 27.91
         }
       ]
     },
@@ -29731,15 +29783,11 @@
       "currency": "CHF",
       "broker": "Saxo",
       "class": "stock",
-      "currentPrice": 30.02,
-      "previousClose": 24.52,
-      "dayChange": 5.5,
-      "dayChangePercent": 22.43,
+      "currentPrice": 30.28,
+      "previousClose": 31.42,
+      "dayChange": -1.14,
+      "dayChangePercent": -3.63,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 20.42
-        },
         {
           "date": "2025-08-28",
           "close": 21.11
@@ -30735,6 +30783,14 @@
         {
           "date": "2026-08-26",
           "close": 30.02
+        },
+        {
+          "date": "2026-08-27",
+          "close": 31.42
+        },
+        {
+          "date": "2026-08-28",
+          "close": 30.28
         }
       ]
     },
@@ -30746,15 +30802,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 55.19,
-      "previousClose": 55.04,
-      "dayChange": 0.15,
-      "dayChangePercent": 0.27,
+      "currentPrice": 55.45,
+      "previousClose": 55.19,
+      "dayChange": 0.26,
+      "dayChangePercent": 0.47,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 40.7
-        },
         {
           "date": "2025-08-28",
           "close": 40.89
@@ -31766,6 +31818,10 @@
         {
           "date": "2026-08-26",
           "close": 55.19
+        },
+        {
+          "date": "2026-08-28",
+          "close": 55.45
         }
       ]
     },
@@ -31777,15 +31833,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 106.63,
-      "previousClose": 106.68,
-      "dayChange": -0.05,
-      "dayChangePercent": -0.05,
+      "currentPrice": 106.44,
+      "previousClose": 106.63,
+      "dayChange": -0.18,
+      "dayChangePercent": -0.17,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 87.61
-        },
         {
           "date": "2025-08-28",
           "close": 87.51
@@ -32801,6 +32853,10 @@
         {
           "date": "2026-08-26",
           "close": 106.63
+        },
+        {
+          "date": "2026-08-28",
+          "close": 106.44
         }
       ]
     },
@@ -32812,15 +32868,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 82.31,
-      "previousClose": 82.52,
-      "dayChange": -0.21,
-      "dayChangePercent": -0.25,
+      "currentPrice": 83.17,
+      "previousClose": 82.31,
+      "dayChange": 0.86,
+      "dayChangePercent": 1.04,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 65.01
-        },
         {
           "date": "2025-08-28",
           "close": 65.76
@@ -33832,6 +33884,10 @@
         {
           "date": "2026-08-26",
           "close": 82.31
+        },
+        {
+          "date": "2026-08-28",
+          "close": 83.17
         }
       ]
     },
@@ -33843,15 +33899,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 5.67,
-      "previousClose": 5.66,
-      "dayChange": 0.01,
-      "dayChangePercent": 0.25,
+      "currentPrice": 5.69,
+      "previousClose": 5.67,
+      "dayChange": 0.02,
+      "dayChangePercent": 0.35,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 6.02
-        },
         {
           "date": "2025-08-28",
           "close": 6.07
@@ -34867,6 +34919,10 @@
         {
           "date": "2026-08-26",
           "close": 5.67
+        },
+        {
+          "date": "2026-08-28",
+          "close": 5.69
         }
       ]
     },
@@ -34878,15 +34934,11 @@
       "currency": "EUR",
       "broker": "Saxo",
       "class": "etf",
-      "currentPrice": 15.96,
-      "previousClose": 16.05,
-      "dayChange": -0.1,
-      "dayChangePercent": -0.6,
+      "currentPrice": 15.84,
+      "previousClose": 15.96,
+      "dayChange": -0.11,
+      "dayChangePercent": -0.71,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 11.0
-        },
         {
           "date": "2025-08-28",
           "close": 10.98
@@ -35830,6 +35882,10 @@
         {
           "date": "2026-08-26",
           "close": 15.96
+        },
+        {
+          "date": "2026-08-28",
+          "close": 15.84
         }
       ]
     },
@@ -35842,14 +35898,10 @@
       "broker": "Saxo",
       "class": "etf",
       "currentPrice": 8.91,
-      "previousClose": 8.96,
-      "dayChange": -0.05,
-      "dayChangePercent": -0.59,
+      "previousClose": 8.91,
+      "dayChange": 0.0,
+      "dayChangePercent": 0.0,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 9.46
-        },
         {
           "date": "2025-08-28",
           "close": 9.43
@@ -36861,6 +36913,10 @@
         {
           "date": "2026-08-26",
           "close": 8.91
+        },
+        {
+          "date": "2026-08-28",
+          "close": 8.91
         }
       ]
     },
@@ -36872,15 +36928,11 @@
       "currency": "EUR",
       "broker": "Other",
       "class": "commodity",
-      "currentPrice": 4633.1,
-      "previousClose": 4598.2,
-      "dayChange": 34.9,
-      "dayChangePercent": 0.76,
+      "currentPrice": 4515.5,
+      "previousClose": 4609.7,
+      "dayChange": -94.2,
+      "dayChangePercent": -2.04,
       "history": [
-        {
-          "date": "2025-08-27",
-          "close": 3404.6
-        },
         {
           "date": "2025-08-28",
           "close": 3431.8
@@ -37883,7 +37935,11 @@
         },
         {
           "date": "2026-08-27",
-          "close": 4633.1
+          "close": 4609.7
+        },
+        {
+          "date": "2026-08-28",
+          "close": 4515.5
         }
       ]
     }
