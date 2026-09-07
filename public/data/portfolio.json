@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-07T18:41:10.461674Z",
+  "lastUpdated": "2026-09-07T21:47:10.205540Z",
   "holdings": [
     {
       "ticker": "FR0010147603",
@@ -1004,10 +1004,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 11.96,
-      "previousClose": 11.94,
-      "dayChange": 0.02,
-      "dayChangePercent": 0.17,
+      "currentPrice": 11.95,
+      "previousClose": 11.96,
+      "dayChange": -0.01,
+      "dayChangePercent": -0.08,
       "history": [
         {
           "date": "2025-09-08",
@@ -1996,6 +1996,10 @@
         {
           "date": "2026-09-04",
           "close": 11.96
+        },
+        {
+          "date": "2026-09-07",
+          "close": 11.95
         }
       ]
     },
@@ -2007,10 +2011,10 @@
       "currency": "EUR",
       "broker": "LIF EU",
       "class": "fund",
-      "currentPrice": 155.64,
-      "previousClose": 155.55,
-      "dayChange": 0.09,
-      "dayChangePercent": 0.06,
+      "currentPrice": 155.67,
+      "previousClose": 155.64,
+      "dayChange": 0.03,
+      "dayChangePercent": 0.02,
       "history": [
         {
           "date": "2025-09-08",
@@ -2825,10 +2829,6 @@
           "close": 154.84
         },
         {
-          "date": "2026-07-17",
-          "close": 154.86
-        },
-        {
           "date": "2026-07-20",
           "close": 154.88
         },
@@ -2963,6 +2963,10 @@
         {
           "date": "2026-09-03",
           "close": 155.64
+        },
+        {
+          "date": "2026-09-04",
+          "close": 155.67
         }
       ]
     },
@@ -5063,10 +5067,10 @@
       "currency": "EUR",
       "broker": "PER",
       "class": "fund",
-      "currentPrice": 223.79,
-      "previousClose": 222.76,
-      "dayChange": 1.03,
-      "dayChangePercent": 0.46,
+      "currentPrice": 223.91,
+      "previousClose": 223.79,
+      "dayChange": 0.12,
+      "dayChangePercent": 0.05,
       "history": [
         {
           "date": "2025-09-08",
@@ -5905,10 +5909,6 @@
           "close": 222.96
         },
         {
-          "date": "2026-07-17",
-          "close": 223.69
-        },
-        {
           "date": "2026-07-20",
           "close": 222.4
         },
@@ -6043,6 +6043,10 @@
         {
           "date": "2026-09-03",
           "close": 223.79
+        },
+        {
+          "date": "2026-09-04",
+          "close": 223.91
         }
       ]
     },
@@ -24004,7 +24008,7 @@
         },
         {
           "date": "2026-02-06",
-          "close": 277.36
+          "close": 277.37
         },
         {
           "date": "2026-02-09",
